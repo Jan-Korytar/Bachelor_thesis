@@ -95,7 +95,7 @@ if __name__ == '__main__':
 
         best_val_loss = torch.inf
         # Validate
-        model.eval()
+        #model.eval()
         val_loss = 0.0
         with torch.no_grad():
             for images, masks in val_loader:
@@ -129,9 +129,8 @@ if __name__ == '__main__':
                 plt.savefig(f'pictures_training/yay{idx}')
                 plt.show()
 
-
-
             val_loss /= len(val_loader)
+
             if val_loss <= best_val_loss:
                 best_val_loss = val_loss
                 tqdm.write(f'Saving the best model')
