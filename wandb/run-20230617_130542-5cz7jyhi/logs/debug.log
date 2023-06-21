@@ -1,0 +1,30 @@
+2023-06-17 13:05:42,286 INFO    MainThread:11836 [wandb_setup.py:_flush():76] Current SDK version is 0.15.4
+2023-06-17 13:05:42,286 INFO    MainThread:11836 [wandb_setup.py:_flush():76] Configure stats pid to 11836
+2023-06-17 13:05:42,286 INFO    MainThread:11836 [wandb_setup.py:_flush():76] Loading settings from C:\Users\0005h\.config\wandb\settings
+2023-06-17 13:05:42,286 INFO    MainThread:11836 [wandb_setup.py:_flush():76] Loading settings from C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\settings
+2023-06-17 13:05:42,286 INFO    MainThread:11836 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2023-06-17 13:05:42,286 INFO    MainThread:11836 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'train_bbox.py', 'program': 'C:\\Users\\0005h\\OneDrive\\Documents\\programming\\pycharm\\Bachelor_thesis\\train_bbox.py'}
+2023-06-17 13:05:42,299 INFO    MainThread:11836 [wandb_init.py:_log_setup():507] Logging user logs to C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230617_130542-5cz7jyhi\logs\debug.log
+2023-06-17 13:05:42,299 INFO    MainThread:11836 [wandb_init.py:_log_setup():508] Logging internal logs to C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230617_130542-5cz7jyhi\logs\debug-internal.log
+2023-06-17 13:05:42,299 INFO    MainThread:11836 [wandb_init.py:init():547] calling init triggers
+2023-06-17 13:05:42,299 INFO    MainThread:11836 [wandb_init.py:init():554] wandb.init called with sweep_config: {}
+config: {'epochs': [5, 10, 20], 'learning_rate': 0.01, 'batch_size': 64}
+2023-06-17 13:05:42,299 INFO    MainThread:11836 [wandb_init.py:init():596] starting backend
+2023-06-17 13:05:42,299 INFO    MainThread:11836 [wandb_init.py:init():600] setting up manager
+2023-06-17 13:05:42,335 INFO    MainThread:11836 [backend.py:_multiprocessing_setup():106] multiprocessing start_methods=spawn, using: spawn
+2023-06-17 13:05:42,343 INFO    MainThread:11836 [wandb_init.py:init():606] backend started and connected
+2023-06-17 13:05:42,343 INFO    MainThread:11836 [wandb_init.py:init():703] updated telemetry
+2023-06-17 13:05:42,404 INFO    MainThread:11836 [wandb_init.py:init():736] communicating run to backend with 60.0 second timeout
+2023-06-17 13:05:42,888 INFO    MainThread:11836 [wandb_run.py:_on_init():2176] communicating current version
+2023-06-17 13:05:43,020 INFO    MainThread:11836 [wandb_run.py:_on_init():2185] got version response 
+2023-06-17 13:05:43,020 INFO    MainThread:11836 [wandb_init.py:init():787] starting run threads in backend
+2023-06-17 13:05:43,969 INFO    MainThread:11836 [wandb_run.py:_console_start():2155] atexit reg
+2023-06-17 13:05:43,969 INFO    MainThread:11836 [wandb_run.py:_redirect():2010] redirect: SettingsConsole.WRAP_RAW
+2023-06-17 13:05:43,969 INFO    MainThread:11836 [wandb_run.py:_redirect():2075] Wrapping output streams.
+2023-06-17 13:05:43,969 INFO    MainThread:11836 [wandb_run.py:_redirect():2100] Redirects installed.
+2023-06-17 13:05:43,969 INFO    MainThread:11836 [wandb_init.py:init():828] run started, returning control to user process
+2023-06-17 13:05:45,136 INFO    MainThread:11836 [wandb_watch.py:watch():51] Watching
+2023-06-17 13:06:33,514 INFO    MainThread:11836 [wandb_run.py:_finish():1890] finishing run korytheholy/tHesis/5cz7jyhi
+2023-06-17 13:06:33,514 INFO    MainThread:11836 [wandb_run.py:_atexit_cleanup():2124] got exitcode: 1
+2023-06-17 13:06:33,514 INFO    MainThread:11836 [wandb_run.py:_restore():2107] restore
+2023-06-17 13:06:33,514 INFO    MainThread:11836 [wandb_run.py:_restore():2113] restore done

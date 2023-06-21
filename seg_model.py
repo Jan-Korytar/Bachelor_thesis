@@ -8,7 +8,7 @@ class SegmentationModel(nn.Module):
         super(SegmentationModel, self).__init__()
 
         # Encoder
-        base = 20
+        base = 16
         self.conv1 = nn.Conv2d(in_channels, base, kernel_size=5, padding=2)
         self.bn1 = nn.BatchNorm2d(base)
         self.pool = nn.MaxPool2d(2)
@@ -21,7 +21,7 @@ class SegmentationModel(nn.Module):
         self.upconv2 = nn.ConvTranspose2d(base,int( base/2), kernel_size=3)
         self.conv3 = nn.Conv2d(int(base/2), out_channels,  kernel_size=1)
 
-    def forward(self, x):
+    def forward(self, x): 
         x_size = x.size()
         # Encoder
         x = F.relu(self.pool(self.bn1(self.conv1(x))))
@@ -31,6 +31,6 @@ class SegmentationModel(nn.Module):
         x = F.relu(self.upconv2(x))
         x = self.conv3(x)
 
-        x = F.interpolate(x, x_size[2:], mode='bilinear')
+        x = F.interpolate(x, x_size[2:], mode='nearest-exact')
 
         return torch.squeeze(x)

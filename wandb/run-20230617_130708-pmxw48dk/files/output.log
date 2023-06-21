@@ -1,0 +1,267 @@
+
+
+
+  8%|▊         | 4/50 [00:08<01:11,  1.55s/it]C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\train_bbox.py:85: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  torch.tensor(
+C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\train_bbox.py:89: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  torch.tensor(
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|██████████| 50/50 [00:55<00:00,  1.11s/it]
+1it [00:00,  1.64it/s]
+{'prediction': tensor([ 16.6951,  63.8300, 102.4416, 230.0189], device='cuda:0'), 'true': [tensor([ 22.,  95.,  57., 136.], device='cuda:0')]}
+{'prediction': tensor([ 16.4411,  64.6210, 104.2634, 234.2802], device='cuda:0'), 'true': [tensor([ 56., 104.,  92., 142.], device='cuda:0')]}
+
+3it [00:02,  1.43it/s]
+{'prediction': tensor([ 14.6452,  58.7976,  93.6143, 209.5720], device='cuda:0'), 'true': [tensor([ 54., 104.,  86., 144.], device='cuda:0')]}
+7it [00:04,  1.59it/s]
+C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\train_bbox.py:121: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  torch.stack((torch.tensor(outputs[0], dtype=torch.uint8), torch.tensor(bboxes[0], dtype=torch.uint8)))))
+{'prediction': tensor([ 14.4939,  57.2958,  91.7560, 205.9478], device='cuda:0'), 'true': [tensor([ 53.,  98.,  93., 139.], device='cuda:0')]}
+{'prediction': tensor([ 13.7152,  52.3149,  82.0083, 182.8244], device='cuda:0'), 'true': [tensor([ 60., 102., 101., 141.], device='cuda:0')]}
+Saving the best model
+Epoch [1/10], Train Loss: 1.2327, Val Loss: 0.9141
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 98%|█████████▊| 49/50 [00:53<00:01,  1.01s/it]
+100%|██████████| 50/50 [00:54<00:00,  1.10s/it]
+1it [00:00,  1.27it/s]
+{'prediction': tensor([ 16.0657,  62.7079,  89.3326, 191.5655], device='cuda:0'), 'true': [tensor([ 47., 104.,  80., 141.], device='cuda:0')]}
+
+4it [00:03,  1.21it/s]
+{'prediction': tensor([ 15.7286,  61.5316,  90.2943, 192.7319], device='cuda:0'), 'true': [tensor([ 45., 104.,  82., 145.], device='cuda:0')]}
+
+5it [00:04,  1.12it/s]
+{'prediction': tensor([ 14.0691,  68.8608, 103.1571, 226.8919], device='cuda:0'), 'true': [tensor([ 57., 114.,  94., 151.], device='cuda:0')]}
+{'prediction': tensor([ 11.4310,  61.5740,  92.6427, 208.3039], device='cuda:0'), 'true': [tensor([  7., 106.,  40., 149.], device='cuda:0')]}
+Saving the best model
+7it [00:06,  1.15it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|██████████| 50/50 [00:53<00:00,  1.06s/it]
+0it [00:00, ?it/s]
+{'prediction': tensor([ 31.5930,  93.7583, 122.7089, 260.0256], device='cuda:0'), 'true': [tensor([ 50.,  99.,  88., 140.], device='cuda:0')]}
+
+3it [00:02,  1.36it/s]
+{'prediction': tensor([ 28.9506,  92.2394,  92.2695, 191.3465], device='cuda:0'), 'true': [tensor([ 45., 110.,  76., 148.], device='cuda:0')]}
+{'prediction': tensor([ 27.1751, 101.4412, 112.4880, 260.0336], device='cuda:0'), 'true': [tensor([ 50., 111.,  78., 146.], device='cuda:0')]}
+
+7it [00:04,  1.53it/s]
+{'prediction': tensor([ 33.5014,  82.5135, 127.6547, 250.7657], device='cuda:0'), 'true': [tensor([ 59., 106.,  81., 136.], device='cuda:0')]}
+{'prediction': tensor([ 36.5510,  76.9877,  93.5832, 151.4003], device='cuda:0'), 'true': [tensor([ 50.,  96.,  81., 138.], device='cuda:0')]}
+Saving the best model
+Epoch [3/10], Train Loss: 0.8593, Val Loss: 0.8909
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 98%|█████████▊| 49/50 [00:50<00:00,  1.06it/s]
+100%|██████████| 50/50 [00:52<00:00,  1.05s/it]
+1it [00:00,  1.75it/s]
+{'prediction': tensor([ 12.2786,  84.9531,  87.3749, 202.1634], device='cuda:0'), 'true': [tensor([ 53., 101.,  87., 140.], device='cuda:0')]}
+
+4it [00:02,  1.39it/s]
+{'prediction': tensor([ 19.9454, 107.2668, 103.5385, 242.2754], device='cuda:0'), 'true': [tensor([ 50., 109.,  73., 148.], device='cuda:0')]}
+{'prediction': tensor([ 19.9715,  91.1509,  96.3671, 204.3613], device='cuda:0'), 'true': [tensor([ 46., 100.,  72., 137.], device='cuda:0')]}
+{'prediction': tensor([ 17.5003,  59.8881,  65.9911, 127.2082], device='cuda:0'), 'true': [tensor([ 62.,  98.,  98., 134.], device='cuda:0')]}
+{'prediction': tensor([ 11.7473, 105.0624,  76.0861, 201.5578], device='cuda:0'), 'true': [tensor([ 32., 100.,  63., 143.], device='cuda:0')]}
+Saving the best model
+7it [00:04,  1.60it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|██████████| 50/50 [00:51<00:00,  1.04s/it]
+1it [00:00,  1.44it/s]
+{'prediction': tensor([ 26.4731,  89.9005,  79.9121, 162.4703], device='cuda:0'), 'true': [tensor([ 59., 100.,  91., 135.], device='cuda:0')]}
+{'prediction': tensor([ 30.9629, 102.8236,  81.5109, 166.4596], device='cuda:0'), 'true': [tensor([ 46.,  92.,  88., 140.], device='cuda:0')]}
+
+3it [00:02,  1.33it/s]
+{'prediction': tensor([ 21.4802,  85.7091,  78.8922, 162.1847], device='cuda:0'), 'true': [tensor([ 64., 102.,  98., 145.], device='cuda:0')]}
+
+7it [00:04,  1.51it/s]
+{'prediction': tensor([ 32.4002,  80.6228,  79.3643, 142.7637], device='cuda:0'), 'true': [tensor([ 62.,  96.,  97., 133.], device='cuda:0')]}
+{'prediction': tensor([ 28.6265,  97.9278,  78.1734, 169.1598], device='cuda:0'), 'true': [tensor([ 50., 111.,  78., 146.], device='cuda:0')]}
+Saving the best model
+Epoch [5/10], Train Loss: 0.7727, Val Loss: 0.7902
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|██████████| 50/50 [00:52<00:00,  1.04s/it]
+1it [00:00,  1.62it/s]
+{'prediction': tensor([ 28.9121, 101.3523,  98.0840, 213.9771], device='cuda:0'), 'true': [tensor([ 54., 106.,  82., 139.], device='cuda:0')]}
+
+3it [00:01,  1.50it/s]
+{'prediction': tensor([ 27.2910, 109.6270,  96.3134, 224.6898], device='cuda:0'), 'true': [tensor([ 53.,  98.,  93., 139.], device='cuda:0')]}
+{'prediction': tensor([ 22.3394,  94.2323,  89.2351, 201.0061], device='cuda:0'), 'true': [tensor([ 64., 102.,  98., 145.], device='cuda:0')]}
+7it [00:04,  1.61it/s]
+  0%|          | 0/50 [00:00<?, ?it/s]
+{'prediction': tensor([ 32.6203,  86.3021,  86.6915, 169.7711], device='cuda:0'), 'true': [tensor([ 62.,  96.,  97., 133.], device='cuda:0')]}
+{'prediction': tensor([ 30.3660,  94.2647,  94.8992, 196.7310], device='cuda:0'), 'true': [tensor([ 54., 105.,  86., 142.], device='cuda:0')]}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|██████████| 50/50 [00:50<00:00,  1.00s/it]
+0it [00:00, ?it/s]
+
+2it [00:01,  1.01s/it]
+{'prediction': tensor([  9.8279,  76.9929,  48.8466, 141.3119], device='cuda:0'), 'true': [tensor([ 26., 110.,  52., 143.], device='cuda:0')]}
+
+4it [00:03,  1.02it/s]
+{'prediction': tensor([ 21.6130,  67.0520,  76.1004, 163.3824], device='cuda:0'), 'true': [tensor([ 56., 106.,  91., 146.], device='cuda:0')]}
+
+7it [00:06,  1.15it/s]
+{'prediction': tensor([ 20.9797,  66.5674,  73.4401, 158.8507], device='cuda:0'), 'true': [tensor([ 56., 109.,  87., 140.], device='cuda:0')]}
+{'prediction': tensor([ 26.9161,  70.2004,  68.0811, 130.5084], device='cuda:0'), 'true': [tensor([ 49.,  98.,  82., 139.], device='cuda:0')]}
+early stopping

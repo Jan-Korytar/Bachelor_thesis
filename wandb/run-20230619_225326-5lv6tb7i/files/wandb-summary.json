@@ -1,0 +1,1 @@
+{"epoch": 0, "loss": 2.0368977652655706, "_timestamp": 1687208016.5664508, "_runtime": 9.72835087776184, "_step": 3, "image": {"_type": "image-file", "sha256": "0f6d76c8a45157dd4277bbe39dee59f7f366938780c5b00616f9f86836555973", "size": 18940, "path": "media/images/image_3_0f6d76c8a45157dd4277.png", "format": "png", "width": 126, "height": 126}, "_wandb": {"runtime": 10}}

@@ -1,0 +1,48 @@
+wandb_version: 1
+
+base_dim:
+  desc: null
+  value: 64
+batch_norm:
+  desc: null
+  value: true
+batch_size:
+  desc: null
+  value: 64
+dropout:
+  desc: null
+  value: 0.1
+loss_type:
+  desc: null
+  value: general_iou
+lr:
+  desc: null
+  value: 0.02381692147905605
+_wandb:
+  desc: null
+  value:
+    python_version: 3.10.11
+    cli_version: 0.15.4
+    framework: torch
+    is_jupyter_run: false
+    is_kaggle_kernel: false
+    start_time: 1687298902.390098
+    t:
+      1:
+      - 1
+      - 41
+      - 55
+      2:
+      - 1
+      - 41
+      - 55
+      3:
+      - 1
+      - 2
+      - 23
+      - 37
+      4: 3.10.11
+      5: 0.15.4
+      8:
+      - 3
+      - 5

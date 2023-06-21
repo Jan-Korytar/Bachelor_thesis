@@ -8,7 +8,7 @@ class MyDataset(Dataset):
     def __init__(self, input_images, label_images):
         self.labels = label_images
         self.images = input_images
-        self.transform = transforms.Compose([transforms.PILToTensor(), transforms.ConvertImageDtype(torch.float32)])
+        self.transform = transforms.Compose([transforms.PILToTensor(), transforms.ConvertImageDtype(torch.float32), transforms.Normalize( [0.485, 0.456, 0.406],  [0.229, 0.224, 0.225])])
         self.transform_mask = transforms.Compose([transforms.PILToTensor(), transforms.ToDtype(torch.int64)])
 
     def __len__(self):

@@ -1,0 +1,15 @@
+
+
+
+
+100%|██████████| 19/19 [00:11<00:00,  1.63it/s]
+
+3it [00:02,  1.44it/s]
+tensor([126, 126,   0,   0], device='cuda:0', dtype=torch.uint8) tensor([25, 54, 42, 73], device='cuda:0', dtype=torch.uint8)
+tensor([126, 126,   0,   0], device='cuda:0', dtype=torch.uint8) tensor([25, 57, 42, 74], device='cuda:0', dtype=torch.uint8)
+
+6it [00:04,  1.47it/s]
+tensor([126, 126,   0,   0], device='cuda:0', dtype=torch.uint8) tensor([15, 53, 31, 73], device='cuda:0', dtype=torch.uint8)
+tensor([126, 126,   0,   0], device='cuda:0', dtype=torch.uint8) tensor([26, 47, 42, 66], device='cuda:0', dtype=torch.uint8)
+tensor([126, 126,   0,   0], device='cuda:0', dtype=torch.uint8) tensor([20, 56, 31, 72], device='cuda:0', dtype=torch.uint8)
+

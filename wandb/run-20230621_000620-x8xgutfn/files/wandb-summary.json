@@ -1,0 +1,1 @@
+{"epoch": 0, "loss": 4.306014435572757, "_timestamp": 1687298848.388748, "_runtime": 68.31111598014832, "_step": 9, "train_image": {"_type": "image-file", "sha256": "f235fb47213b4bca47e19166803127dfbb32aa766a9d98a9782e7b8dd0df1cde", "size": 21845, "path": "media/images/train_image_5_f235fb47213b4bca47e1.png", "format": "png", "width": 126, "height": 126}}

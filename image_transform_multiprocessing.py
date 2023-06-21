@@ -41,9 +41,9 @@ def image_train_transform(input_img, mask, alpha=10, size=256, mode='train'):
         mask = datapoints.Mask(transforms.RandomInvert(1)(transforms.ToImageTensor()(Image.open(mask))))
 
         both_transforms = transforms.Compose([
-            transforms.Resize(size, antialias=True, interpolation=torchvision.transforms.InterpolationMode.NEAREST_EXACT),
+            transforms.Resize((size, size), antialias=True, interpolation=torchvision.transforms.InterpolationMode.BILINEAR),
             transforms.RandomPerspective(.1),
-            transforms.RandomRotation(30)
+            transforms.RandomRotation(15)
         ])
 
         img_transforms = transforms.Compose([
@@ -58,13 +58,18 @@ def image_train_transform(input_img, mask, alpha=10, size=256, mode='train'):
             masks.append(torch.tensor(t_mask))
             t_img = img_transforms(t_img)
             images.append(torch.tensor(t_img))
+
+
+
         return images, masks
+
+
     else:
 
         input_img = datapoints.Image(read_image(input_img))
         mask = datapoints.Mask(transforms.RandomInvert(1)(transforms.ToImageTensor()(Image.open(mask))))
         both_transforms = transforms.Compose([
-            transforms.Resize(size, antialias=True, interpolation=torchvision.transforms.InterpolationMode.NEAREST_EXACT)])
+            transforms.Resize((size, size), antialias=True, interpolation=torchvision.transforms.InterpolationMode.NEAREST_EXACT)])
         input_img, mask = both_transforms(input_img, mask)
         return torch.unsqueeze(input_img, 0), torch.unsqueeze(mask, 0)
 
@@ -74,32 +79,36 @@ def process_image(i):
     i = i[0]
 
     torchvision.disable_beta_transforms_warning()
+    path = r'C:\my files\REFUGE\1'
+
+    if not os.path.exists(os.path.join(path, fr'{mode}')):
+        os.makedirs(os.path.join(path, fr'{mode}\masks'))
+        os.makedirs(os.path.join(path, fr'{mode}\image'))
+
     if mode == 'train':
         image, label = train_images[i], train_masks[i]
-        path = r'C:\my files\REFUGE\training'
-        #if os.path.exists(os.path.join(path, fr'masks\mask_{i}_9.bmp')):
-        #    return
+        if os.path.exists(os.path.join(path, fr'training\masks\mask_{i}_9.bmp')):
+            return
 
     elif mode == 'validation':
         image, label = val_images[i], val_masks[i]
-        path = r'C:\my files\REFUGE\validation'
 
-        if os.path.exists(os.path.join(path, fr'masks\mask_{i}_0.bmp')):
+        if os.path.exists(os.path.join(path, fr'validation\masks\mask_{i}_0.bmp')):
             return
 
     elif mode == 'test':
         image, label = val_images[i], val_masks[i]
-        path = r'C:\my files\REFUGE\test'
-
-        if os.path.exists(os.path.join(path, fr'masks\mask_{i}_0.bmp')):
+        if os.path.exists(os.path.join(path, fr'\test\masks\mask_{i}_0.bmp')):
             return
 
-    images, labels = image_train_transform(image, label, 8, 256, mode=mode)
-    for j, (img, lab) in enumerate(zip(images, labels)):
+
+
+    images, masks = image_train_transform(image, label, 8, 126, mode=mode)
+    for j, (img, lab) in enumerate(zip(images, masks)):
         img = transforms.ToPILImage()(img)
         lab = transforms.ToPILImage()(lab)
-        img.save(os.path.join(path, fr'input\img_{i}_{j}.jpg'))
-        lab.save(os.path.join(path, fr'masks\mask_{i}_{j}.bmp'))
+        lab.save(os.path.join(path, fr'{mode}\masks\mask_{i}_{j}.bmp'))
+        img.save(os.path.join(path, fr'{mode}\image\input_{i}_{j}.jpg'))
 
 
 if __name__ == '__main__':
@@ -114,8 +123,6 @@ if __name__ == '__main__':
         for _ in tqdm(pool.imap_unordered(process_image, [[i, 'test'] for i in range(len(val_masks))]),
                       total=len(val_masks)):
             pass
-
-
 
     with Pool(processes=os.cpu_count()) as pool:
         for _ in tqdm(pool.imap_unordered(process_image, [[i, 'validation'] for i in range(len(val_masks))]),

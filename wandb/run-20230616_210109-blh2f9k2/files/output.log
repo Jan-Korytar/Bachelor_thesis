@@ -1,0 +1,167 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|██████████| 50/50 [01:02<00:00,  1.24s/it]
+2it [00:01,  1.62it/s]
+{'prediction': tensor([19.0597, 72.3206, 44.1672, 92.6380], device='cuda:0'), 'true': [tensor([ 52., 106.,  86., 144.], device='cuda:0')]}
+{'prediction': tensor([18.1010, 77.7985, 45.5093, 99.3461], device='cuda:0'), 'true': [tensor([ 51., 104.,  85., 142.], device='cuda:0')]}
+
+5it [00:03,  1.47it/s]
+{'prediction': tensor([18.1312, 74.7650, 43.3555, 95.1360], device='cuda:0'), 'true': [tensor([ 57., 106.,  90., 147.], device='cuda:0')]}
+{'prediction': tensor([17.3794, 66.4230, 40.9491, 85.9951], device='cuda:0'), 'true': [tensor([ 55.,  98.,  89., 137.], device='cuda:0')]}
+7it [00:04,  1.67it/s]
+C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\train_bbox.py:100: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  torch.stack((torch.tensor(outputs[0], dtype=torch.uint8), torch.tensor(bboxes[0], dtype=torch.uint8)))))
+  0%|          | 0/50 [00:00<?, ?it/s]
+{'prediction': tensor([20.2675, 71.4652, 45.4303, 93.1927], device='cuda:0'), 'true': [tensor([ 57., 105.,  85., 143.], device='cuda:0')]}
+Saving the best model
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|██████████| 50/50 [00:56<00:00,  1.13s/it]
+1it [00:00,  1.88it/s]
+
+4it [00:02,  1.55it/s]
+{'prediction': tensor([ 20.6707,  73.4842,  46.2986, 106.9087], device='cuda:0'), 'true': [tensor([ 60., 106.,  94., 140.], device='cuda:0')]}
+{'prediction': tensor([29.8815, 61.4586, 52.6908, 90.2771], device='cuda:0'), 'true': [tensor([ 58.,  94.,  91., 131.], device='cuda:0')]}
+7it [00:04,  1.69it/s]
+  0%|          | 0/50 [00:00<?, ?it/s]
+{'prediction': tensor([ 33.0624,  73.4016,  57.1311, 103.8245], device='cuda:0'), 'true': [tensor([ 61., 106.,  93., 142.], device='cuda:0')]}
+{'prediction': tensor([ 12.7171,  69.1305,  38.4717, 103.3067], device='cuda:0'), 'true': [tensor([ 10.,  93.,  44., 136.], device='cuda:0')]}
+{'prediction': tensor([24.8871, 70.0287, 47.4570, 99.9728], device='cuda:0'), 'true': [tensor([ 70., 107., 107., 146.], device='cuda:0')]}
+Saving the best model
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|██████████| 50/50 [00:56<00:00,  1.13s/it]
+2it [00:01,  1.16it/s]
+{'prediction': tensor([ 6.4156, 54.2974, 22.7388, 70.8623], device='cuda:0'), 'true': [tensor([ 28., 100.,  68., 147.], device='cuda:0')]}
+
+4it [00:03,  1.15it/s]
+{'prediction': tensor([22.7456, 74.7264, 40.5827, 92.6910], device='cuda:0'), 'true': [tensor([ 49., 111.,  80., 152.], device='cuda:0')]}
+{'prediction': tensor([ 6.2930, 64.7352, 23.9989, 83.2371], device='cuda:0'), 'true': [tensor([ 31., 108.,  63., 148.], device='cuda:0')]}
+7it [00:05,  1.29it/s]
+  0%|          | 0/50 [00:00<?, ?it/s]
+{'prediction': tensor([16.5839, 50.1004, 32.4380, 65.4052], device='cuda:0'), 'true': [tensor([ 50.,  95.,  80., 135.], device='cuda:0')]}
+{'prediction': tensor([14.9760, 50.4194, 31.3229, 66.5882], device='cuda:0'), 'true': [tensor([ 54., 105.,  86., 142.], device='cuda:0')]}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|██████████| 50/50 [01:08<00:00,  1.38s/it]
+
+2it [00:01,  1.06it/s]
+{'prediction': tensor([23.1722, 73.5050, 43.4486, 97.7251], device='cuda:0'), 'true': [tensor([ 55., 100.,  86., 136.], device='cuda:0')]}
+
+4it [00:03,  1.16it/s]
+{'prediction': tensor([20.3817, 62.8433, 36.6909, 82.8962], device='cuda:0'), 'true': [tensor([ 51., 103.,  83., 147.], device='cuda:0')]}
+{'prediction': tensor([35.6728, 69.6279, 59.3265, 98.3083], device='cuda:0'), 'true': [tensor([ 52., 105.,  88., 148.], device='cuda:0')]}
+
+7it [00:05,  1.30it/s]
+{'prediction': tensor([22.3741, 56.8160, 38.2730, 75.8324], device='cuda:0'), 'true': [tensor([ 62.,  98.,  98., 134.], device='cuda:0')]}
+{'prediction': tensor([19.6923, 55.9086, 36.0454, 75.4817], device='cuda:0'), 'true': [tensor([ 64., 106., 100., 142.], device='cuda:0')]}

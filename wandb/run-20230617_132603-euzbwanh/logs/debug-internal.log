@@ -1,0 +1,199 @@
+2023-06-17 13:26:03,431 INFO    StreamThr :8024 [internal.py:wandb_internal():86] W&B internal server running at pid: 8024, started at: 2023-06-17 13:26:03.430713
+2023-06-17 13:26:03,433 DEBUG   HandlerThread:8024 [handler.py:handle_request():144] handle_request: status
+2023-06-17 13:26:03,435 INFO    WriterThread:8024 [datastore.py:open_for_write():85] open: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230617_132603-euzbwanh\run-euzbwanh.wandb
+2023-06-17 13:26:03,442 DEBUG   SenderThread:8024 [sender.py:send():369] send: header
+2023-06-17 13:26:03,489 DEBUG   SenderThread:8024 [sender.py:send():369] send: run
+2023-06-17 13:26:05,123 INFO    SenderThread:8024 [dir_watcher.py:__init__():211] watching files in: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230617_132603-euzbwanh\files
+2023-06-17 13:26:05,130 DEBUG   HandlerThread:8024 [handler.py:handle_request():144] handle_request: check_version
+2023-06-17 13:26:05,134 INFO    SenderThread:8024 [sender.py:_start_run_threads():1100] run started: euzbwanh with start time 1687001163.428712
+2023-06-17 13:26:05,134 DEBUG   SenderThread:8024 [sender.py:send_request():396] send_request: summary_record
+2023-06-17 13:26:05,134 INFO    SenderThread:8024 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-17 13:26:05,135 DEBUG   SenderThread:8024 [sender.py:send_request():396] send_request: check_version
+2023-06-17 13:26:05,262 DEBUG   HandlerThread:8024 [handler.py:handle_request():144] handle_request: run_start
+2023-06-17 13:26:05,909 DEBUG   HandlerThread:8024 [system_info.py:__init__():31] System info init
+2023-06-17 13:26:05,909 DEBUG   HandlerThread:8024 [system_info.py:__init__():46] System info init done
+2023-06-17 13:26:05,909 INFO    HandlerThread:8024 [system_monitor.py:start():181] Starting system monitor
+2023-06-17 13:26:05,910 INFO    SystemMonitor:8024 [system_monitor.py:_start():145] Starting system asset monitoring threads
+2023-06-17 13:26:05,910 INFO    HandlerThread:8024 [system_monitor.py:probe():201] Collecting system info
+2023-06-17 13:26:05,914 INFO    SystemMonitor:8024 [interfaces.py:start():190] Started cpu monitoring
+2023-06-17 13:26:05,915 INFO    SystemMonitor:8024 [interfaces.py:start():190] Started disk monitoring
+2023-06-17 13:26:05,916 INFO    SystemMonitor:8024 [interfaces.py:start():190] Started gpu monitoring
+2023-06-17 13:26:05,917 INFO    SystemMonitor:8024 [interfaces.py:start():190] Started memory monitoring
+2023-06-17 13:26:05,932 INFO    SystemMonitor:8024 [interfaces.py:start():190] Started network monitoring
+2023-06-17 13:26:05,940 DEBUG   HandlerThread:8024 [system_info.py:probe():195] Probing system
+2023-06-17 13:26:05,942 DEBUG   HandlerThread:8024 [system_info.py:_probe_git():180] Probing git
+2023-06-17 13:26:05,948 ERROR   gpu       :8024 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-17 13:26:05,949 ERROR   gpu       :8024 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-17 13:26:06,048 DEBUG   HandlerThread:8024 [system_info.py:_probe_git():188] Probing git done
+2023-06-17 13:26:06,048 DEBUG   HandlerThread:8024 [system_info.py:probe():240] Probing system done
+2023-06-17 13:26:06,048 DEBUG   HandlerThread:8024 [system_monitor.py:probe():210] {'os': 'Windows-10-10.0.22621-SP0', 'python': '3.10.11', 'heartbeatAt': '2023-06-17T11:26:05.940526', 'startedAt': '2023-06-17T11:26:03.393265', 'docker': None, 'cuda': None, 'args': (), 'state': 'running', 'program': 'C:\\Users\\0005h\\OneDrive\\Documents\\programming\\pycharm\\Bachelor_thesis\\train_bbox.py', 'codePath': 'train_bbox.py', 'git': {'remote': 'https://github.com/KorytheHoly/Bachelor_thesis.git', 'commit': '28a29803c6c1d2d02b416f68d01ad5f4fd1f2fb9'}, 'email': '82505847+KorytheHoly@users.noreply.github.com', 'root': 'C:/Users/0005h/OneDrive/Documents/programming/pycharm/Bachelor_thesis', 'host': 'Kory_notebook', 'username': '0005h', 'executable': 'C:\\Users\\0005h\\miniconda3\\envs\\thesis\\python.exe', 'cpu_count': 6, 'cpu_count_logical': 12, 'cpu_freq': {'current': 2208.0, 'min': 0.0, 'max': 2208.0}, 'cpu_freq_per_core': [{'current': 2208.0, 'min': 0.0, 'max': 2208.0}], 'disk': {'total': 464.7678871154785, 'used': 217.96745681762695}, 'gpu': 'NVIDIA GeForce GTX 1050 Ti with Max-Q Design', 'gpu_count': 1, 'gpu_devices': [{'name': 'NVIDIA GeForce GTX 1050 Ti with Max-Q Design', 'memory_total': 4294967296}], 'memory': {'total': 15.740032196044922}}
+2023-06-17 13:26:06,049 INFO    HandlerThread:8024 [system_monitor.py:probe():211] Finished collecting system info
+2023-06-17 13:26:06,049 INFO    HandlerThread:8024 [system_monitor.py:probe():214] Publishing system info
+2023-06-17 13:26:06,049 DEBUG   HandlerThread:8024 [system_info.py:_save_pip():51] Saving list of pip packages installed into the current environment
+2023-06-17 13:26:06,050 DEBUG   HandlerThread:8024 [system_info.py:_save_pip():67] Saving pip packages done
+2023-06-17 13:26:06,050 DEBUG   HandlerThread:8024 [system_info.py:_save_conda():74] Saving list of conda packages installed into the current environment
+2023-06-17 13:26:06,052 ERROR   HandlerThread:8024 [system_info.py:_save_conda():85] Error saving conda packages: [WinError 2] The system cannot find the file specified
+Traceback (most recent call last):
+  File "C:\Users\0005h\miniconda3\envs\thesis\lib\site-packages\wandb\sdk\internal\system\system_info.py", line 81, in _save_conda
+    subprocess.call(
+  File "C:\Users\0005h\miniconda3\envs\thesis\lib\subprocess.py", line 345, in call
+    with Popen(*popenargs, **kwargs) as p:
+  File "C:\Users\0005h\miniconda3\envs\thesis\lib\subprocess.py", line 971, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "C:\Users\0005h\miniconda3\envs\thesis\lib\subprocess.py", line 1456, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+FileNotFoundError: [WinError 2] The system cannot find the file specified
+2023-06-17 13:26:06,054 DEBUG   HandlerThread:8024 [system_info.py:_save_conda():86] Saving conda packages done
+2023-06-17 13:26:06,055 INFO    HandlerThread:8024 [system_monitor.py:probe():216] Finished publishing system info
+2023-06-17 13:26:06,062 DEBUG   SenderThread:8024 [sender.py:send():369] send: files
+2023-06-17 13:26:06,062 INFO    SenderThread:8024 [sender.py:_save_file():1354] saving file wandb-metadata.json with policy now
+2023-06-17 13:26:06,072 DEBUG   HandlerThread:8024 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-17 13:26:06,072 DEBUG   SenderThread:8024 [sender.py:send_request():396] send_request: stop_status
+2023-06-17 13:26:06,134 INFO    Thread-16 :8024 [dir_watcher.py:_on_file_created():272] file/dir created: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230617_132603-euzbwanh\files\conda-environment.yaml
+2023-06-17 13:26:06,134 INFO    Thread-16 :8024 [dir_watcher.py:_on_file_created():272] file/dir created: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230617_132603-euzbwanh\files\wandb-metadata.json
+2023-06-17 13:26:06,134 INFO    Thread-16 :8024 [dir_watcher.py:_on_file_created():272] file/dir created: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230617_132603-euzbwanh\files\requirements.txt
+2023-06-17 13:26:06,135 INFO    Thread-16 :8024 [dir_watcher.py:_on_file_created():272] file/dir created: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230617_132603-euzbwanh\files\wandb-summary.json
+2023-06-17 13:26:06,268 DEBUG   SenderThread:8024 [sender.py:send():369] send: telemetry
+2023-06-17 13:26:06,473 DEBUG   SenderThread:8024 [sender.py:send():369] send: telemetry
+2023-06-17 13:26:06,568 INFO    wandb-upload_0:8024 [upload_job.py:push():133] Uploaded file C:\Users\0005h\AppData\Local\Temp\tmpith8k31awandb\whdgo5pb-wandb-metadata.json
+2023-06-17 13:26:07,147 INFO    Thread-16 :8024 [dir_watcher.py:_on_file_created():272] file/dir created: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230617_132603-euzbwanh\files\output.log
+2023-06-17 13:26:07,963 ERROR   gpu       :8024 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-17 13:26:07,963 ERROR   gpu       :8024 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-17 13:26:08,510 DEBUG   HandlerThread:8024 [handler.py:handle_request():144] handle_request: status_report
+2023-06-17 13:26:09,165 INFO    Thread-16 :8024 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230617_132603-euzbwanh\files\output.log
+2023-06-17 13:26:09,314 DEBUG   SenderThread:8024 [sender.py:send():369] send: telemetry
+2023-06-17 13:26:09,315 DEBUG   SenderThread:8024 [sender.py:send():369] send: exit
+2023-06-17 13:26:09,315 INFO    SenderThread:8024 [sender.py:send_exit():574] handling exit code: 1
+2023-06-17 13:26:09,315 INFO    SenderThread:8024 [sender.py:send_exit():576] handling runtime: 4
+2023-06-17 13:26:09,316 INFO    SenderThread:8024 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-17 13:26:09,316 INFO    SenderThread:8024 [sender.py:send_exit():582] send defer
+2023-06-17 13:26:09,317 DEBUG   HandlerThread:8024 [handler.py:handle_request():144] handle_request: defer
+2023-06-17 13:26:09,317 INFO    HandlerThread:8024 [handler.py:handle_request_defer():170] handle defer: 0
+2023-06-17 13:26:09,317 DEBUG   SenderThread:8024 [sender.py:send_request():396] send_request: defer
+2023-06-17 13:26:09,317 INFO    SenderThread:8024 [sender.py:send_request_defer():598] handle sender defer: 0
+2023-06-17 13:26:09,317 INFO    SenderThread:8024 [sender.py:transition_state():602] send defer: 1
+2023-06-17 13:26:09,317 DEBUG   HandlerThread:8024 [handler.py:handle_request():144] handle_request: defer
+2023-06-17 13:26:09,317 INFO    HandlerThread:8024 [handler.py:handle_request_defer():170] handle defer: 1
+2023-06-17 13:26:09,318 DEBUG   SenderThread:8024 [sender.py:send_request():396] send_request: defer
+2023-06-17 13:26:09,318 INFO    SenderThread:8024 [sender.py:send_request_defer():598] handle sender defer: 1
+2023-06-17 13:26:09,318 INFO    SenderThread:8024 [sender.py:transition_state():602] send defer: 2
+2023-06-17 13:26:09,318 DEBUG   HandlerThread:8024 [handler.py:handle_request():144] handle_request: defer
+2023-06-17 13:26:09,318 INFO    HandlerThread:8024 [handler.py:handle_request_defer():170] handle defer: 2
+2023-06-17 13:26:09,318 INFO    HandlerThread:8024 [system_monitor.py:finish():190] Stopping system monitor
+2023-06-17 13:26:09,318 DEBUG   SystemMonitor:8024 [system_monitor.py:_start():159] Starting system metrics aggregation loop
+2023-06-17 13:26:09,319 DEBUG   SystemMonitor:8024 [system_monitor.py:_start():166] Finished system metrics aggregation loop
+2023-06-17 13:26:09,319 DEBUG   SystemMonitor:8024 [system_monitor.py:_start():170] Publishing last batch of metrics
+2023-06-17 13:26:09,320 INFO    HandlerThread:8024 [interfaces.py:finish():202] Joined cpu monitor
+2023-06-17 13:26:09,320 INFO    HandlerThread:8024 [interfaces.py:finish():202] Joined disk monitor
+2023-06-17 13:26:09,352 ERROR   gpu       :8024 [interfaces.py:aggregate():161] Failed to serialize metric: division by zero
+2023-06-17 13:26:09,352 INFO    HandlerThread:8024 [interfaces.py:finish():202] Joined gpu monitor
+2023-06-17 13:26:09,352 INFO    HandlerThread:8024 [interfaces.py:finish():202] Joined memory monitor
+2023-06-17 13:26:09,352 INFO    HandlerThread:8024 [interfaces.py:finish():202] Joined network monitor
+2023-06-17 13:26:09,353 DEBUG   SenderThread:8024 [sender.py:send_request():396] send_request: defer
+2023-06-17 13:26:09,353 INFO    SenderThread:8024 [sender.py:send_request_defer():598] handle sender defer: 2
+2023-06-17 13:26:09,353 INFO    SenderThread:8024 [sender.py:transition_state():602] send defer: 3
+2023-06-17 13:26:09,354 DEBUG   SenderThread:8024 [sender.py:send():369] send: stats
+2023-06-17 13:26:09,354 DEBUG   HandlerThread:8024 [handler.py:handle_request():144] handle_request: defer
+2023-06-17 13:26:09,354 INFO    HandlerThread:8024 [handler.py:handle_request_defer():170] handle defer: 3
+2023-06-17 13:26:09,354 DEBUG   SenderThread:8024 [sender.py:send_request():396] send_request: defer
+2023-06-17 13:26:09,354 INFO    SenderThread:8024 [sender.py:send_request_defer():598] handle sender defer: 3
+2023-06-17 13:26:09,355 INFO    SenderThread:8024 [sender.py:transition_state():602] send defer: 4
+2023-06-17 13:26:09,355 DEBUG   HandlerThread:8024 [handler.py:handle_request():144] handle_request: defer
+2023-06-17 13:26:09,355 INFO    HandlerThread:8024 [handler.py:handle_request_defer():170] handle defer: 4
+2023-06-17 13:26:09,355 DEBUG   SenderThread:8024 [sender.py:send_request():396] send_request: defer
+2023-06-17 13:26:09,355 INFO    SenderThread:8024 [sender.py:send_request_defer():598] handle sender defer: 4
+2023-06-17 13:26:09,355 INFO    SenderThread:8024 [sender.py:transition_state():602] send defer: 5
+2023-06-17 13:26:09,355 DEBUG   HandlerThread:8024 [handler.py:handle_request():144] handle_request: defer
+2023-06-17 13:26:09,356 INFO    HandlerThread:8024 [handler.py:handle_request_defer():170] handle defer: 5
+2023-06-17 13:26:09,356 DEBUG   SenderThread:8024 [sender.py:send():369] send: summary
+2023-06-17 13:26:09,357 INFO    SenderThread:8024 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-17 13:26:09,358 DEBUG   SenderThread:8024 [sender.py:send_request():396] send_request: defer
+2023-06-17 13:26:09,358 INFO    SenderThread:8024 [sender.py:send_request_defer():598] handle sender defer: 5
+2023-06-17 13:26:09,358 INFO    SenderThread:8024 [sender.py:transition_state():602] send defer: 6
+2023-06-17 13:26:09,358 DEBUG   HandlerThread:8024 [handler.py:handle_request():144] handle_request: defer
+2023-06-17 13:26:09,358 INFO    HandlerThread:8024 [handler.py:handle_request_defer():170] handle defer: 6
+2023-06-17 13:26:09,358 DEBUG   SenderThread:8024 [sender.py:send_request():396] send_request: defer
+2023-06-17 13:26:09,359 INFO    SenderThread:8024 [sender.py:send_request_defer():598] handle sender defer: 6
+2023-06-17 13:26:09,363 DEBUG   HandlerThread:8024 [handler.py:handle_request():144] handle_request: status_report
+2023-06-17 13:26:09,533 INFO    SenderThread:8024 [sender.py:transition_state():602] send defer: 7
+2023-06-17 13:26:09,533 DEBUG   HandlerThread:8024 [handler.py:handle_request():144] handle_request: defer
+2023-06-17 13:26:09,533 INFO    HandlerThread:8024 [handler.py:handle_request_defer():170] handle defer: 7
+2023-06-17 13:26:09,533 DEBUG   SenderThread:8024 [sender.py:send_request():396] send_request: defer
+2023-06-17 13:26:09,534 INFO    SenderThread:8024 [sender.py:send_request_defer():598] handle sender defer: 7
+2023-06-17 13:26:10,173 INFO    Thread-16 :8024 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230617_132603-euzbwanh\files\config.yaml
+2023-06-17 13:26:10,174 INFO    Thread-16 :8024 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230617_132603-euzbwanh\files\wandb-summary.json
+2023-06-17 13:26:10,318 DEBUG   HandlerThread:8024 [handler.py:handle_request():144] handle_request: poll_exit
+2023-06-17 13:26:10,506 INFO    SenderThread:8024 [sender.py:transition_state():602] send defer: 8
+2023-06-17 13:26:10,506 DEBUG   SenderThread:8024 [sender.py:send_request():396] send_request: poll_exit
+2023-06-17 13:26:10,506 DEBUG   HandlerThread:8024 [handler.py:handle_request():144] handle_request: defer
+2023-06-17 13:26:10,506 INFO    HandlerThread:8024 [handler.py:handle_request_defer():170] handle defer: 8
+2023-06-17 13:26:10,508 DEBUG   SenderThread:8024 [sender.py:send_request():396] send_request: defer
+2023-06-17 13:26:10,508 INFO    SenderThread:8024 [sender.py:send_request_defer():598] handle sender defer: 8
+2023-06-17 13:26:10,508 INFO    SenderThread:8024 [job_builder.py:build():232] Attempting to build job artifact
+2023-06-17 13:26:10,509 INFO    SenderThread:8024 [job_builder.py:build():256] is repo sourced job
+2023-06-17 13:26:10,518 INFO    SenderThread:8024 [job_builder.py:build():297] adding wandb-job metadata file
+2023-06-17 13:26:10,541 INFO    SenderThread:8024 [sender.py:transition_state():602] send defer: 9
+2023-06-17 13:26:10,542 DEBUG   HandlerThread:8024 [handler.py:handle_request():144] handle_request: defer
+2023-06-17 13:26:10,542 INFO    HandlerThread:8024 [handler.py:handle_request_defer():170] handle defer: 9
+2023-06-17 13:26:10,542 DEBUG   SenderThread:8024 [sender.py:send():369] send: artifact
+2023-06-17 13:26:11,178 INFO    Thread-16 :8024 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230617_132603-euzbwanh\files\output.log
+2023-06-17 13:26:11,331 DEBUG   HandlerThread:8024 [handler.py:handle_request():144] handle_request: poll_exit
+2023-06-17 13:26:11,436 INFO    SenderThread:8024 [sender.py:send_artifact():1450] sent artifact job-https___github.com_KorytheHoly_Bachelor_thesis.git_train_bbox.py - {'id': 'QXJ0aWZhY3Q6NDg2MjkyMDQy', 'digest': 'b75f144f493e0194d87a86a8f71aa338', 'state': 'COMMITTED', 'aliases': [{'artifactCollectionName': 'job-https___github.com_KorytheHoly_Bachelor_thesis.git_train_bbox.py', 'alias': 'latest'}, {'artifactCollectionName': 'job-https___github.com_KorytheHoly_Bachelor_thesis.git_train_bbox.py', 'alias': 'v0'}], 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjc2NDgwNTcy', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6NDkwNjY1NTY0', 'versionIndex': 14}}, 'version': 'v0'}
+2023-06-17 13:26:11,437 DEBUG   SenderThread:8024 [sender.py:send_request():396] send_request: defer
+2023-06-17 13:26:11,437 INFO    SenderThread:8024 [sender.py:send_request_defer():598] handle sender defer: 9
+2023-06-17 13:26:11,438 INFO    SenderThread:8024 [dir_watcher.py:finish():359] shutting down directory watcher
+2023-06-17 13:26:12,190 INFO    SenderThread:8024 [dir_watcher.py:finish():389] scan: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230617_132603-euzbwanh\files
+2023-06-17 13:26:12,191 INFO    SenderThread:8024 [dir_watcher.py:finish():403] scan save: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230617_132603-euzbwanh\files\conda-environment.yaml conda-environment.yaml
+2023-06-17 13:26:12,191 INFO    SenderThread:8024 [dir_watcher.py:finish():403] scan save: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230617_132603-euzbwanh\files\config.yaml config.yaml
+2023-06-17 13:26:12,192 INFO    SenderThread:8024 [dir_watcher.py:finish():403] scan save: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230617_132603-euzbwanh\files\output.log output.log
+2023-06-17 13:26:12,196 INFO    SenderThread:8024 [dir_watcher.py:finish():403] scan save: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230617_132603-euzbwanh\files\requirements.txt requirements.txt
+2023-06-17 13:26:12,198 INFO    SenderThread:8024 [dir_watcher.py:finish():403] scan save: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230617_132603-euzbwanh\files\wandb-metadata.json wandb-metadata.json
+2023-06-17 13:26:12,198 INFO    SenderThread:8024 [dir_watcher.py:finish():403] scan save: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230617_132603-euzbwanh\files\wandb-summary.json wandb-summary.json
+2023-06-17 13:26:12,203 INFO    SenderThread:8024 [sender.py:transition_state():602] send defer: 10
+2023-06-17 13:26:12,203 DEBUG   SenderThread:8024 [sender.py:send_request():396] send_request: poll_exit
+2023-06-17 13:26:12,208 DEBUG   HandlerThread:8024 [handler.py:handle_request():144] handle_request: defer
+2023-06-17 13:26:12,208 INFO    HandlerThread:8024 [handler.py:handle_request_defer():170] handle defer: 10
+2023-06-17 13:26:12,212 DEBUG   SenderThread:8024 [sender.py:send_request():396] send_request: defer
+2023-06-17 13:26:12,212 INFO    SenderThread:8024 [sender.py:send_request_defer():598] handle sender defer: 10
+2023-06-17 13:26:12,212 INFO    SenderThread:8024 [file_pusher.py:finish():159] shutting down file pusher
+2023-06-17 13:26:12,342 DEBUG   HandlerThread:8024 [handler.py:handle_request():144] handle_request: poll_exit
+2023-06-17 13:26:12,345 DEBUG   SenderThread:8024 [sender.py:send_request():396] send_request: poll_exit
+2023-06-17 13:26:12,646 INFO    wandb-upload_0:8024 [upload_job.py:push():133] Uploaded file C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230617_132603-euzbwanh\files\config.yaml
+2023-06-17 13:26:12,704 INFO    wandb-upload_1:8024 [upload_job.py:push():133] Uploaded file C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230617_132603-euzbwanh\files\output.log
+2023-06-17 13:26:12,746 INFO    wandb-upload_2:8024 [upload_job.py:push():133] Uploaded file C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230617_132603-euzbwanh\files\requirements.txt
+2023-06-17 13:26:12,749 INFO    wandb-upload_3:8024 [upload_job.py:push():133] Uploaded file C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230617_132603-euzbwanh\files\wandb-summary.json
+2023-06-17 13:26:12,962 INFO    Thread-15 (_thread_body):8024 [sender.py:transition_state():602] send defer: 11
+2023-06-17 13:26:12,963 DEBUG   HandlerThread:8024 [handler.py:handle_request():144] handle_request: defer
+2023-06-17 13:26:12,963 INFO    HandlerThread:8024 [handler.py:handle_request_defer():170] handle defer: 11
+2023-06-17 13:26:12,965 DEBUG   SenderThread:8024 [sender.py:send_request():396] send_request: defer
+2023-06-17 13:26:12,966 INFO    SenderThread:8024 [sender.py:send_request_defer():598] handle sender defer: 11
+2023-06-17 13:26:12,966 INFO    SenderThread:8024 [file_pusher.py:join():164] waiting for file pusher
+2023-06-17 13:26:12,966 INFO    SenderThread:8024 [sender.py:transition_state():602] send defer: 12
+2023-06-17 13:26:12,967 DEBUG   HandlerThread:8024 [handler.py:handle_request():144] handle_request: defer
+2023-06-17 13:26:12,967 INFO    HandlerThread:8024 [handler.py:handle_request_defer():170] handle defer: 12
+2023-06-17 13:26:12,968 DEBUG   SenderThread:8024 [sender.py:send_request():396] send_request: defer
+2023-06-17 13:26:12,969 INFO    SenderThread:8024 [sender.py:send_request_defer():598] handle sender defer: 12
+2023-06-17 13:26:13,138 INFO    SenderThread:8024 [sender.py:transition_state():602] send defer: 13
+2023-06-17 13:26:13,139 DEBUG   HandlerThread:8024 [handler.py:handle_request():144] handle_request: defer
+2023-06-17 13:26:13,139 INFO    HandlerThread:8024 [handler.py:handle_request_defer():170] handle defer: 13
+2023-06-17 13:26:13,141 DEBUG   SenderThread:8024 [sender.py:send_request():396] send_request: defer
+2023-06-17 13:26:13,141 INFO    SenderThread:8024 [sender.py:send_request_defer():598] handle sender defer: 13
+2023-06-17 13:26:13,142 INFO    SenderThread:8024 [sender.py:transition_state():602] send defer: 14
+2023-06-17 13:26:13,143 DEBUG   HandlerThread:8024 [handler.py:handle_request():144] handle_request: defer
+2023-06-17 13:26:13,143 INFO    HandlerThread:8024 [handler.py:handle_request_defer():170] handle defer: 14
+2023-06-17 13:26:13,145 DEBUG   SenderThread:8024 [sender.py:send():369] send: final
+2023-06-17 13:26:13,146 DEBUG   SenderThread:8024 [sender.py:send():369] send: footer
+2023-06-17 13:26:13,147 DEBUG   SenderThread:8024 [sender.py:send_request():396] send_request: defer
+2023-06-17 13:26:13,147 INFO    SenderThread:8024 [sender.py:send_request_defer():598] handle sender defer: 14
+2023-06-17 13:26:13,152 DEBUG   HandlerThread:8024 [handler.py:handle_request():144] handle_request: poll_exit
+2023-06-17 13:26:13,155 DEBUG   SenderThread:8024 [sender.py:send_request():396] send_request: poll_exit
+2023-06-17 13:26:13,158 DEBUG   HandlerThread:8024 [handler.py:handle_request():144] handle_request: server_info
+2023-06-17 13:26:13,158 DEBUG   HandlerThread:8024 [handler.py:handle_request():144] handle_request: get_summary
+2023-06-17 13:26:13,160 DEBUG   HandlerThread:8024 [handler.py:handle_request():144] handle_request: sampled_history
+2023-06-17 13:26:13,161 DEBUG   SenderThread:8024 [sender.py:send_request():396] send_request: server_info
+2023-06-17 13:26:13,322 DEBUG   HandlerThread:8024 [handler.py:handle_request():144] handle_request: shutdown
+2023-06-17 13:26:13,323 INFO    HandlerThread:8024 [handler.py:finish():854] shutting down handler
+2023-06-17 13:26:14,171 INFO    WriterThread:8024 [datastore.py:close():298] close: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230617_132603-euzbwanh\run-euzbwanh.wandb
+2023-06-17 13:26:14,327 INFO    SenderThread:8024 [sender.py:finish():1526] shutting down sender
+2023-06-17 13:26:14,329 INFO    SenderThread:8024 [file_pusher.py:finish():159] shutting down file pusher
+2023-06-17 13:26:14,330 INFO    SenderThread:8024 [file_pusher.py:join():164] waiting for file pusher

@@ -1,0 +1,50 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|██████████| 50/50 [01:07<00:00,  1.34s/it]
+1it [00:00,  1.44it/s]
+{'prediction': tensor([2064.4612, 3198.0342, -315.3188, -373.3836], device='cuda:0'), 'true': [tensor([ 71.,  97., 102., 135.], device='cuda:0')]}
+{'prediction': tensor([2146.2769, 3324.4863, -327.6975, -388.1723], device='cuda:0'), 'true': [tensor([ 54., 107.,  82., 141.], device='cuda:0')]}
+
+4it [00:02,  1.33it/s]
+{'prediction': tensor([2172.7363, 3365.4941, -331.7373, -392.9354], device='cuda:0'), 'true': [tensor([ 55., 103.,  89., 144.], device='cuda:0')]}
+7it [00:04,  1.48it/s]
+C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\train_bbox.py:101: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  torch.stack((torch.tensor(outputs[0], dtype=torch.uint8), torch.tensor(bboxes[0], dtype=torch.uint8)))))
+{'prediction': tensor([2314.4053, 3584.7800, -353.2209, -418.4882], device='cuda:0'), 'true': [tensor([ 22.,  95.,  57., 136.], device='cuda:0')]}
+{'prediction': tensor([2090.5623, 3238.1987, -319.1472, -377.9354], device='cuda:0'), 'true': [tensor([ 50., 109.,  80., 143.], device='cuda:0')]}
+Saving the best model
+Epoch [1/10], Train Loss: -97.6849, Val Loss: -6144.5782
+
+
+
+
+
+
+ 22%|██▏       | 11/50 [00:11<00:41,  1.07s/it]

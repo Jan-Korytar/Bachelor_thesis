@@ -1,0 +1,331 @@
+
+
+  2%|▏         | 3/200 [00:05<04:17,  1.31s/it]
+tensor([-0.0113,  0.9473, -0.2121,  0.6481], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 5.6024,  4.8767, -4.3701, -4.3903], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 7.9013,  7.3493, -6.6051, -6.8959], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([10.7902, 10.0668, -9.5071, -9.7112], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 13.8980,  13.0387, -12.5700, -12.6099], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 17.0337,  16.1906, -15.5174, -16.0700], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 19.9329,  18.9081, -18.5119, -18.7230], device='cuda:0',
+
+  6%|▌         | 12/200 [00:07<00:49,  3.77it/s]
+tensor([ 21.8618,  21.1955, -20.9162, -21.0710], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 27.1912,  26.5103, -25.8968, -26.1262], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 29.2974,  28.4725, -27.9102, -28.1467], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 31.8676,  31.1706, -30.3318, -31.0316], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 35.6956,  34.9155, -34.0779, -34.4228], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 40.5170,  39.5565, -38.8906, -38.8912], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 43.3430,  42.6985, -42.0513, -42.5267], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 47.6673,  47.0079, -46.3146, -46.5898], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 47.7239,  46.8919, -46.2720, -46.4698], device='cuda:0',
+
+ 10%|█         | 21/200 [00:09<00:44,  3.99it/s]
+tensor([ 53.8145,  53.0636, -52.6247, -52.8419], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 55.9851,  55.3962, -54.6885, -55.0452], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 62.2099,  61.4686, -61.0163, -61.1163], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 65.9123,  65.1565, -64.5354, -64.9114], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 67.9275,  66.9586, -66.3653, -66.6155], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 75.6416,  75.1915, -74.5064, -74.5452], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 76.8235,  76.3444, -75.5661, -75.6815], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 79.3006,  78.2583, -77.9227, -78.1506], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 83.0627,  82.3259, -81.3432, -81.9821], device='cuda:0',
+
+ 15%|█▌        | 30/200 [00:11<00:35,  4.73it/s]
+tensor([ 87.8335,  87.0375, -86.3295, -86.4492], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 93.6065,  93.0908, -92.3134, -92.8274], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 96.1919,  95.6994, -94.9507, -95.1667], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 101.1901,  100.6354,  -99.9078, -100.1699], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 104.8746,  104.3127, -103.6403, -103.6977], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 110.1345,  109.4627, -108.8666, -109.2658], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 114.2269,  113.4359, -112.7627, -112.9720], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 116.5678,  116.0392, -115.4286, -115.7359], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 120.3045,  119.3670, -118.9113, -119.1689], device='cuda:0',
+
+ 20%|█▉        | 39/200 [00:13<00:35,  4.52it/s]
+tensor([ 130.6533,  129.9912, -129.5621, -129.5397], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 125.3902,  124.6524, -124.1512, -124.7656], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 136.7281,  135.9847, -135.2796, -135.7461], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 133.7330,  132.8264, -132.3195, -132.7591], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 146.6817,  145.9200, -145.6306, -145.6240], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 150.3757,  149.9112, -149.3749, -149.7718], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([  3, 200, 123,  73], device='cuda:0', dtype=torch.uint8) tensor([18, 52, 32, 69], device='cuda:0', dtype=torch.uint8)
+tensor([ 153.5281,  153.1481, -152.6185, -152.5714], device='cuda:0',
+
+ 24%|██▎       | 47/200 [00:15<00:35,  4.35it/s]
+tensor([ 151.5960,  150.7861, -150.3682, -150.6015], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 169.1821,  168.6987, -168.1570, -168.0103], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 169.5639,  168.8089, -167.9515, -168.4529], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 171.5856,  170.8462, -170.0887, -170.2808], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 174.1619,  173.2402, -172.7227, -172.7952], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 184.7548,  184.1371, -183.4938, -183.6036], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 186.6772,  185.8761, -185.4043, -185.5912], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 193.7451,  192.8276, -192.3591, -192.5780], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 189.8004,  189.3616, -188.6819, -188.9648], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 187.0837,  186.4154, -185.8161, -186.3172], device='cuda:0',
+
+ 28%|██▊       | 55/200 [00:17<00:32,  4.43it/s]
+tensor([ 197.0786,  196.3935, -195.6433, -195.9255], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 207.2977,  206.3661, -205.7204, -206.1468], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 217.7216,  216.9151, -216.4209, -216.5119], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 222.1722,  221.3969, -221.0470, -221.2211], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 218.6288,  217.8663, -217.4140, -217.7917], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 228.4707,  227.7987, -227.1428, -227.3183], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 236.8029,  236.0560, -235.3527, -235.7746], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 232.6080,  231.8526, -231.3216, -231.5861], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 234.8888,  234.3293, -233.5246, -233.8060], device='cuda:0',
+
+ 32%|███▏      | 64/200 [00:19<00:32,  4.21it/s]
+tensor([ 238.8267,  238.4769, -237.7162, -237.8840], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 254.9927,  254.2365, -253.8108, -253.8399], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 263.2096,  262.3854, -261.6226, -262.0600], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 250.6572,  249.9220, -249.6611, -249.6917], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 274.5631,  273.8352, -273.1035, -273.5818], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 273.5317,  272.5791, -271.9245, -272.3023], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 262.9709,  262.4126, -261.7383, -262.1582], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 275.8086,  274.7978, -274.3373, -274.7180], device='cuda:0',
+
+ 36%|███▋      | 73/200 [00:21<00:29,  4.37it/s]
+tensor([ 294.0162,  293.5502, -292.9937, -292.9416], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 291.0546,  290.4406, -289.8157, -289.8208], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 293.5101,  292.6985, -292.2350, -292.3266], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 314.0441,  313.3324, -312.7155, -312.4359], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 297.3123,  296.7347, -296.0344, -296.0812], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 333.0875,  332.1969, -331.5933, -331.7962], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 320.2838,  319.6413, -318.9786, -319.2410], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 325.3421,  324.7755, -324.0919, -324.3615], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 323.0230,  322.2339, -321.6599, -321.9343], device='cuda:0',
+
+ 40%|████      | 81/200 [00:23<00:31,  3.80it/s]
+tensor([ 338.3659,  337.6591, -337.3066, -337.3550], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 330.4618,  329.6690, -329.0972, -329.3971], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 355.5646,  354.6876, -354.3270, -354.4160], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([  1, 146, 155, 144], device='cuda:0', dtype=torch.uint8) tensor([15, 52, 33, 74], device='cuda:0', dtype=torch.uint8)
+tensor([ 354.3546,  353.5879, -353.2339, -353.2444], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 370.1311,  369.1463, -368.5250, -368.4707], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 363.4789,  362.9461, -362.2652, -362.5795], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 371.5602,  371.1644, -370.2801, -370.5570], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 363.3799,  362.5610, -362.2835, -362.4512], device='cuda:0',
+
+ 45%|████▌     | 90/200 [00:25<00:24,  4.52it/s]
+tensor([ 368.0521,  367.1511, -366.5437, -366.8788], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 388.2730,  387.6042, -387.0957, -387.1408], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 380.4845,  379.7272, -379.0386, -379.2344], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 381.7556,  381.0951, -380.4193, -380.4537], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 398.7142,  397.5073, -397.1606, -397.5191], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 393.1595,  392.3284, -391.5360, -391.9612], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 400.9999,  399.9149, -399.6865, -399.8803], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 405.5524,  404.8989, -404.3589, -404.6064], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 437.9890,  437.4386, -436.7316, -436.9166], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 421.4088,  420.5779, -419.9438, -420.1710], device='cuda:0',
+
+ 50%|████▉     | 99/200 [00:27<00:20,  4.83it/s]
+tensor([ 416.4903,  415.5545, -414.9464, -415.1913], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 444.5912,  444.0305, -443.5810, -443.4888], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 448.9764,  447.8644, -447.5588, -447.8310], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 451.6167,  450.6672, -450.2510, -450.2578], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 447.7202,  446.6487, -446.3385, -446.4909], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 450.2278,  449.1806, -448.6002, -448.7452], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 458.4773,  457.4897, -456.9524, -457.2875], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 440.9870,  439.9714, -439.7385, -439.6704], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 473.3009,  472.6363, -471.8846, -472.3019], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 483.0995,  481.9486, -481.4608, -481.7523], device='cuda:0',
+
+ 55%|█████▌    | 110/200 [00:29<00:17,  5.11it/s]
+tensor([ 465.0004,  464.4773, -463.8605, -464.0833], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 491.8932,  491.0573, -490.5160, -490.5011], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 472.5961,  471.8111, -471.0737, -471.5889], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 517.1251,  516.3126, -515.9579, -516.1830], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 498.6754,  497.7003, -497.0726, -497.3040], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 507.5594,  506.8687, -506.4202, -506.3436], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 515.6128,  514.9700, -514.3597, -514.5042], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 524.9758,  524.2747, -523.7293, -523.9059], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 529.1261,  528.2659, -527.6905, -527.9944], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 551.6610,  550.9080, -550.5931, -550.3978], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 544.9699,  544.1290, -543.7906, -543.6923], device='cuda:0',
+
+ 60%|█████▉    | 119/200 [00:31<00:17,  4.67it/s]
+tensor([ 541.3288,  540.4757, -540.1688, -540.1101], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 548.5510,  547.7408, -547.2356, -547.2531], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 576.3249,  575.4957, -575.2244, -575.0240], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 547.2514,  546.4886, -546.0609, -546.5963], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 89, 249,  61, 249], device='cuda:0', dtype=torch.uint8) tensor([ 5, 47, 21, 65], device='cuda:0', dtype=torch.uint8)
+tensor([ 563.9404,  563.1920, -562.6569, -562.7619], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 547.7651,  547.2065, -546.5138, -546.8409], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 561.7027,  560.8312, -560.1503, -560.5147], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 579.2471,  578.3907, -577.7256, -578.2770], device='cuda:0',
+
+ 64%|██████▍   | 129/200 [00:33<00:14,  5.06it/s]
+tensor([ 585.9218,  585.1591, -584.5894, -584.7382], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 563.6988,  563.0164, -562.6052, -562.6895], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 597.1564,  596.5383, -596.1861, -596.4066], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 597.9813,  597.1075, -596.8229, -596.8475], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 606.5854,  605.6649, -605.4364, -605.2271], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 604.2112,  603.2869, -602.8658, -602.9574], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 600.5727,  599.7314, -599.1454, -599.3116], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 595.7052,  594.9630, -594.5024, -594.7004], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 639.3203,  638.4267, -637.9434, -638.3229], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 637.8563,  636.8124, -636.5476, -636.3126], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 663.8477,  663.0114, -662.2642, -662.2717], device='cuda:0',
+
+ 70%|██████▉   | 139/200 [00:35<00:12,  5.08it/s]
+tensor([ 650.3144,  649.4330, -648.9047, -649.0536], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 631.6816,  630.6999, -630.5014, -630.5259], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 661.4681,  660.6387, -660.2374, -660.3691], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 660.8234,  659.8945, -659.3938, -659.6625], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 642.7279,  641.7585, -641.2860, -641.6432], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 675.6781,  674.8300, -674.3138, -674.3976], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 682.3531,  681.5168, -681.3269, -681.3467], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 686.9108,  686.1340, -685.5970, -685.6325], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 657.1672,  656.5542, -656.3101, -656.4463], device='cuda:0',
+
+ 74%|███████▍  | 149/200 [00:37<00:09,  5.21it/s]
+tensor([ 696.0824,  695.4116, -694.8724, -694.8220], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 698.6148,  698.0258, -697.4268, -697.7323], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 688.0136,  687.0667, -686.7502, -686.7822], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 705.9610,  705.0807, -704.8079, -704.8854], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 702.0111,  701.0051, -700.6359, -700.7849], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 701.7845,  700.7719, -700.4766, -700.3750], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 713.1791,  712.1936, -711.7614, -711.8814], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 711.0169,  709.9649, -709.6140, -709.9272], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 762.9522,  762.0410, -761.4678, -761.5695], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 762.4986,  761.5562, -760.9510, -761.2165], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+tensor([ 773.1801,  772.4042, -772.0784, -772.0580], device='cuda:0',
