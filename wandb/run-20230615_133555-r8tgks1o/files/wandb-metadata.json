@@ -1,0 +1,50 @@
+{
+    "os": "Windows-10-10.0.22621-SP0",
+    "python": "3.10.11",
+    "heartbeatAt": "2023-06-15T11:35:56.654243",
+    "startedAt": "2023-06-15T11:35:55.106217",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "C:\\Users\\0005h\\OneDrive\\Documents\\programming\\pycharm\\Bachelor_thesis\\train_bbox.py",
+    "codePath": "train_bbox.py",
+    "git": {
+        "remote": "https://github.com/KorytheHoly/Bachelor_thesis.git",
+        "commit": "28a29803c6c1d2d02b416f68d01ad5f4fd1f2fb9"
+    },
+    "email": "82505847+KorytheHoly@users.noreply.github.com",
+    "root": "C:/Users/0005h/OneDrive/Documents/programming/pycharm/Bachelor_thesis",
+    "host": "Kory_notebook",
+    "username": "0005h",
+    "executable": "C:\\Users\\0005h\\miniconda3\\envs\\thesis\\python.exe",
+    "cpu_count": 6,
+    "cpu_count_logical": 12,
+    "cpu_freq": {
+        "current": 2208.0,
+        "min": 0.0,
+        "max": 2208.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 2208.0,
+            "min": 0.0,
+            "max": 2208.0
+        }
+    ],
+    "disk": {
+        "total": 464.7678871154785,
+        "used": 217.79852294921875
+    },
+    "gpu": "NVIDIA GeForce GTX 1050 Ti with Max-Q Design",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA GeForce GTX 1050 Ti with Max-Q Design",
+            "memory_total": 4294967296
+        }
+    ],
+    "memory": {
+        "total": 15.740032196044922
+    }
+}

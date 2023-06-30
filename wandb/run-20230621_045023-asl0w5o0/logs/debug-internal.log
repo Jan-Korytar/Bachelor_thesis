@@ -1,0 +1,1346 @@
+2023-06-21 04:50:23,773 INFO    StreamThr :19460 [internal.py:wandb_internal():86] W&B internal server running at pid: 19460, started at: 2023-06-21 04:50:23.772619
+2023-06-21 04:50:23,776 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: status
+2023-06-21 04:50:23,785 INFO    WriterThread:19460 [datastore.py:open_for_write():85] open: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\run-asl0w5o0.wandb
+2023-06-21 04:50:23,786 DEBUG   SenderThread:19460 [sender.py:send():369] send: header
+2023-06-21 04:50:23,837 DEBUG   SenderThread:19460 [sender.py:send():369] send: run
+2023-06-21 04:50:24,339 INFO    SenderThread:19460 [dir_watcher.py:__init__():211] watching files in: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files
+2023-06-21 04:50:24,350 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: check_version
+2023-06-21 04:50:24,350 INFO    SenderThread:19460 [sender.py:_start_run_threads():1100] run started: asl0w5o0 with start time 1687315823.774584
+2023-06-21 04:50:24,350 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:50:24,351 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:50:24,352 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: check_version
+2023-06-21 04:50:24,434 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: run_start
+2023-06-21 04:50:24,467 DEBUG   HandlerThread:19460 [system_info.py:__init__():31] System info init
+2023-06-21 04:50:24,467 DEBUG   HandlerThread:19460 [system_info.py:__init__():46] System info init done
+2023-06-21 04:50:24,467 INFO    HandlerThread:19460 [system_monitor.py:start():181] Starting system monitor
+2023-06-21 04:50:24,467 INFO    SystemMonitor:19460 [system_monitor.py:_start():145] Starting system asset monitoring threads
+2023-06-21 04:50:24,468 INFO    HandlerThread:19460 [system_monitor.py:probe():201] Collecting system info
+2023-06-21 04:50:24,472 INFO    SystemMonitor:19460 [interfaces.py:start():190] Started cpu monitoring
+2023-06-21 04:50:24,472 INFO    SystemMonitor:19460 [interfaces.py:start():190] Started disk monitoring
+2023-06-21 04:50:24,473 INFO    SystemMonitor:19460 [interfaces.py:start():190] Started gpu monitoring
+2023-06-21 04:50:24,474 INFO    SystemMonitor:19460 [interfaces.py:start():190] Started memory monitoring
+2023-06-21 04:50:24,488 INFO    SystemMonitor:19460 [interfaces.py:start():190] Started network monitoring
+2023-06-21 04:50:24,495 DEBUG   HandlerThread:19460 [system_info.py:probe():195] Probing system
+2023-06-21 04:50:24,497 DEBUG   HandlerThread:19460 [system_info.py:_probe_git():180] Probing git
+2023-06-21 04:50:24,505 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:50:24,505 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:50:24,596 DEBUG   HandlerThread:19460 [system_info.py:_probe_git():188] Probing git done
+2023-06-21 04:50:24,596 DEBUG   HandlerThread:19460 [system_info.py:probe():240] Probing system done
+2023-06-21 04:50:24,596 DEBUG   HandlerThread:19460 [system_monitor.py:probe():210] {'os': 'Windows-10-10.0.22621-SP0', 'python': '3.10.11', 'heartbeatAt': '2023-06-21T02:50:24.495443', 'startedAt': '2023-06-21T02:50:23.725129', 'docker': None, 'cuda': None, 'args': (), 'state': 'running', 'program': 'C:\\Users\\0005h\\OneDrive\\Documents\\programming\\pycharm\\Bachelor_thesis\\train_bbox.py', 'codePath': 'train_bbox.py', 'git': {'remote': 'https://github.com/KorytheHoly/Bachelor_thesis.git', 'commit': '28a29803c6c1d2d02b416f68d01ad5f4fd1f2fb9'}, 'email': '82505847+KorytheHoly@users.noreply.github.com', 'root': 'C:/Users/0005h/OneDrive/Documents/programming/pycharm/Bachelor_thesis', 'host': 'Kory_notebook', 'username': '0005h', 'executable': 'C:\\Users\\0005h\\miniconda3\\envs\\thesis\\python.exe', 'cpu_count': 6, 'cpu_count_logical': 12, 'cpu_freq': {'current': 2208.0, 'min': 0.0, 'max': 2208.0}, 'cpu_freq_per_core': [{'current': 2208.0, 'min': 0.0, 'max': 2208.0}], 'disk': {'total': 464.7678871154785, 'used': 228.49055099487305}, 'gpu': 'NVIDIA GeForce GTX 1050 Ti with Max-Q Design', 'gpu_count': 1, 'gpu_devices': [{'name': 'NVIDIA GeForce GTX 1050 Ti with Max-Q Design', 'memory_total': 4294967296}], 'memory': {'total': 15.740032196044922}}
+2023-06-21 04:50:24,597 INFO    HandlerThread:19460 [system_monitor.py:probe():211] Finished collecting system info
+2023-06-21 04:50:24,597 INFO    HandlerThread:19460 [system_monitor.py:probe():214] Publishing system info
+2023-06-21 04:50:24,597 DEBUG   HandlerThread:19460 [system_info.py:_save_pip():51] Saving list of pip packages installed into the current environment
+2023-06-21 04:50:24,598 DEBUG   HandlerThread:19460 [system_info.py:_save_pip():67] Saving pip packages done
+2023-06-21 04:50:24,598 DEBUG   HandlerThread:19460 [system_info.py:_save_conda():74] Saving list of conda packages installed into the current environment
+2023-06-21 04:50:24,601 ERROR   HandlerThread:19460 [system_info.py:_save_conda():85] Error saving conda packages: [WinError 2] The system cannot find the file specified
+Traceback (most recent call last):
+  File "C:\Users\0005h\miniconda3\envs\thesis\lib\site-packages\wandb\sdk\internal\system\system_info.py", line 81, in _save_conda
+    subprocess.call(
+  File "C:\Users\0005h\miniconda3\envs\thesis\lib\subprocess.py", line 345, in call
+    with Popen(*popenargs, **kwargs) as p:
+  File "C:\Users\0005h\miniconda3\envs\thesis\lib\subprocess.py", line 971, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "C:\Users\0005h\miniconda3\envs\thesis\lib\subprocess.py", line 1456, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+FileNotFoundError: [WinError 2] The system cannot find the file specified
+2023-06-21 04:50:24,603 DEBUG   HandlerThread:19460 [system_info.py:_save_conda():86] Saving conda packages done
+2023-06-21 04:50:24,604 INFO    HandlerThread:19460 [system_monitor.py:probe():216] Finished publishing system info
+2023-06-21 04:50:24,610 DEBUG   SenderThread:19460 [sender.py:send():369] send: files
+2023-06-21 04:50:24,610 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-metadata.json with policy now
+2023-06-21 04:50:24,623 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-21 04:50:24,624 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: stop_status
+2023-06-21 04:50:24,884 DEBUG   SenderThread:19460 [sender.py:send():369] send: telemetry
+2023-06-21 04:50:24,885 DEBUG   SenderThread:19460 [sender.py:send():369] send: telemetry
+2023-06-21 04:50:25,239 INFO    wandb-upload_0:19460 [upload_job.py:push():133] Uploaded file C:\Users\0005h\AppData\Local\Temp\tmpa24sp4a2wandb\oycd2ubg-wandb-metadata.json
+2023-06-21 04:50:25,352 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_created():272] file/dir created: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\wandb-metadata.json
+2023-06-21 04:50:25,352 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_created():272] file/dir created: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\conda-environment.yaml
+2023-06-21 04:50:25,353 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_created():272] file/dir created: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:50:25,353 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_created():272] file/dir created: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\wandb-summary.json
+2023-06-21 04:50:25,353 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_created():272] file/dir created: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\requirements.txt
+2023-06-21 04:50:26,551 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:50:26,551 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:50:27,367 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:50:28,580 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:50:28,581 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:50:28,849 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:50:28,852 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:50:28,853 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:50:28,854 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: status_report
+2023-06-21 04:50:28,855 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:50:29,385 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:50:29,386 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\wandb-summary.json
+2023-06-21 04:50:30,614 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:50:30,615 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:50:31,402 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:50:32,652 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:50:32,653 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:50:32,947 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:50:32,949 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:50:32,950 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:50:32,951 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:50:32,981 DEBUG   SenderThread:19460 [sender.py:send():369] send: files
+2023-06-21 04:50:32,982 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file media\images\train_image_2_56b8ab04475dc8eac92a.png with policy now
+2023-06-21 04:50:32,983 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:50:32,988 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:50:32,988 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:50:32,989 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:50:33,419 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:50:33,420 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\wandb-summary.json
+2023-06-21 04:50:33,421 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_created():272] file/dir created: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images\train_image_2_56b8ab04475dc8eac92a.png
+2023-06-21 04:50:33,422 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_created():272] file/dir created: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images
+2023-06-21 04:50:33,423 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_created():272] file/dir created: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media
+2023-06-21 04:50:33,524 INFO    wandb-upload_0:19460 [upload_job.py:push():133] Uploaded file C:\Users\0005h\AppData\Local\Temp\tmpa24sp4a2wandb\lgptynge-media/images/train_image_2_56b8ab04475dc8eac92a.png
+2023-06-21 04:50:34,109 INFO    wandb-upload_0:19460 [upload_job.py:push():133] Uploaded file C:\Users\0005h\AppData\Local\Temp\tmpa24sp4a2wandb\a3gks63k-media/images/train_image_2_56b8ab04475dc8eac92a.png
+2023-06-21 04:50:34,648 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: status_report
+2023-06-21 04:50:34,679 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:50:34,679 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:50:35,433 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:50:36,722 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:50:36,722 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:50:37,066 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:50:37,069 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:50:37,069 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:50:37,070 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:50:37,451 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:50:37,452 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\wandb-summary.json
+2023-06-21 04:50:38,760 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:50:38,761 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:50:39,471 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:50:39,643 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-21 04:50:39,644 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: stop_status
+2023-06-21 04:50:39,815 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: status_report
+2023-06-21 04:50:40,804 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:50:40,804 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:50:40,823 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:50:40,826 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:50:40,829 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:50:40,881 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:50:40,922 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:50:40,924 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:50:40,973 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:50:40,975 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:50:41,138 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:50:41,140 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:50:41,244 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:50:41,245 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:50:41,252 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:50:41,261 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:50:41,264 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:50:41,268 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:50:41,293 DEBUG   SenderThread:19460 [sender.py:send():369] send: files
+2023-06-21 04:50:41,294 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:50:41,294 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file media\images\train_image_5_0ce558e97c70db7fddf6.png with policy now
+2023-06-21 04:50:41,300 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:50:41,301 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:50:41,307 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:50:41,492 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:50:41,492 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\wandb-summary.json
+2023-06-21 04:50:41,495 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_created():272] file/dir created: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images\train_image_5_0ce558e97c70db7fddf6.png
+2023-06-21 04:50:41,496 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images
+2023-06-21 04:50:41,822 INFO    wandb-upload_0:19460 [upload_job.py:push():133] Uploaded file C:\Users\0005h\AppData\Local\Temp\tmpa24sp4a2wandb\wvc2dcob-media/images/train_image_5_0ce558e97c70db7fddf6.png
+2023-06-21 04:50:42,358 INFO    wandb-upload_0:19460 [upload_job.py:push():133] Uploaded file C:\Users\0005h\AppData\Local\Temp\tmpa24sp4a2wandb\8vpkkl8g-media/images/train_image_5_0ce558e97c70db7fddf6.png
+2023-06-21 04:50:42,821 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:50:42,822 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:50:43,503 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:50:44,861 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:50:44,862 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:50:45,223 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:50:45,229 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:50:45,230 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:50:45,234 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: status_report
+2023-06-21 04:50:45,235 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:50:45,516 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:50:45,517 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\wandb-summary.json
+2023-06-21 04:50:46,886 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:50:46,886 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:50:47,531 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:50:48,913 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:50:48,913 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:50:49,076 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:50:49,079 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:50:49,080 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:50:49,083 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:50:49,102 DEBUG   SenderThread:19460 [sender.py:send():369] send: files
+2023-06-21 04:50:49,102 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file media\images\train_image_8_80870c110d35e1bb756a.png with policy now
+2023-06-21 04:50:49,104 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:50:49,109 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:50:49,110 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:50:49,113 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:50:49,540 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:50:49,541 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\wandb-summary.json
+2023-06-21 04:50:49,541 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_created():272] file/dir created: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images\train_image_8_80870c110d35e1bb756a.png
+2023-06-21 04:50:49,542 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images
+2023-06-21 04:50:49,629 INFO    wandb-upload_0:19460 [upload_job.py:push():133] Uploaded file C:\Users\0005h\AppData\Local\Temp\tmpa24sp4a2wandb\2e3sjnhd-media/images/train_image_8_80870c110d35e1bb756a.png
+2023-06-21 04:50:50,154 INFO    wandb-upload_0:19460 [upload_job.py:push():133] Uploaded file C:\Users\0005h\AppData\Local\Temp\tmpa24sp4a2wandb\zxw3u4sk-media/images/train_image_8_80870c110d35e1bb756a.png
+2023-06-21 04:50:50,598 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: status_report
+2023-06-21 04:50:50,942 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:50:50,942 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:50:51,554 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:50:52,962 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:50:52,963 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:50:52,969 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:50:52,974 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:50:52,974 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:50:52,977 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:50:53,577 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:50:53,578 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\wandb-summary.json
+2023-06-21 04:50:54,647 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-21 04:50:54,647 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: stop_status
+2023-06-21 04:50:55,040 ERROR   gpu       :19460 [interfaces.py:aggregate():161] Failed to serialize metric: division by zero
+2023-06-21 04:50:55,060 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:50:55,060 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:50:55,590 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:50:56,129 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: status_report
+2023-06-21 04:50:56,550 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:50:56,552 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:50:56,555 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:50:56,596 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\config.yaml
+2023-06-21 04:50:56,613 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:50:56,648 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:50:56,650 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:50:56,695 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:50:56,697 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:50:56,863 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:50:56,865 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:50:56,988 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:50:56,990 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:50:56,990 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:50:57,003 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:50:57,006 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:50:57,011 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:50:57,024 DEBUG   SenderThread:19460 [sender.py:send():369] send: files
+2023-06-21 04:50:57,025 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file media\images\train_image_11_b5c7be37be8690ff239b.png with policy now
+2023-06-21 04:50:57,026 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:50:57,034 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:50:57,035 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:50:57,041 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:50:57,101 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:50:57,101 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:50:57,529 INFO    wandb-upload_0:19460 [upload_job.py:push():133] Uploaded file C:\Users\0005h\AppData\Local\Temp\tmpa24sp4a2wandb\5h9pged2-media/images/train_image_11_b5c7be37be8690ff239b.png
+2023-06-21 04:50:57,600 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:50:57,600 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\wandb-summary.json
+2023-06-21 04:50:57,601 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_created():272] file/dir created: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images\train_image_11_b5c7be37be8690ff239b.png
+2023-06-21 04:50:57,603 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images
+2023-06-21 04:50:58,147 INFO    wandb-upload_0:19460 [upload_job.py:push():133] Uploaded file C:\Users\0005h\AppData\Local\Temp\tmpa24sp4a2wandb\0wvev5ek-media/images/train_image_11_b5c7be37be8690ff239b.png
+2023-06-21 04:50:59,133 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:50:59,133 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:50:59,615 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:51:01,001 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:51:01,007 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:51:01,007 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:51:01,011 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:51:01,163 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:51:01,164 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:51:01,628 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:51:01,628 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\wandb-summary.json
+2023-06-21 04:51:01,805 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: status_report
+2023-06-21 04:51:03,188 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:51:03,188 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:51:03,641 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:51:04,926 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:51:04,929 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:51:04,929 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:51:04,934 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:51:04,963 DEBUG   SenderThread:19460 [sender.py:send():369] send: files
+2023-06-21 04:51:04,963 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file media\images\train_image_14_8355037b16cdc6f2b60f.png with policy now
+2023-06-21 04:51:04,965 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:51:04,971 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:51:04,971 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:51:04,977 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:51:05,217 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:51:05,217 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:51:05,506 INFO    wandb-upload_0:19460 [upload_job.py:push():133] Uploaded file C:\Users\0005h\AppData\Local\Temp\tmpa24sp4a2wandb\62cjsdjk-media/images/train_image_14_8355037b16cdc6f2b60f.png
+2023-06-21 04:51:05,650 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:51:05,650 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\wandb-summary.json
+2023-06-21 04:51:05,651 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_created():272] file/dir created: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images\train_image_14_8355037b16cdc6f2b60f.png
+2023-06-21 04:51:05,652 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images
+2023-06-21 04:51:06,216 INFO    wandb-upload_0:19460 [upload_job.py:push():133] Uploaded file C:\Users\0005h\AppData\Local\Temp\tmpa24sp4a2wandb\x2otfpju-media/images/train_image_14_8355037b16cdc6f2b60f.png
+2023-06-21 04:51:06,954 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: status_report
+2023-06-21 04:51:07,248 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:51:07,249 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:51:07,663 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:51:09,277 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:51:09,278 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:51:09,662 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-21 04:51:09,662 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: stop_status
+2023-06-21 04:51:09,680 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:51:10,111 DEBUG   SenderThread:19460 [sender.py:send():369] send: files
+2023-06-21 04:51:10,112 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file media\images\val_image_15_906f9687942e763ddbff.png with policy now
+2023-06-21 04:51:10,114 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:51:10,123 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:51:10,124 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:51:10,131 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:51:10,641 INFO    wandb-upload_0:19460 [upload_job.py:push():133] Uploaded file C:\Users\0005h\AppData\Local\Temp\tmpa24sp4a2wandb\g88r5xkm-media/images/val_image_15_906f9687942e763ddbff.png
+2023-06-21 04:51:10,683 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\wandb-summary.json
+2023-06-21 04:51:10,684 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_created():272] file/dir created: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images\val_image_15_906f9687942e763ddbff.png
+2023-06-21 04:51:10,685 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images
+2023-06-21 04:51:11,223 INFO    wandb-upload_0:19460 [upload_job.py:push():133] Uploaded file C:\Users\0005h\AppData\Local\Temp\tmpa24sp4a2wandb\rmbu5sv9-media/images/val_image_15_906f9687942e763ddbff.png
+2023-06-21 04:51:11,306 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:51:11,306 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:51:11,688 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:51:12,501 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: status_report
+2023-06-21 04:51:13,330 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:51:13,330 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:51:13,698 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:51:14,000 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:51:14,007 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:51:14,008 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:51:14,011 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:51:14,706 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\wandb-summary.json
+2023-06-21 04:51:15,197 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:51:15,200 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:51:15,205 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:51:15,248 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:51:15,283 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:51:15,285 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:51:15,329 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:51:15,332 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:51:15,356 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:51:15,357 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:51:15,498 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:51:15,499 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:51:15,602 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:51:15,603 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:51:15,711 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:51:17,381 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:51:17,382 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:51:17,723 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:51:17,852 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:51:17,866 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:51:17,871 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:51:17,876 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: status_report
+2023-06-21 04:51:17,877 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:51:17,885 DEBUG   SenderThread:19460 [sender.py:send():369] send: files
+2023-06-21 04:51:17,885 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:51:17,886 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file media\images\train_image_18_bebabd928d77af2daabe.png with policy now
+2023-06-21 04:51:17,892 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:51:17,892 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:51:17,896 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:51:18,431 INFO    wandb-upload_0:19460 [upload_job.py:push():133] Uploaded file C:\Users\0005h\AppData\Local\Temp\tmpa24sp4a2wandb\ll0wwrza-media/images/train_image_18_bebabd928d77af2daabe.png
+2023-06-21 04:51:18,728 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\wandb-summary.json
+2023-06-21 04:51:18,728 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_created():272] file/dir created: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images\train_image_18_bebabd928d77af2daabe.png
+2023-06-21 04:51:18,729 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images
+2023-06-21 04:51:19,334 INFO    wandb-upload_0:19460 [upload_job.py:push():133] Uploaded file C:\Users\0005h\AppData\Local\Temp\tmpa24sp4a2wandb\lrdqnwxr-media/images/train_image_18_bebabd928d77af2daabe.png
+2023-06-21 04:51:19,407 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:51:19,408 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:51:19,738 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:51:21,437 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:51:21,437 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:51:21,780 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:51:21,781 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:51:21,786 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:51:21,787 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:51:21,793 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:51:22,787 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\wandb-summary.json
+2023-06-21 04:51:23,282 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: status_report
+2023-06-21 04:51:23,467 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:51:23,467 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:51:23,791 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:51:24,500 DEBUG   SystemMonitor:19460 [system_monitor.py:_start():159] Starting system metrics aggregation loop
+2023-06-21 04:51:24,503 DEBUG   SenderThread:19460 [sender.py:send():369] send: stats
+2023-06-21 04:51:24,796 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-21 04:51:24,798 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: stop_status
+2023-06-21 04:51:25,521 ERROR   gpu       :19460 [interfaces.py:aggregate():161] Failed to serialize metric: division by zero
+2023-06-21 04:51:25,556 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:51:25,557 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:51:25,640 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:51:25,644 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:51:25,644 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:51:25,647 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:51:25,679 DEBUG   SenderThread:19460 [sender.py:send():369] send: files
+2023-06-21 04:51:25,680 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file media\images\train_image_21_27d15a6642fdf22083e3.png with policy now
+2023-06-21 04:51:25,680 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:51:25,686 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:51:25,686 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:51:25,690 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:51:25,818 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:51:25,818 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\wandb-summary.json
+2023-06-21 04:51:25,819 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_created():272] file/dir created: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images\train_image_21_27d15a6642fdf22083e3.png
+2023-06-21 04:51:25,820 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images
+2023-06-21 04:51:26,203 INFO    wandb-upload_0:19460 [upload_job.py:push():133] Uploaded file C:\Users\0005h\AppData\Local\Temp\tmpa24sp4a2wandb\v4lyrodk-media/images/train_image_21_27d15a6642fdf22083e3.png
+2023-06-21 04:51:26,788 INFO    wandb-upload_0:19460 [upload_job.py:push():133] Uploaded file C:\Users\0005h\AppData\Local\Temp\tmpa24sp4a2wandb\tl6zkexg-media/images/train_image_21_27d15a6642fdf22083e3.png
+2023-06-21 04:51:27,589 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:51:27,590 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:51:27,830 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:51:28,676 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: status_report
+2023-06-21 04:51:29,499 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:51:29,503 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:51:29,503 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:51:29,509 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:51:29,621 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:51:29,621 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:51:29,841 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:51:29,842 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\wandb-summary.json
+2023-06-21 04:51:30,651 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:51:30,654 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:51:30,657 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:51:30,720 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:51:30,765 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:51:30,766 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:51:30,822 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:51:30,824 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:51:30,982 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:51:30,984 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:51:31,090 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:51:31,092 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:51:31,650 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:51:31,650 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:51:31,855 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:51:33,404 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:51:33,427 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:51:33,431 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:51:33,436 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:51:33,453 DEBUG   SenderThread:19460 [sender.py:send():369] send: files
+2023-06-21 04:51:33,454 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file media\images\train_image_24_7ff8d6262a9a9c814a56.png with policy now
+2023-06-21 04:51:33,455 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:51:33,461 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:51:33,463 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:51:33,468 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:51:33,691 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:51:33,691 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:51:33,868 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:51:33,869 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\wandb-summary.json
+2023-06-21 04:51:33,870 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_created():272] file/dir created: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images\train_image_24_7ff8d6262a9a9c814a56.png
+2023-06-21 04:51:33,871 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images
+2023-06-21 04:51:33,984 INFO    wandb-upload_0:19460 [upload_job.py:push():133] Uploaded file C:\Users\0005h\AppData\Local\Temp\tmpa24sp4a2wandb\c15m8n1i-media/images/train_image_24_7ff8d6262a9a9c814a56.png
+2023-06-21 04:51:34,387 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: status_report
+2023-06-21 04:51:34,499 INFO    wandb-upload_0:19460 [upload_job.py:push():133] Uploaded file C:\Users\0005h\AppData\Local\Temp\tmpa24sp4a2wandb\o1j5xmdi-media/images/train_image_24_7ff8d6262a9a9c814a56.png
+2023-06-21 04:51:35,721 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:51:35,721 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:51:35,892 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:51:37,463 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:51:37,468 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:51:37,469 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:51:37,474 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:51:37,764 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:51:37,764 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:51:37,905 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:51:37,905 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\wandb-summary.json
+2023-06-21 04:51:39,765 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: status_report
+2023-06-21 04:51:39,788 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-21 04:51:39,789 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: stop_status
+2023-06-21 04:51:39,801 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:51:39,801 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:51:39,912 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:51:41,247 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:51:41,252 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:51:41,253 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:51:41,258 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:51:41,276 DEBUG   SenderThread:19460 [sender.py:send():369] send: files
+2023-06-21 04:51:41,276 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file media\images\train_image_27_ce7f784dfd7d725b7d06.png with policy now
+2023-06-21 04:51:41,277 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:51:41,282 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:51:41,282 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:51:41,285 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:51:41,840 INFO    wandb-upload_0:19460 [upload_job.py:push():133] Uploaded file C:\Users\0005h\AppData\Local\Temp\tmpa24sp4a2wandb\1f2czt5s-media/images/train_image_27_ce7f784dfd7d725b7d06.png
+2023-06-21 04:51:41,842 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:51:41,843 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:51:41,929 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:51:41,930 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\wandb-summary.json
+2023-06-21 04:51:41,930 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_created():272] file/dir created: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images\train_image_27_ce7f784dfd7d725b7d06.png
+2023-06-21 04:51:41,931 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images
+2023-06-21 04:51:42,484 INFO    wandb-upload_0:19460 [upload_job.py:push():133] Uploaded file C:\Users\0005h\AppData\Local\Temp\tmpa24sp4a2wandb\mrrv0xku-media/images/train_image_27_ce7f784dfd7d725b7d06.png
+2023-06-21 04:51:43,862 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:51:43,862 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:51:43,942 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:51:45,117 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:51:45,122 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:51:45,123 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:51:45,123 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: status_report
+2023-06-21 04:51:45,128 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:51:45,886 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:51:45,886 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:51:45,964 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:51:45,965 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\wandb-summary.json
+2023-06-21 04:51:46,222 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:51:46,225 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:51:46,228 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:51:46,291 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:51:46,338 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:51:46,340 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:51:46,395 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:51:46,398 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:51:46,555 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:51:46,557 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:51:46,665 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:51:46,667 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:51:47,924 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:51:47,925 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:51:47,976 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:51:48,910 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:51:48,932 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:51:48,935 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:51:48,939 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:51:48,951 DEBUG   SenderThread:19460 [sender.py:send():369] send: files
+2023-06-21 04:51:48,952 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file media\images\train_image_30_596a54576a8cb15eaf45.png with policy now
+2023-06-21 04:51:48,953 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:51:48,957 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:51:48,957 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:51:48,963 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:51:48,995 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\wandb-summary.json
+2023-06-21 04:51:48,996 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_created():272] file/dir created: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images\train_image_30_596a54576a8cb15eaf45.png
+2023-06-21 04:51:48,997 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images
+2023-06-21 04:51:49,469 INFO    wandb-upload_0:19460 [upload_job.py:push():133] Uploaded file C:\Users\0005h\AppData\Local\Temp\tmpa24sp4a2wandb\sjnygpt2-media/images/train_image_30_596a54576a8cb15eaf45.png
+2023-06-21 04:51:49,951 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:51:49,951 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:51:50,007 INFO    wandb-upload_0:19460 [upload_job.py:push():133] Uploaded file C:\Users\0005h\AppData\Local\Temp\tmpa24sp4a2wandb\jvflkq3k-media/images/train_image_30_596a54576a8cb15eaf45.png
+2023-06-21 04:51:50,014 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:51:50,476 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: status_report
+2023-06-21 04:51:51,984 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:51:51,985 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:51:52,044 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:51:53,981 DEBUG   SenderThread:19460 [sender.py:send():369] send: files
+2023-06-21 04:51:53,981 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file media\images\val_image_31_d3310f8dd5c20b419639.png with policy now
+2023-06-21 04:51:53,983 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:51:53,994 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:51:53,995 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:51:54,003 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:51:54,030 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:51:54,034 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:51:54,053 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:51:54,054 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\wandb-summary.json
+2023-06-21 04:51:54,054 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_created():272] file/dir created: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images\val_image_31_d3310f8dd5c20b419639.png
+2023-06-21 04:51:54,055 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images
+2023-06-21 04:51:54,516 DEBUG   SenderThread:19460 [sender.py:send():369] send: stats
+2023-06-21 04:51:54,550 INFO    wandb-upload_0:19460 [upload_job.py:push():133] Uploaded file C:\Users\0005h\AppData\Local\Temp\tmpa24sp4a2wandb\rgarmqmp-media/images/val_image_31_d3310f8dd5c20b419639.png
+2023-06-21 04:51:54,835 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-21 04:51:54,835 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: stop_status
+2023-06-21 04:51:55,118 INFO    wandb-upload_0:19460 [upload_job.py:push():133] Uploaded file C:\Users\0005h\AppData\Local\Temp\tmpa24sp4a2wandb\yu7py67c-media/images/val_image_31_d3310f8dd5c20b419639.png
+2023-06-21 04:51:55,619 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: status_report
+2023-06-21 04:51:56,118 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:51:56,119 ERROR   gpu       :19460 [interfaces.py:aggregate():161] Failed to serialize metric: division by zero
+2023-06-21 04:51:56,138 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:51:56,138 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:51:57,926 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:51:57,932 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:51:57,932 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:51:57,954 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:51:58,139 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:51:58,139 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\wandb-summary.json
+2023-06-21 04:51:58,170 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:51:58,171 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:52:00,150 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:52:00,194 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:52:00,194 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:52:00,933 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: status_report
+2023-06-21 04:52:01,710 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:52:01,713 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:52:01,713 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:52:01,716 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:52:01,738 DEBUG   SenderThread:19460 [sender.py:send():369] send: files
+2023-06-21 04:52:01,739 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:52:01,739 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file media\images\train_image_34_56643917b6661811b998.png with policy now
+2023-06-21 04:52:01,747 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:52:01,747 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:52:01,752 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:52:02,164 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:52:02,165 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\wandb-summary.json
+2023-06-21 04:52:02,166 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_created():272] file/dir created: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images\train_image_34_56643917b6661811b998.png
+2023-06-21 04:52:02,167 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images
+2023-06-21 04:52:02,225 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:52:02,225 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:52:02,289 INFO    wandb-upload_0:19460 [upload_job.py:push():133] Uploaded file C:\Users\0005h\AppData\Local\Temp\tmpa24sp4a2wandb\cjr7946o-media/images/train_image_34_56643917b6661811b998.png
+2023-06-21 04:52:02,879 INFO    wandb-upload_0:19460 [upload_job.py:push():133] Uploaded file C:\Users\0005h\AppData\Local\Temp\tmpa24sp4a2wandb\729q8iis-media/images/train_image_34_56643917b6661811b998.png
+2023-06-21 04:52:04,185 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:52:04,248 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:52:04,249 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:52:04,475 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:52:04,477 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:52:04,481 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:52:04,524 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:52:04,559 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:52:04,562 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:52:04,607 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:52:04,609 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:52:04,773 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:52:04,774 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:52:04,881 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:52:04,883 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:52:05,762 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:52:05,786 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:52:05,789 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:52:05,792 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:52:06,196 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:52:06,196 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\wandb-summary.json
+2023-06-21 04:52:06,290 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:52:06,290 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:52:06,501 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: status_report
+2023-06-21 04:52:08,207 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:52:08,321 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:52:08,321 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:52:09,571 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:52:09,574 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:52:09,574 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:52:09,579 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:52:09,612 DEBUG   SenderThread:19460 [sender.py:send():369] send: files
+2023-06-21 04:52:09,612 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file media\images\train_image_37_4afeacb6408e3e136cab.png with policy now
+2023-06-21 04:52:09,613 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:52:09,617 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:52:09,618 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:52:09,621 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:52:09,848 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-21 04:52:09,849 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: stop_status
+2023-06-21 04:52:10,132 INFO    wandb-upload_0:19460 [upload_job.py:push():133] Uploaded file C:\Users\0005h\AppData\Local\Temp\tmpa24sp4a2wandb\3xjusfyl-media/images/train_image_37_4afeacb6408e3e136cab.png
+2023-06-21 04:52:10,222 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:52:10,222 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\wandb-summary.json
+2023-06-21 04:52:10,223 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_created():272] file/dir created: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images\train_image_37_4afeacb6408e3e136cab.png
+2023-06-21 04:52:10,224 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images
+2023-06-21 04:52:10,345 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:52:10,345 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:52:10,766 INFO    wandb-upload_0:19460 [upload_job.py:push():133] Uploaded file C:\Users\0005h\AppData\Local\Temp\tmpa24sp4a2wandb\hp81gf1c-media/images/train_image_37_4afeacb6408e3e136cab.png
+2023-06-21 04:52:11,963 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: status_report
+2023-06-21 04:52:12,247 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:52:12,371 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:52:12,371 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:52:13,493 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:52:13,499 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:52:13,500 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:52:13,503 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:52:14,261 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:52:14,262 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\wandb-summary.json
+2023-06-21 04:52:14,405 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:52:14,405 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:52:16,275 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:52:16,437 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:52:16,437 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:52:17,317 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:52:17,322 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:52:17,322 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:52:17,323 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: status_report
+2023-06-21 04:52:17,328 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:52:17,354 DEBUG   SenderThread:19460 [sender.py:send():369] send: files
+2023-06-21 04:52:17,354 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file media\images\train_image_40_85ebc7fc5be3f66f62ee.png with policy now
+2023-06-21 04:52:17,355 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:52:17,359 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:52:17,360 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:52:17,365 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:52:17,869 INFO    wandb-upload_0:19460 [upload_job.py:push():133] Uploaded file C:\Users\0005h\AppData\Local\Temp\tmpa24sp4a2wandb\ni8s0vto-media/images/train_image_40_85ebc7fc5be3f66f62ee.png
+2023-06-21 04:52:18,286 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:52:18,287 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\wandb-summary.json
+2023-06-21 04:52:18,289 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_created():272] file/dir created: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images\train_image_40_85ebc7fc5be3f66f62ee.png
+2023-06-21 04:52:18,291 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images
+2023-06-21 04:52:18,480 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:52:18,481 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:52:18,872 INFO    wandb-upload_0:19460 [upload_job.py:push():133] Uploaded file C:\Users\0005h\AppData\Local\Temp\tmpa24sp4a2wandb\h9mw7wlr-media/images/train_image_40_85ebc7fc5be3f66f62ee.png
+2023-06-21 04:52:20,125 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:52:20,127 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:52:20,132 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:52:20,184 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:52:20,228 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:52:20,230 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:52:20,294 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:52:20,295 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:52:20,309 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:52:20,439 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:52:20,441 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:52:20,510 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:52:20,510 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:52:20,546 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:52:20,547 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:52:21,278 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:52:21,291 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:52:21,294 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:52:21,301 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:52:21,317 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\wandb-summary.json
+2023-06-21 04:52:22,330 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:52:22,547 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:52:22,547 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:52:22,891 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: status_report
+2023-06-21 04:52:24,350 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:52:24,519 DEBUG   SenderThread:19460 [sender.py:send():369] send: stats
+2023-06-21 04:52:24,581 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:52:24,582 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:52:25,200 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-21 04:52:25,201 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:52:25,201 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: stop_status
+2023-06-21 04:52:25,241 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:52:25,354 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_created():272] file/dir created: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images\train_image_43_101f831d934ad3c04c40.png
+2023-06-21 04:52:25,355 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images
+2023-06-21 04:52:25,382 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:52:25,383 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:52:25,387 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:52:25,388 DEBUG   SenderThread:19460 [sender.py:send():369] send: files
+2023-06-21 04:52:25,388 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file media\images\train_image_43_101f831d934ad3c04c40.png with policy now
+2023-06-21 04:52:25,390 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:52:25,390 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:52:25,394 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:52:25,917 INFO    wandb-upload_0:19460 [upload_job.py:push():133] Uploaded file C:\Users\0005h\AppData\Local\Temp\tmpa24sp4a2wandb\jwe2r0ml-media/images/train_image_43_101f831d934ad3c04c40.png
+2023-06-21 04:52:26,385 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:52:26,386 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\wandb-summary.json
+2023-06-21 04:52:26,522 INFO    wandb-upload_0:19460 [upload_job.py:push():133] Uploaded file C:\Users\0005h\AppData\Local\Temp\tmpa24sp4a2wandb\0hrqlyso-media/images/train_image_43_101f831d934ad3c04c40.png
+2023-06-21 04:52:26,654 ERROR   gpu       :19460 [interfaces.py:aggregate():161] Failed to serialize metric: division by zero
+2023-06-21 04:52:26,672 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:52:26,673 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:52:28,371 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: status_report
+2023-06-21 04:52:28,412 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:52:28,704 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:52:28,705 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:52:29,141 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:52:29,145 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:52:29,146 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:52:29,149 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:52:29,425 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\wandb-summary.json
+2023-06-21 04:52:30,438 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:52:30,726 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:52:30,726 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:52:32,471 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:52:32,752 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:52:32,752 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:52:32,924 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:52:32,940 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:52:32,941 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:52:32,946 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:52:32,957 DEBUG   SenderThread:19460 [sender.py:send():369] send: files
+2023-06-21 04:52:32,957 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file media\images\train_image_46_1419acae39bcab8f0d0d.png with policy now
+2023-06-21 04:52:32,958 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:52:32,962 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:52:32,962 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:52:32,966 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:52:33,470 INFO    wandb-upload_0:19460 [upload_job.py:push():133] Uploaded file C:\Users\0005h\AppData\Local\Temp\tmpa24sp4a2wandb\cfwoy6jy-media/images/train_image_46_1419acae39bcab8f0d0d.png
+2023-06-21 04:52:33,477 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\wandb-summary.json
+2023-06-21 04:52:33,477 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_created():272] file/dir created: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images\train_image_46_1419acae39bcab8f0d0d.png
+2023-06-21 04:52:33,479 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images
+2023-06-21 04:52:33,713 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: status_report
+2023-06-21 04:52:34,009 INFO    wandb-upload_0:19460 [upload_job.py:push():133] Uploaded file C:\Users\0005h\AppData\Local\Temp\tmpa24sp4a2wandb\aash0r0o-media/images/train_image_46_1419acae39bcab8f0d0d.png
+2023-06-21 04:52:34,501 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:52:34,793 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:52:34,794 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:52:36,532 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:52:36,825 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:52:36,826 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:52:37,967 DEBUG   SenderThread:19460 [sender.py:send():369] send: files
+2023-06-21 04:52:37,967 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file media\images\val_image_47_e3811d65c5b2d536a6d6.png with policy now
+2023-06-21 04:52:37,968 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:52:37,976 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:52:37,977 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:52:37,985 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:52:38,476 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:52:38,479 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:52:38,483 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:52:38,522 INFO    wandb-upload_0:19460 [upload_job.py:push():133] Uploaded file C:\Users\0005h\AppData\Local\Temp\tmpa24sp4a2wandb\22fnin6f-media/images/val_image_47_e3811d65c5b2d536a6d6.png
+2023-06-21 04:52:38,526 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:52:38,559 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:52:38,561 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:52:38,563 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\wandb-summary.json
+2023-06-21 04:52:38,563 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:52:38,563 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_created():272] file/dir created: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images\val_image_47_e3811d65c5b2d536a6d6.png
+2023-06-21 04:52:38,565 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images
+2023-06-21 04:52:38,607 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:52:38,609 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:52:38,778 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:52:38,782 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:52:38,844 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:52:38,845 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:52:38,882 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:52:38,884 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:52:38,891 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: status_report
+2023-06-21 04:52:39,127 INFO    wandb-upload_0:19460 [upload_job.py:push():133] Uploaded file C:\Users\0005h\AppData\Local\Temp\tmpa24sp4a2wandb\7vncz5jm-media/images/val_image_47_e3811d65c5b2d536a6d6.png
+2023-06-21 04:52:40,508 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-21 04:52:40,509 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: stop_status
+2023-06-21 04:52:40,592 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:52:40,884 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:52:40,885 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:52:41,980 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:52:41,992 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:52:41,995 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:52:41,998 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:52:42,606 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:52:42,606 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\wandb-summary.json
+2023-06-21 04:52:42,915 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:52:42,915 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:52:44,341 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: status_report
+2023-06-21 04:52:44,640 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:52:44,953 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:52:44,954 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:52:45,873 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:52:45,878 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:52:45,879 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:52:45,884 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:52:45,916 DEBUG   SenderThread:19460 [sender.py:send():369] send: files
+2023-06-21 04:52:45,916 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:52:45,916 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file media\images\train_image_50_6b938ce1d6868e752899.png with policy now
+2023-06-21 04:52:45,923 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:52:45,924 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:52:45,930 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:52:46,437 INFO    wandb-upload_0:19460 [upload_job.py:push():133] Uploaded file C:\Users\0005h\AppData\Local\Temp\tmpa24sp4a2wandb\vpcxd1s4-media/images/train_image_50_6b938ce1d6868e752899.png
+2023-06-21 04:52:46,661 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:52:46,661 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\wandb-summary.json
+2023-06-21 04:52:46,662 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_created():272] file/dir created: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images\train_image_50_6b938ce1d6868e752899.png
+2023-06-21 04:52:46,663 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images
+2023-06-21 04:52:46,991 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:52:46,991 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:52:47,222 INFO    wandb-upload_0:19460 [upload_job.py:push():133] Uploaded file C:\Users\0005h\AppData\Local\Temp\tmpa24sp4a2wandb\nmmplhoq-media/images/train_image_50_6b938ce1d6868e752899.png
+2023-06-21 04:52:48,698 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:52:49,024 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:52:49,034 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:52:49,883 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:52:49,887 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:52:49,887 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:52:49,888 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: status_report
+2023-06-21 04:52:49,891 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:52:50,728 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:52:50,728 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\wandb-summary.json
+2023-06-21 04:52:51,069 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:52:51,069 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:52:52,756 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:52:53,095 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:52:53,096 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:52:53,722 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:52:53,727 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:52:53,728 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:52:53,731 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:52:53,761 DEBUG   SenderThread:19460 [sender.py:send():369] send: files
+2023-06-21 04:52:53,761 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file media\images\train_image_53_696a78c6313159705581.png with policy now
+2023-06-21 04:52:53,762 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:52:53,767 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:52:53,767 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:52:53,773 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:52:53,781 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\wandb-summary.json
+2023-06-21 04:52:53,782 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_created():272] file/dir created: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images\train_image_53_696a78c6313159705581.png
+2023-06-21 04:52:53,783 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images
+2023-06-21 04:52:54,169 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:52:54,171 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:52:54,175 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:52:54,222 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:52:54,268 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:52:54,269 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:52:54,273 INFO    wandb-upload_0:19460 [upload_job.py:push():133] Uploaded file C:\Users\0005h\AppData\Local\Temp\tmpa24sp4a2wandb\sr9ibalr-media/images/train_image_53_696a78c6313159705581.png
+2023-06-21 04:52:54,322 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:52:54,323 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:52:54,480 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:52:54,483 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:52:54,529 DEBUG   SenderThread:19460 [sender.py:send():369] send: stats
+2023-06-21 04:52:54,588 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:52:54,590 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:52:54,794 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:52:54,869 INFO    wandb-upload_0:19460 [upload_job.py:push():133] Uploaded file C:\Users\0005h\AppData\Local\Temp\tmpa24sp4a2wandb\8ohtrzzr-media/images/train_image_53_696a78c6313159705581.png
+2023-06-21 04:52:55,146 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:52:55,146 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:52:55,364 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: status_report
+2023-06-21 04:52:55,517 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-21 04:52:55,518 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: stop_status
+2023-06-21 04:52:55,811 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:52:57,213 ERROR   gpu       :19460 [interfaces.py:aggregate():161] Failed to serialize metric: division by zero
+2023-06-21 04:52:57,239 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:52:57,239 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:52:57,715 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:52:57,722 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:52:57,725 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:52:57,729 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:52:57,837 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:52:57,838 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\wandb-summary.json
+2023-06-21 04:52:59,277 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:52:59,278 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:52:59,861 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:53:00,776 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: status_report
+2023-06-21 04:53:01,327 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:53:01,327 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:53:01,528 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:53:01,533 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:53:01,534 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:53:01,539 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:53:01,554 DEBUG   SenderThread:19460 [sender.py:send():369] send: files
+2023-06-21 04:53:01,555 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file media\images\train_image_56_799b68311077a83befcc.png with policy now
+2023-06-21 04:53:01,555 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:53:01,562 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:53:01,563 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:53:01,566 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:53:01,889 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:53:01,890 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\wandb-summary.json
+2023-06-21 04:53:01,890 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_created():272] file/dir created: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images\train_image_56_799b68311077a83befcc.png
+2023-06-21 04:53:01,891 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images
+2023-06-21 04:53:02,085 INFO    wandb-upload_0:19460 [upload_job.py:push():133] Uploaded file C:\Users\0005h\AppData\Local\Temp\tmpa24sp4a2wandb\eztoenhs-media/images/train_image_56_799b68311077a83befcc.png
+2023-06-21 04:53:02,647 INFO    wandb-upload_0:19460 [upload_job.py:push():133] Uploaded file C:\Users\0005h\AppData\Local\Temp\tmpa24sp4a2wandb\4lbpmfff-media/images/train_image_56_799b68311077a83befcc.png
+2023-06-21 04:53:03,357 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:53:03,358 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:53:03,901 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:53:05,381 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:53:05,381 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:53:05,386 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:53:05,392 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:53:05,392 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:53:05,398 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:53:05,934 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:53:05,935 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\wandb-summary.json
+2023-06-21 04:53:06,153 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: status_report
+2023-06-21 04:53:07,409 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:53:07,409 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:53:07,975 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:53:09,328 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:53:09,334 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:53:09,335 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:53:09,340 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:53:09,375 DEBUG   SenderThread:19460 [sender.py:send():369] send: files
+2023-06-21 04:53:09,375 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file media\images\train_image_59_7f51e7a9a32e0bda5cfc.png with policy now
+2023-06-21 04:53:09,376 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:53:09,384 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:53:09,384 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:53:09,390 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:53:09,435 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:53:09,435 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:53:09,877 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:53:09,880 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:53:09,883 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:53:09,900 INFO    wandb-upload_0:19460 [upload_job.py:push():133] Uploaded file C:\Users\0005h\AppData\Local\Temp\tmpa24sp4a2wandb\4lmehsjq-media/images/train_image_59_7f51e7a9a32e0bda5cfc.png
+2023-06-21 04:53:09,930 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:53:09,964 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:53:09,966 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:53:10,006 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:53:10,007 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\wandb-summary.json
+2023-06-21 04:53:10,008 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_created():272] file/dir created: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images\train_image_59_7f51e7a9a32e0bda5cfc.png
+2023-06-21 04:53:10,009 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images
+2023-06-21 04:53:10,009 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:53:10,011 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:53:10,182 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:53:10,183 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:53:10,285 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:53:10,286 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:53:10,529 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-21 04:53:10,530 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: stop_status
+2023-06-21 04:53:10,631 INFO    wandb-upload_0:19460 [upload_job.py:push():133] Uploaded file C:\Users\0005h\AppData\Local\Temp\tmpa24sp4a2wandb\x2alaenp-media/images/train_image_59_7f51e7a9a32e0bda5cfc.png
+2023-06-21 04:53:11,487 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:53:11,488 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:53:11,847 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: status_report
+2023-06-21 04:53:12,018 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:53:13,424 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:53:13,443 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:53:13,446 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:53:13,449 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:53:13,521 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:53:13,524 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:53:14,078 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:53:14,078 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\wandb-summary.json
+2023-06-21 04:53:15,543 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:53:15,543 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:53:16,106 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:53:17,309 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:53:17,313 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:53:17,313 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:53:17,316 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: status_report
+2023-06-21 04:53:17,317 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:53:17,351 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:53:17,351 DEBUG   SenderThread:19460 [sender.py:send():369] send: files
+2023-06-21 04:53:17,358 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file media\images\train_image_62_7929fa8b13902f6f36b1.png with policy now
+2023-06-21 04:53:17,360 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:53:17,360 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:53:17,365 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:53:17,575 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:53:17,576 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:53:17,888 INFO    wandb-upload_0:19460 [upload_job.py:push():133] Uploaded file C:\Users\0005h\AppData\Local\Temp\tmpa24sp4a2wandb\xv2blopi-media/images/train_image_62_7929fa8b13902f6f36b1.png
+2023-06-21 04:53:18,117 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:53:18,118 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\wandb-summary.json
+2023-06-21 04:53:18,119 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_created():272] file/dir created: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images\train_image_62_7929fa8b13902f6f36b1.png
+2023-06-21 04:53:18,120 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images
+2023-06-21 04:53:18,658 INFO    wandb-upload_0:19460 [upload_job.py:push():133] Uploaded file C:\Users\0005h\AppData\Local\Temp\tmpa24sp4a2wandb\3jh0bgg8-media/images/train_image_62_7929fa8b13902f6f36b1.png
+2023-06-21 04:53:19,606 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:53:19,606 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:53:20,160 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:53:21,636 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:53:21,636 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:53:22,213 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:53:22,440 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: status_report
+2023-06-21 04:53:22,488 DEBUG   SenderThread:19460 [sender.py:send():369] send: files
+2023-06-21 04:53:22,489 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file media\images\val_image_63_3ff4b49b398bb9b852a9.png with policy now
+2023-06-21 04:53:22,489 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:53:22,499 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:53:22,499 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:53:22,506 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:53:23,020 INFO    wandb-upload_0:19460 [upload_job.py:push():133] Uploaded file C:\Users\0005h\AppData\Local\Temp\tmpa24sp4a2wandb\5cq6n82z-media/images/val_image_63_3ff4b49b398bb9b852a9.png
+2023-06-21 04:53:23,227 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\wandb-summary.json
+2023-06-21 04:53:23,228 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_created():272] file/dir created: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images\val_image_63_3ff4b49b398bb9b852a9.png
+2023-06-21 04:53:23,229 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images
+2023-06-21 04:53:23,666 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:53:23,667 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:53:23,851 INFO    wandb-upload_0:19460 [upload_job.py:push():133] Uploaded file C:\Users\0005h\AppData\Local\Temp\tmpa24sp4a2wandb\i3dpiqny-media/images/val_image_63_3ff4b49b398bb9b852a9.png
+2023-06-21 04:53:24,233 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:53:24,541 DEBUG   SenderThread:19460 [sender.py:send():369] send: stats
+2023-06-21 04:53:25,682 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:53:25,682 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:53:25,727 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-21 04:53:25,727 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: stop_status
+2023-06-21 04:53:26,260 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:53:26,484 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:53:26,490 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:53:26,491 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:53:26,497 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:53:27,281 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\wandb-summary.json
+2023-06-21 04:53:27,752 ERROR   gpu       :19460 [interfaces.py:aggregate():161] Failed to serialize metric: division by zero
+2023-06-21 04:53:27,772 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:53:27,773 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:53:28,058 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: status_report
+2023-06-21 04:53:28,288 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:53:28,500 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:53:28,503 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:53:28,506 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:53:28,544 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:53:28,579 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:53:28,580 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:53:28,625 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:53:28,627 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:53:28,793 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:53:28,794 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:53:28,898 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:53:28,899 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:53:29,792 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:53:29,792 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:53:30,338 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:53:30,466 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:53:30,485 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:53:30,490 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:53:30,494 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:53:30,504 DEBUG   SenderThread:19460 [sender.py:send():369] send: files
+2023-06-21 04:53:30,505 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file media\images\train_image_66_91f59de4c087e1bf6ff5.png with policy now
+2023-06-21 04:53:30,506 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:53:30,510 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:53:30,510 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:53:30,516 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:53:31,023 INFO    wandb-upload_0:19460 [upload_job.py:push():133] Uploaded file C:\Users\0005h\AppData\Local\Temp\tmpa24sp4a2wandb\9hhiueg7-media/images/train_image_66_91f59de4c087e1bf6ff5.png
+2023-06-21 04:53:31,348 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\wandb-summary.json
+2023-06-21 04:53:31,349 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_created():272] file/dir created: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images\train_image_66_91f59de4c087e1bf6ff5.png
+2023-06-21 04:53:31,350 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images
+2023-06-21 04:53:31,822 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:53:31,823 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:53:31,856 INFO    wandb-upload_0:19460 [upload_job.py:push():133] Uploaded file C:\Users\0005h\AppData\Local\Temp\tmpa24sp4a2wandb\jh2rqgeu-media/images/train_image_66_91f59de4c087e1bf6ff5.png
+2023-06-21 04:53:32,365 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:53:33,589 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: status_report
+2023-06-21 04:53:33,851 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:53:33,851 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:53:34,387 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:53:34,415 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:53:34,421 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:53:34,422 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:53:34,427 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:53:35,399 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\wandb-summary.json
+2023-06-21 04:53:35,894 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:53:35,895 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:53:36,407 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:53:37,927 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:53:37,928 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:53:38,273 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:53:38,278 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:53:38,278 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:53:38,281 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:53:38,298 DEBUG   SenderThread:19460 [sender.py:send():369] send: files
+2023-06-21 04:53:38,298 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file media\images\train_image_69_e83b536d16c5fddac43f.png with policy now
+2023-06-21 04:53:38,299 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:53:38,304 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:53:38,304 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:53:38,308 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:53:38,437 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:53:38,437 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\wandb-summary.json
+2023-06-21 04:53:38,438 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_created():272] file/dir created: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images\train_image_69_e83b536d16c5fddac43f.png
+2023-06-21 04:53:38,439 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images
+2023-06-21 04:53:38,851 INFO    wandb-upload_0:19460 [upload_job.py:push():133] Uploaded file C:\Users\0005h\AppData\Local\Temp\tmpa24sp4a2wandb\r593qze5-media/images/train_image_69_e83b536d16c5fddac43f.png
+2023-06-21 04:53:39,088 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: status_report
+2023-06-21 04:53:39,416 INFO    wandb-upload_0:19460 [upload_job.py:push():133] Uploaded file C:\Users\0005h\AppData\Local\Temp\tmpa24sp4a2wandb\pfyu3km8-media/images/train_image_69_e83b536d16c5fddac43f.png
+2023-06-21 04:53:39,950 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:53:39,955 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:53:40,463 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:53:40,738 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-21 04:53:40,739 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: stop_status
+2023-06-21 04:53:41,992 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:53:41,993 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:53:42,197 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:53:42,202 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:53:42,202 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:53:42,208 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:53:42,492 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:53:42,492 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\wandb-summary.json
+2023-06-21 04:53:44,030 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:53:44,031 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:53:44,136 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:53:44,138 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:53:44,142 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:53:44,180 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:53:44,217 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:53:44,219 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:53:44,263 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:53:44,265 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:53:44,433 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:53:44,434 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:53:44,505 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:53:44,539 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:53:44,540 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:53:44,547 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: status_report
+2023-06-21 04:53:46,049 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:53:46,049 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:53:46,106 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:53:46,128 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:53:46,130 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:53:46,133 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:53:46,144 DEBUG   SenderThread:19460 [sender.py:send():369] send: files
+2023-06-21 04:53:46,145 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file media\images\train_image_72_175b27eb6ae63ce78a4b.png with policy now
+2023-06-21 04:53:46,145 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:53:46,153 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:53:46,153 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:53:46,159 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:53:46,549 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:53:46,550 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\wandb-summary.json
+2023-06-21 04:53:46,551 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_created():272] file/dir created: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images\train_image_72_175b27eb6ae63ce78a4b.png
+2023-06-21 04:53:46,552 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images
+2023-06-21 04:53:46,753 INFO    wandb-upload_0:19460 [upload_job.py:push():133] Uploaded file C:\Users\0005h\AppData\Local\Temp\tmpa24sp4a2wandb\aroepw22-media/images/train_image_72_175b27eb6ae63ce78a4b.png
+2023-06-21 04:53:47,318 INFO    wandb-upload_0:19460 [upload_job.py:push():133] Uploaded file C:\Users\0005h\AppData\Local\Temp\tmpa24sp4a2wandb\xhr8vkbp-media/images/train_image_72_175b27eb6ae63ce78a4b.png
+2023-06-21 04:53:48,096 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:53:48,096 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:53:48,576 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:53:50,048 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:53:50,054 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:53:50,055 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:53:50,058 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: status_report
+2023-06-21 04:53:50,060 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:53:50,124 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:53:50,125 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:53:50,618 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:53:50,618 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\wandb-summary.json
+2023-06-21 04:53:52,143 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:53:52,144 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:53:52,644 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:53:53,930 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:53:53,935 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:53:53,936 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:53:53,941 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:53:53,969 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:53:53,969 DEBUG   SenderThread:19460 [sender.py:send():369] send: files
+2023-06-21 04:53:53,976 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file media\images\train_image_75_ea2082161ed26ec2cffa.png with policy now
+2023-06-21 04:53:53,977 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:53:53,978 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:53:53,982 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:53:54,172 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:53:54,172 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:53:54,494 INFO    wandb-upload_0:19460 [upload_job.py:push():133] Uploaded file C:\Users\0005h\AppData\Local\Temp\tmpa24sp4a2wandb\mjfkv5t6-media/images/train_image_75_ea2082161ed26ec2cffa.png
+2023-06-21 04:53:54,558 DEBUG   SenderThread:19460 [sender.py:send():369] send: stats
+2023-06-21 04:53:54,667 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:53:54,668 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\wandb-summary.json
+2023-06-21 04:53:54,668 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_created():272] file/dir created: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images\train_image_75_ea2082161ed26ec2cffa.png
+2023-06-21 04:53:54,669 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images
+2023-06-21 04:53:55,241 INFO    wandb-upload_0:19460 [upload_job.py:push():133] Uploaded file C:\Users\0005h\AppData\Local\Temp\tmpa24sp4a2wandb\vjdzwojz-media/images/train_image_75_ea2082161ed26ec2cffa.png
+2023-06-21 04:53:55,506 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: status_report
+2023-06-21 04:53:55,747 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-21 04:53:55,748 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: stop_status
+2023-06-21 04:53:56,197 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:53:56,197 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:53:56,694 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:53:57,884 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:53:57,890 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:53:57,891 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:53:57,896 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:53:58,265 ERROR   gpu       :19460 [interfaces.py:aggregate():161] Failed to serialize metric: division by zero
+2023-06-21 04:53:58,285 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:53:58,285 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:53:58,729 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:53:58,729 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\wandb-summary.json
+2023-06-21 04:53:59,865 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:53:59,867 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:53:59,872 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:53:59,913 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:53:59,949 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:53:59,952 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:53:59,997 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:54:00,000 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:54:00,164 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:54:00,165 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:54:00,270 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:54:00,271 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:54:00,308 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:54:00,308 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:54:00,758 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:54:01,078 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: status_report
+2023-06-21 04:54:01,825 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:54:01,838 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:54:01,840 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:54:01,843 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:54:01,852 DEBUG   SenderThread:19460 [sender.py:send():369] send: files
+2023-06-21 04:54:01,852 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file media\images\train_image_78_1cb9de2c33083a93e694.png with policy now
+2023-06-21 04:54:01,853 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:54:01,860 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:54:01,860 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:54:01,866 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:54:02,331 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:54:02,331 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:54:02,453 INFO    wandb-upload_0:19460 [upload_job.py:push():133] Uploaded file C:\Users\0005h\AppData\Local\Temp\tmpa24sp4a2wandb\oyrhzeze-media/images/train_image_78_1cb9de2c33083a93e694.png
+2023-06-21 04:54:02,786 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:54:02,786 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\wandb-summary.json
+2023-06-21 04:54:02,787 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_created():272] file/dir created: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images\train_image_78_1cb9de2c33083a93e694.png
+2023-06-21 04:54:02,788 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images
+2023-06-21 04:54:03,372 INFO    wandb-upload_0:19460 [upload_job.py:push():133] Uploaded file C:\Users\0005h\AppData\Local\Temp\tmpa24sp4a2wandb\oton2175-media/images/train_image_78_1cb9de2c33083a93e694.png
+2023-06-21 04:54:04,361 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:54:04,362 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:54:04,811 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:54:06,262 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: status_report
+2023-06-21 04:54:06,386 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:54:06,386 ERROR   gpu       :19460 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 04:54:06,834 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:54:06,950 DEBUG   SenderThread:19460 [sender.py:send():369] send: files
+2023-06-21 04:54:06,951 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:54:06,952 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file media\images\val_image_79_3ff4b49b398bb9b852a9.png with policy now
+2023-06-21 04:54:06,957 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-21 04:54:06,964 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:54:06,965 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:54:06,970 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:54:06,971 DEBUG   SenderThread:19460 [sender.py:send():369] send: history
+2023-06-21 04:54:06,972 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 04:54:06,977 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:54:06,978 DEBUG   SenderThread:19460 [sender.py:send():369] send: telemetry
+2023-06-21 04:54:06,985 DEBUG   SenderThread:19460 [sender.py:send():369] send: exit
+2023-06-21 04:54:06,985 INFO    SenderThread:19460 [sender.py:send_exit():574] handling exit code: 0
+2023-06-21 04:54:06,986 INFO    SenderThread:19460 [sender.py:send_exit():576] handling runtime: 222
+2023-06-21 04:54:06,992 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:54:06,994 INFO    SenderThread:19460 [sender.py:send_exit():582] send defer
+2023-06-21 04:54:06,994 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: defer
+2023-06-21 04:54:06,994 INFO    HandlerThread:19460 [handler.py:handle_request_defer():170] handle defer: 0
+2023-06-21 04:54:06,995 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: defer
+2023-06-21 04:54:06,995 INFO    SenderThread:19460 [sender.py:send_request_defer():598] handle sender defer: 0
+2023-06-21 04:54:06,995 INFO    SenderThread:19460 [sender.py:transition_state():602] send defer: 1
+2023-06-21 04:54:06,996 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: defer
+2023-06-21 04:54:06,996 INFO    HandlerThread:19460 [handler.py:handle_request_defer():170] handle defer: 1
+2023-06-21 04:54:06,996 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: defer
+2023-06-21 04:54:06,997 INFO    SenderThread:19460 [sender.py:send_request_defer():598] handle sender defer: 1
+2023-06-21 04:54:06,997 INFO    SenderThread:19460 [sender.py:transition_state():602] send defer: 2
+2023-06-21 04:54:06,997 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: defer
+2023-06-21 04:54:06,997 INFO    HandlerThread:19460 [handler.py:handle_request_defer():170] handle defer: 2
+2023-06-21 04:54:06,998 INFO    HandlerThread:19460 [system_monitor.py:finish():190] Stopping system monitor
+2023-06-21 04:54:06,998 DEBUG   SystemMonitor:19460 [system_monitor.py:_start():166] Finished system metrics aggregation loop
+2023-06-21 04:54:06,999 INFO    HandlerThread:19460 [interfaces.py:finish():202] Joined cpu monitor
+2023-06-21 04:54:06,999 DEBUG   SystemMonitor:19460 [system_monitor.py:_start():170] Publishing last batch of metrics
+2023-06-21 04:54:07,012 INFO    HandlerThread:19460 [interfaces.py:finish():202] Joined disk monitor
+2023-06-21 04:54:07,073 ERROR   gpu       :19460 [interfaces.py:aggregate():161] Failed to serialize metric: division by zero
+2023-06-21 04:54:07,073 INFO    HandlerThread:19460 [interfaces.py:finish():202] Joined gpu monitor
+2023-06-21 04:54:07,073 INFO    HandlerThread:19460 [interfaces.py:finish():202] Joined memory monitor
+2023-06-21 04:54:07,074 INFO    HandlerThread:19460 [interfaces.py:finish():202] Joined network monitor
+2023-06-21 04:54:07,076 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: defer
+2023-06-21 04:54:07,076 INFO    SenderThread:19460 [sender.py:send_request_defer():598] handle sender defer: 2
+2023-06-21 04:54:07,076 INFO    SenderThread:19460 [sender.py:transition_state():602] send defer: 3
+2023-06-21 04:54:07,077 DEBUG   SenderThread:19460 [sender.py:send():369] send: stats
+2023-06-21 04:54:07,077 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: defer
+2023-06-21 04:54:07,078 INFO    HandlerThread:19460 [handler.py:handle_request_defer():170] handle defer: 3
+2023-06-21 04:54:07,078 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: defer
+2023-06-21 04:54:07,078 INFO    SenderThread:19460 [sender.py:send_request_defer():598] handle sender defer: 3
+2023-06-21 04:54:07,078 INFO    SenderThread:19460 [sender.py:transition_state():602] send defer: 4
+2023-06-21 04:54:07,079 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: defer
+2023-06-21 04:54:07,079 INFO    HandlerThread:19460 [handler.py:handle_request_defer():170] handle defer: 4
+2023-06-21 04:54:07,079 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: defer
+2023-06-21 04:54:07,080 INFO    SenderThread:19460 [sender.py:send_request_defer():598] handle sender defer: 4
+2023-06-21 04:54:07,080 INFO    SenderThread:19460 [sender.py:transition_state():602] send defer: 5
+2023-06-21 04:54:07,080 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: defer
+2023-06-21 04:54:07,080 INFO    HandlerThread:19460 [handler.py:handle_request_defer():170] handle defer: 5
+2023-06-21 04:54:07,086 DEBUG   SenderThread:19460 [sender.py:send():369] send: summary
+2023-06-21 04:54:07,091 INFO    SenderThread:19460 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 04:54:07,092 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: defer
+2023-06-21 04:54:07,092 INFO    SenderThread:19460 [sender.py:send_request_defer():598] handle sender defer: 5
+2023-06-21 04:54:07,092 INFO    SenderThread:19460 [sender.py:transition_state():602] send defer: 6
+2023-06-21 04:54:07,093 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: defer
+2023-06-21 04:54:07,093 INFO    HandlerThread:19460 [handler.py:handle_request_defer():170] handle defer: 6
+2023-06-21 04:54:07,093 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: defer
+2023-06-21 04:54:07,093 INFO    SenderThread:19460 [sender.py:send_request_defer():598] handle sender defer: 6
+2023-06-21 04:54:07,102 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: status_report
+2023-06-21 04:54:07,332 INFO    SenderThread:19460 [sender.py:transition_state():602] send defer: 7
+2023-06-21 04:54:07,333 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: defer
+2023-06-21 04:54:07,333 INFO    HandlerThread:19460 [handler.py:handle_request_defer():170] handle defer: 7
+2023-06-21 04:54:07,334 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: defer
+2023-06-21 04:54:07,335 INFO    SenderThread:19460 [sender.py:send_request_defer():598] handle sender defer: 7
+2023-06-21 04:54:07,485 INFO    wandb-upload_0:19460 [upload_job.py:push():133] Uploaded file C:\Users\0005h\AppData\Local\Temp\tmpa24sp4a2wandb\q339e4kh-media/images/val_image_79_3ff4b49b398bb9b852a9.png
+2023-06-21 04:54:07,846 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\config.yaml
+2023-06-21 04:54:07,847 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\wandb-summary.json
+2023-06-21 04:54:07,847 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_created():272] file/dir created: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images\val_image_79_3ff4b49b398bb9b852a9.png
+2023-06-21 04:54:07,848 INFO    Thread-16 :19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images
+2023-06-21 04:54:07,968 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: poll_exit
+2023-06-21 04:54:08,376 INFO    wandb-upload_0:19460 [upload_job.py:push():133] Uploaded file C:\Users\0005h\AppData\Local\Temp\tmpa24sp4a2wandb\2jig1r6g-media/images/val_image_79_3ff4b49b398bb9b852a9.png
+2023-06-21 04:54:08,389 INFO    SenderThread:19460 [sender.py:transition_state():602] send defer: 8
+2023-06-21 04:54:08,390 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: poll_exit
+2023-06-21 04:54:08,390 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: defer
+2023-06-21 04:54:08,391 INFO    HandlerThread:19460 [handler.py:handle_request_defer():170] handle defer: 8
+2023-06-21 04:54:08,391 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: defer
+2023-06-21 04:54:08,391 INFO    SenderThread:19460 [sender.py:send_request_defer():598] handle sender defer: 8
+2023-06-21 04:54:08,391 INFO    SenderThread:19460 [sender.py:transition_state():602] send defer: 9
+2023-06-21 04:54:08,392 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: defer
+2023-06-21 04:54:08,392 INFO    HandlerThread:19460 [handler.py:handle_request_defer():170] handle defer: 9
+2023-06-21 04:54:08,392 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: defer
+2023-06-21 04:54:08,392 INFO    SenderThread:19460 [sender.py:send_request_defer():598] handle sender defer: 9
+2023-06-21 04:54:08,392 INFO    SenderThread:19460 [dir_watcher.py:finish():359] shutting down directory watcher
+2023-06-21 04:54:08,862 INFO    SenderThread:19460 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:54:08,862 INFO    SenderThread:19460 [dir_watcher.py:finish():389] scan: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files
+2023-06-21 04:54:08,863 INFO    SenderThread:19460 [dir_watcher.py:finish():403] scan save: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\conda-environment.yaml conda-environment.yaml
+2023-06-21 04:54:08,863 INFO    SenderThread:19460 [dir_watcher.py:finish():403] scan save: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\config.yaml config.yaml
+2023-06-21 04:54:08,863 INFO    SenderThread:19460 [dir_watcher.py:finish():403] scan save: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log output.log
+2023-06-21 04:54:08,866 INFO    SenderThread:19460 [dir_watcher.py:finish():403] scan save: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\requirements.txt requirements.txt
+2023-06-21 04:54:08,869 INFO    SenderThread:19460 [dir_watcher.py:finish():403] scan save: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\wandb-metadata.json wandb-metadata.json
+2023-06-21 04:54:08,869 INFO    SenderThread:19460 [dir_watcher.py:finish():403] scan save: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\wandb-summary.json wandb-summary.json
+2023-06-21 04:54:08,874 INFO    SenderThread:19460 [dir_watcher.py:finish():403] scan save: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images\train_image_11_b5c7be37be8690ff239b.png media/images/train_image_11_b5c7be37be8690ff239b.png
+2023-06-21 04:54:08,874 INFO    SenderThread:19460 [dir_watcher.py:finish():403] scan save: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images\train_image_14_8355037b16cdc6f2b60f.png media/images/train_image_14_8355037b16cdc6f2b60f.png
+2023-06-21 04:54:08,874 INFO    SenderThread:19460 [dir_watcher.py:finish():403] scan save: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images\train_image_18_bebabd928d77af2daabe.png media/images/train_image_18_bebabd928d77af2daabe.png
+2023-06-21 04:54:08,875 INFO    SenderThread:19460 [dir_watcher.py:finish():403] scan save: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images\train_image_21_27d15a6642fdf22083e3.png media/images/train_image_21_27d15a6642fdf22083e3.png
+2023-06-21 04:54:08,875 INFO    SenderThread:19460 [dir_watcher.py:finish():403] scan save: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images\train_image_24_7ff8d6262a9a9c814a56.png media/images/train_image_24_7ff8d6262a9a9c814a56.png
+2023-06-21 04:54:08,875 INFO    SenderThread:19460 [dir_watcher.py:finish():403] scan save: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images\train_image_27_ce7f784dfd7d725b7d06.png media/images/train_image_27_ce7f784dfd7d725b7d06.png
+2023-06-21 04:54:08,875 INFO    SenderThread:19460 [dir_watcher.py:finish():403] scan save: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images\train_image_2_56b8ab04475dc8eac92a.png media/images/train_image_2_56b8ab04475dc8eac92a.png
+2023-06-21 04:54:08,875 INFO    SenderThread:19460 [dir_watcher.py:finish():403] scan save: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images\train_image_30_596a54576a8cb15eaf45.png media/images/train_image_30_596a54576a8cb15eaf45.png
+2023-06-21 04:54:08,875 INFO    SenderThread:19460 [dir_watcher.py:finish():403] scan save: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images\train_image_34_56643917b6661811b998.png media/images/train_image_34_56643917b6661811b998.png
+2023-06-21 04:54:08,876 INFO    SenderThread:19460 [dir_watcher.py:finish():403] scan save: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images\train_image_37_4afeacb6408e3e136cab.png media/images/train_image_37_4afeacb6408e3e136cab.png
+2023-06-21 04:54:08,876 INFO    SenderThread:19460 [dir_watcher.py:finish():403] scan save: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images\train_image_40_85ebc7fc5be3f66f62ee.png media/images/train_image_40_85ebc7fc5be3f66f62ee.png
+2023-06-21 04:54:08,876 INFO    SenderThread:19460 [dir_watcher.py:finish():403] scan save: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images\train_image_43_101f831d934ad3c04c40.png media/images/train_image_43_101f831d934ad3c04c40.png
+2023-06-21 04:54:08,876 INFO    SenderThread:19460 [dir_watcher.py:finish():403] scan save: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images\train_image_46_1419acae39bcab8f0d0d.png media/images/train_image_46_1419acae39bcab8f0d0d.png
+2023-06-21 04:54:08,876 INFO    SenderThread:19460 [dir_watcher.py:finish():403] scan save: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images\train_image_50_6b938ce1d6868e752899.png media/images/train_image_50_6b938ce1d6868e752899.png
+2023-06-21 04:54:08,876 INFO    SenderThread:19460 [dir_watcher.py:finish():403] scan save: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images\train_image_53_696a78c6313159705581.png media/images/train_image_53_696a78c6313159705581.png
+2023-06-21 04:54:08,877 INFO    SenderThread:19460 [dir_watcher.py:finish():403] scan save: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images\train_image_56_799b68311077a83befcc.png media/images/train_image_56_799b68311077a83befcc.png
+2023-06-21 04:54:08,877 INFO    SenderThread:19460 [dir_watcher.py:finish():403] scan save: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images\train_image_59_7f51e7a9a32e0bda5cfc.png media/images/train_image_59_7f51e7a9a32e0bda5cfc.png
+2023-06-21 04:54:08,877 INFO    SenderThread:19460 [dir_watcher.py:finish():403] scan save: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images\train_image_5_0ce558e97c70db7fddf6.png media/images/train_image_5_0ce558e97c70db7fddf6.png
+2023-06-21 04:54:08,877 INFO    SenderThread:19460 [dir_watcher.py:finish():403] scan save: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images\train_image_62_7929fa8b13902f6f36b1.png media/images/train_image_62_7929fa8b13902f6f36b1.png
+2023-06-21 04:54:08,877 INFO    SenderThread:19460 [dir_watcher.py:finish():403] scan save: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images\train_image_66_91f59de4c087e1bf6ff5.png media/images/train_image_66_91f59de4c087e1bf6ff5.png
+2023-06-21 04:54:08,877 INFO    SenderThread:19460 [dir_watcher.py:finish():403] scan save: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images\train_image_69_e83b536d16c5fddac43f.png media/images/train_image_69_e83b536d16c5fddac43f.png
+2023-06-21 04:54:08,877 INFO    SenderThread:19460 [dir_watcher.py:finish():403] scan save: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images\train_image_72_175b27eb6ae63ce78a4b.png media/images/train_image_72_175b27eb6ae63ce78a4b.png
+2023-06-21 04:54:08,880 INFO    SenderThread:19460 [dir_watcher.py:finish():403] scan save: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images\train_image_75_ea2082161ed26ec2cffa.png media/images/train_image_75_ea2082161ed26ec2cffa.png
+2023-06-21 04:54:08,880 INFO    SenderThread:19460 [dir_watcher.py:finish():403] scan save: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images\train_image_78_1cb9de2c33083a93e694.png media/images/train_image_78_1cb9de2c33083a93e694.png
+2023-06-21 04:54:08,880 INFO    SenderThread:19460 [dir_watcher.py:finish():403] scan save: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images\train_image_8_80870c110d35e1bb756a.png media/images/train_image_8_80870c110d35e1bb756a.png
+2023-06-21 04:54:08,880 INFO    SenderThread:19460 [dir_watcher.py:finish():403] scan save: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images\val_image_15_906f9687942e763ddbff.png media/images/val_image_15_906f9687942e763ddbff.png
+2023-06-21 04:54:08,880 INFO    SenderThread:19460 [dir_watcher.py:finish():403] scan save: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images\val_image_31_d3310f8dd5c20b419639.png media/images/val_image_31_d3310f8dd5c20b419639.png
+2023-06-21 04:54:08,881 INFO    SenderThread:19460 [dir_watcher.py:finish():403] scan save: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images\val_image_47_e3811d65c5b2d536a6d6.png media/images/val_image_47_e3811d65c5b2d536a6d6.png
+2023-06-21 04:54:08,881 INFO    SenderThread:19460 [dir_watcher.py:finish():403] scan save: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images\val_image_63_3ff4b49b398bb9b852a9.png media/images/val_image_63_3ff4b49b398bb9b852a9.png
+2023-06-21 04:54:08,881 INFO    SenderThread:19460 [dir_watcher.py:finish():403] scan save: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\media\images\val_image_79_3ff4b49b398bb9b852a9.png media/images/val_image_79_3ff4b49b398bb9b852a9.png
+2023-06-21 04:54:08,881 INFO    SenderThread:19460 [sender.py:transition_state():602] send defer: 10
+2023-06-21 04:54:08,881 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: defer
+2023-06-21 04:54:08,881 INFO    HandlerThread:19460 [handler.py:handle_request_defer():170] handle defer: 10
+2023-06-21 04:54:08,882 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: defer
+2023-06-21 04:54:08,882 INFO    SenderThread:19460 [sender.py:send_request_defer():598] handle sender defer: 10
+2023-06-21 04:54:08,882 INFO    SenderThread:19460 [file_pusher.py:finish():159] shutting down file pusher
+2023-06-21 04:54:08,978 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: poll_exit
+2023-06-21 04:54:08,979 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: poll_exit
+2023-06-21 04:54:09,369 INFO    wandb-upload_0:19460 [upload_job.py:push():133] Uploaded file C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\config.yaml
+2023-06-21 04:54:09,438 INFO    wandb-upload_1:19460 [upload_job.py:push():133] Uploaded file C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\output.log
+2023-06-21 04:54:09,547 INFO    wandb-upload_2:19460 [upload_job.py:push():133] Uploaded file C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\requirements.txt
+2023-06-21 04:54:09,567 INFO    wandb-upload_3:19460 [upload_job.py:push():133] Uploaded file C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\files\wandb-summary.json
+2023-06-21 04:54:09,773 INFO    Thread-15 (_thread_body):19460 [sender.py:transition_state():602] send defer: 11
+2023-06-21 04:54:09,774 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: defer
+2023-06-21 04:54:09,775 INFO    HandlerThread:19460 [handler.py:handle_request_defer():170] handle defer: 11
+2023-06-21 04:54:09,777 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: defer
+2023-06-21 04:54:09,777 INFO    SenderThread:19460 [sender.py:send_request_defer():598] handle sender defer: 11
+2023-06-21 04:54:09,777 INFO    SenderThread:19460 [file_pusher.py:join():164] waiting for file pusher
+2023-06-21 04:54:09,778 INFO    SenderThread:19460 [sender.py:transition_state():602] send defer: 12
+2023-06-21 04:54:09,778 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: defer
+2023-06-21 04:54:09,779 INFO    HandlerThread:19460 [handler.py:handle_request_defer():170] handle defer: 12
+2023-06-21 04:54:09,780 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: defer
+2023-06-21 04:54:09,780 INFO    SenderThread:19460 [sender.py:send_request_defer():598] handle sender defer: 12
+2023-06-21 04:54:09,990 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: poll_exit
+2023-06-21 04:54:10,572 INFO    SenderThread:19460 [sender.py:transition_state():602] send defer: 13
+2023-06-21 04:54:10,573 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: poll_exit
+2023-06-21 04:54:10,575 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: defer
+2023-06-21 04:54:10,576 INFO    HandlerThread:19460 [handler.py:handle_request_defer():170] handle defer: 13
+2023-06-21 04:54:10,577 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: defer
+2023-06-21 04:54:10,577 INFO    SenderThread:19460 [sender.py:send_request_defer():598] handle sender defer: 13
+2023-06-21 04:54:10,578 INFO    SenderThread:19460 [sender.py:transition_state():602] send defer: 14
+2023-06-21 04:54:10,579 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: defer
+2023-06-21 04:54:10,580 INFO    HandlerThread:19460 [handler.py:handle_request_defer():170] handle defer: 14
+2023-06-21 04:54:10,582 DEBUG   SenderThread:19460 [sender.py:send():369] send: final
+2023-06-21 04:54:10,582 DEBUG   SenderThread:19460 [sender.py:send():369] send: footer
+2023-06-21 04:54:10,583 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: defer
+2023-06-21 04:54:10,583 INFO    SenderThread:19460 [sender.py:send_request_defer():598] handle sender defer: 14
+2023-06-21 04:54:10,588 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: poll_exit
+2023-06-21 04:54:10,591 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: server_info
+2023-06-21 04:54:10,591 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: get_summary
+2023-06-21 04:54:10,592 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: poll_exit
+2023-06-21 04:54:10,600 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: sampled_history
+2023-06-21 04:54:10,601 DEBUG   SenderThread:19460 [sender.py:send_request():396] send_request: server_info
+2023-06-21 04:54:10,955 DEBUG   HandlerThread:19460 [handler.py:handle_request():144] handle_request: shutdown
+2023-06-21 04:54:10,957 INFO    HandlerThread:19460 [handler.py:finish():854] shutting down handler
+2023-06-21 04:54:11,594 INFO    WriterThread:19460 [datastore.py:close():298] close: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_045023-asl0w5o0\run-asl0w5o0.wandb
+2023-06-21 04:54:11,951 INFO    SenderThread:19460 [sender.py:finish():1526] shutting down sender
+2023-06-21 04:54:11,952 INFO    SenderThread:19460 [file_pusher.py:finish():159] shutting down file pusher
+2023-06-21 04:54:11,952 INFO    SenderThread:19460 [file_pusher.py:join():164] waiting for file pusher

@@ -1,0 +1,114 @@
+
+
+  8%|▊         | 4/50 [00:06<00:54,  1.19s/it]C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\train_bbox.py:85: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  torch.tensor(
+C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\train_bbox.py:89: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  torch.tensor(
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|██████████| 50/50 [00:41<00:00,  1.20it/s]
+
+2it [00:01,  1.55it/s]
+{'prediction': tensor([23.9910, 33.4214, 40.2530, 49.1423], device='cuda:0'), 'true': [tensor([ 53., 100.,  88., 144.], device='cuda:0')]}
+{'prediction': tensor([23.9910, 33.4214, 40.2530, 49.1423], device='cuda:0'), 'true': [tensor([ 58., 102.,  90., 135.], device='cuda:0')]}
+
+6it [00:04,  1.50it/s]
+{'prediction': tensor([23.9910, 33.4214, 40.2530, 49.1423], device='cuda:0'), 'true': [tensor([ 32., 107.,  60., 144.], device='cuda:0')]}
+{'prediction': tensor([23.9910, 33.4214, 40.2530, 49.1423], device='cuda:0'), 'true': [tensor([ 45., 108.,  77., 146.], device='cuda:0')]}
+7it [00:04,  1.65it/s]
+C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\train_bbox.py:121: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  torch.stack((torch.tensor(outputs[0], dtype=torch.uint8), torch.tensor(bboxes[0], dtype=torch.uint8)))))
+  4%|▍         | 2/50 [00:01<00:38,  1.24it/s]
+{'prediction': tensor([23.9910, 33.4214, 40.2530, 49.1423], device='cuda:0'), 'true': [tensor([ 51., 118.,  85., 159.], device='cuda:0')]}
+Saving the best model
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 98%|█████████▊| 49/50 [00:38<00:00,  1.29it/s]
+100%|██████████| 50/50 [00:39<00:00,  1.27it/s]
+2it [00:01,  1.64it/s]
+{'prediction': tensor([26.3910, 35.7175, 69.5136, 96.5849], device='cuda:0'), 'true': [tensor([ 52., 103.,  83., 141.], device='cuda:0')]}
+{'prediction': tensor([26.3910, 35.7175, 69.5136, 96.5849], device='cuda:0'), 'true': [tensor([ 58., 100.,  88., 140.], device='cuda:0')]}
+
+4it [00:02,  1.45it/s]
+{'prediction': tensor([26.3910, 35.7175, 69.5136, 96.5849], device='cuda:0'), 'true': [tensor([ 51., 108.,  85., 150.], device='cuda:0')]}
+{'prediction': tensor([26.3910, 35.7175, 69.5136, 96.5849], device='cuda:0'), 'true': [tensor([ 57., 110.,  89., 142.], device='cuda:0')]}
+{'prediction': tensor([26.3910, 35.7175, 69.5136, 96.5849], device='cuda:0'), 'true': [tensor([ 63., 112.,  94., 146.], device='cuda:0')]}
+Saving the best model
+7it [00:04,  1.69it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 98%|█████████▊| 49/50 [00:55<00:01,  1.87s/it]
+{'prediction': tensor([ 17.8044,  55.0670,  81.2162, 161.7254], device='cuda:0'), 'true': [tensor([ 61.,  97.,  88., 133.], device='cuda:0')]}
+100%|██████████| 50/50 [00:55<00:00,  1.12s/it]
+2it [00:01,  1.68it/s]
+{'prediction': tensor([ 17.8044,  55.0670,  81.2162, 161.7254], device='cuda:0'), 'true': [tensor([ 65., 102.,  98., 143.], device='cuda:0')]}
+{'prediction': tensor([ 17.8044,  55.0670,  81.2162, 161.7254], device='cuda:0'), 'true': [tensor([ 52.,  99.,  86., 141.], device='cuda:0')]}
+
+5it [00:03,  1.53it/s]
+{'prediction': tensor([ 17.8044,  55.0670,  81.2162, 161.7254], device='cuda:0'), 'true': [tensor([ 41., 114.,  63., 147.], device='cuda:0')]}
+{'prediction': tensor([ 17.8044,  55.0670,  81.2162, 161.7254], device='cuda:0'), 'true': [tensor([ 63., 107.,  88., 141.], device='cuda:0')]}
+Saving the best model
+7it [00:03,  1.75it/s]
+
+
+
+
+
+
+
+
+
+
+ 48%|████▊     | 24/50 [00:19<00:21,  1.23it/s]

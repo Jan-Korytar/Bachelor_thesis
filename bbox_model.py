@@ -19,8 +19,8 @@ class bbox_model(nn.Module):
         self.bn3 = nn.BatchNorm2d(4 * base_dim) if batch_norm else nn.Identity()
         self.conv4 = nn.Conv2d(4 * base_dim, 8 * base_dim, kernel_size=3)
         self.bn4 = nn.BatchNorm2d(8 * base_dim) if batch_norm else nn.Identity()
-        self.bbox = nn.Linear(int(25 * 8 * base_dim), 256)
-        self.bbox2 = nn.Linear(256, 4)
+        self.bbox = nn.Linear(int(25 * 8 * base_dim), 512)
+        self.bbox2 = nn.Linear(512, 4)
 
     def forward(self, x: torch.Tensor):
         x = self.pool(self.dropout(F.relu(self.bn1(self.conv1(x)))))

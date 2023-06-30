@@ -1,0 +1,434 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 93%|█████████▎| 56/60 [00:39<00:02,  1.44it/s]
+100%|██████████| 60/60 [00:41<00:00,  1.43it/s]
+
+3it [00:01,  1.75it/s]
+tensor([64, 73, 61, 64], device='cuda:0', dtype=torch.uint8) tensor([25, 54, 42, 73], device='cuda:0', dtype=torch.uint8)
+tensor([64, 73, 61, 64], device='cuda:0', dtype=torch.uint8) tensor([25, 54, 42, 73], device='cuda:0', dtype=torch.uint8)
+tensor([64, 73, 61, 64], device='cuda:0', dtype=torch.uint8) tensor([25, 57, 42, 74], device='cuda:0', dtype=torch.uint8)
+tensor([64, 73, 61, 64], device='cuda:0', dtype=torch.uint8) tensor([25, 57, 42, 74], device='cuda:0', dtype=torch.uint8)
+tensor([64, 73, 61, 64], device='cuda:0', dtype=torch.uint8) tensor([19, 52, 35, 70], device='cuda:0', dtype=torch.uint8)
+tensor([64, 73, 61, 64], device='cuda:0', dtype=torch.uint8) tensor([19, 52, 35, 70], device='cuda:0', dtype=torch.uint8)
+tensor([64, 73, 61, 64], device='cuda:0', dtype=torch.uint8) tensor([15, 53, 31, 73], device='cuda:0', dtype=torch.uint8)
+7it [00:03,  1.98it/s]
+  0%|          | 0/60 [00:00<?, ?it/s]
+tensor([64, 73, 61, 64], device='cuda:0', dtype=torch.uint8) tensor([26, 47, 42, 66], device='cuda:0', dtype=torch.uint8)
+tensor([64, 73, 61, 64], device='cuda:0', dtype=torch.uint8) tensor([26, 47, 42, 66], device='cuda:0', dtype=torch.uint8)
+tensor([64, 73, 61, 64], device='cuda:0', dtype=torch.uint8) tensor([20, 56, 31, 72], device='cuda:0', dtype=torch.uint8)
+tensor([64, 73, 61, 64], device='cuda:0', dtype=torch.uint8) tensor([20, 56, 31, 72], device='cuda:0', dtype=torch.uint8)
+tensor([64, 73, 61, 64], device='cuda:0', dtype=torch.uint8) tensor([23, 50, 38, 65], device='cuda:0', dtype=torch.uint8)
+tensor([64, 73, 61, 64], device='cuda:0', dtype=torch.uint8) tensor([23, 50, 38, 65], device='cuda:0', dtype=torch.uint8)
+Saving the best model
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 93%|█████████▎| 56/60 [00:38<00:02,  1.44it/s]
+
+100%|██████████| 60/60 [00:41<00:00,  1.46it/s]
+3it [00:01,  1.95it/s]
+tensor([62, 71, 59, 64], device='cuda:0', dtype=torch.uint8) tensor([25, 54, 42, 73], device='cuda:0', dtype=torch.uint8)
+tensor([62, 71, 59, 64], device='cuda:0', dtype=torch.uint8) tensor([25, 54, 42, 73], device='cuda:0', dtype=torch.uint8)
+tensor([62, 72, 60, 64], device='cuda:0', dtype=torch.uint8) tensor([25, 57, 42, 74], device='cuda:0', dtype=torch.uint8)
+tensor([62, 72, 60, 64], device='cuda:0', dtype=torch.uint8) tensor([25, 57, 42, 74], device='cuda:0', dtype=torch.uint8)
+tensor([62, 72, 60, 64], device='cuda:0', dtype=torch.uint8) tensor([19, 52, 35, 70], device='cuda:0', dtype=torch.uint8)
+tensor([62, 72, 60, 64], device='cuda:0', dtype=torch.uint8) tensor([19, 52, 35, 70], device='cuda:0', dtype=torch.uint8)
+tensor([62, 71, 59, 64], device='cuda:0', dtype=torch.uint8) tensor([15, 53, 31, 73], device='cuda:0', dtype=torch.uint8)
+7it [00:03,  2.18it/s]
+  0%|          | 0/60 [00:00<?, ?it/s]
+tensor([62, 71, 59, 64], device='cuda:0', dtype=torch.uint8) tensor([26, 47, 42, 66], device='cuda:0', dtype=torch.uint8)
+tensor([62, 71, 59, 64], device='cuda:0', dtype=torch.uint8) tensor([26, 47, 42, 66], device='cuda:0', dtype=torch.uint8)
+tensor([62, 72, 60, 64], device='cuda:0', dtype=torch.uint8) tensor([20, 56, 31, 72], device='cuda:0', dtype=torch.uint8)
+tensor([62, 72, 60, 64], device='cuda:0', dtype=torch.uint8) tensor([20, 56, 31, 72], device='cuda:0', dtype=torch.uint8)
+tensor([62, 71, 59, 64], device='cuda:0', dtype=torch.uint8) tensor([23, 50, 38, 65], device='cuda:0', dtype=torch.uint8)
+tensor([62, 71, 59, 64], device='cuda:0', dtype=torch.uint8) tensor([23, 50, 38, 65], device='cuda:0', dtype=torch.uint8)
+Saving the best model
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 92%|█████████▏| 55/60 [00:38<00:03,  1.44it/s]
+
+100%|██████████| 60/60 [00:41<00:00,  1.45it/s]
+3it [00:01,  1.98it/s]
+tensor([57, 69, 57, 64], device='cuda:0', dtype=torch.uint8) tensor([25, 54, 42, 73], device='cuda:0', dtype=torch.uint8)
+tensor([57, 69, 57, 64], device='cuda:0', dtype=torch.uint8) tensor([25, 54, 42, 73], device='cuda:0', dtype=torch.uint8)
+tensor([59, 70, 58, 64], device='cuda:0', dtype=torch.uint8) tensor([25, 57, 42, 74], device='cuda:0', dtype=torch.uint8)
+tensor([59, 70, 58, 64], device='cuda:0', dtype=torch.uint8) tensor([25, 57, 42, 74], device='cuda:0', dtype=torch.uint8)
+tensor([58, 70, 58, 64], device='cuda:0', dtype=torch.uint8) tensor([19, 52, 35, 70], device='cuda:0', dtype=torch.uint8)
+
+7it [00:03,  2.22it/s]
+tensor([58, 69, 57, 64], device='cuda:0', dtype=torch.uint8) tensor([15, 53, 31, 73], device='cuda:0', dtype=torch.uint8)
+tensor([58, 69, 57, 64], device='cuda:0', dtype=torch.uint8) tensor([15, 53, 31, 73], device='cuda:0', dtype=torch.uint8)
+tensor([58, 69, 57, 64], device='cuda:0', dtype=torch.uint8) tensor([26, 47, 42, 66], device='cuda:0', dtype=torch.uint8)
+tensor([58, 69, 57, 64], device='cuda:0', dtype=torch.uint8) tensor([26, 47, 42, 66], device='cuda:0', dtype=torch.uint8)
+tensor([59, 70, 58, 64], device='cuda:0', dtype=torch.uint8) tensor([20, 56, 31, 72], device='cuda:0', dtype=torch.uint8)
+tensor([59, 70, 58, 64], device='cuda:0', dtype=torch.uint8) tensor([20, 56, 31, 72], device='cuda:0', dtype=torch.uint8)
+tensor([58, 69, 57, 64], device='cuda:0', dtype=torch.uint8) tensor([23, 50, 38, 65], device='cuda:0', dtype=torch.uint8)
+tensor([58, 69, 57, 64], device='cuda:0', dtype=torch.uint8) tensor([23, 50, 38, 65], device='cuda:0', dtype=torch.uint8)
+Saving the best model
+Epoch [3/40], Train Loss: 818.2317, Val Loss: 1.4826
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|██████████| 60/60 [00:41<00:00,  1.46it/s]
+2it [00:01,  2.01it/s]
+tensor([51, 66, 54, 65], device='cuda:0', dtype=torch.uint8) tensor([25, 54, 42, 73], device='cuda:0', dtype=torch.uint8)
+tensor([51, 66, 54, 65], device='cuda:0', dtype=torch.uint8) tensor([25, 54, 42, 73], device='cuda:0', dtype=torch.uint8)
+tensor([54, 67, 55, 65], device='cuda:0', dtype=torch.uint8) tensor([25, 57, 42, 74], device='cuda:0', dtype=torch.uint8)
+tensor([54, 67, 55, 65], device='cuda:0', dtype=torch.uint8) tensor([25, 57, 42, 74], device='cuda:0', dtype=torch.uint8)
+tensor([53, 67, 54, 65], device='cuda:0', dtype=torch.uint8) tensor([19, 52, 35, 70], device='cuda:0', dtype=torch.uint8)
+7it [00:03,  2.20it/s]
+  0%|          | 0/60 [00:00<?, ?it/s]
+tensor([52, 66, 54, 65], device='cuda:0', dtype=torch.uint8) tensor([15, 53, 31, 73], device='cuda:0', dtype=torch.uint8)
+tensor([52, 66, 54, 65], device='cuda:0', dtype=torch.uint8) tensor([15, 53, 31, 73], device='cuda:0', dtype=torch.uint8)
+tensor([52, 66, 54, 65], device='cuda:0', dtype=torch.uint8) tensor([26, 47, 42, 66], device='cuda:0', dtype=torch.uint8)
+tensor([52, 66, 54, 65], device='cuda:0', dtype=torch.uint8) tensor([26, 47, 42, 66], device='cuda:0', dtype=torch.uint8)
+tensor([53, 67, 55, 65], device='cuda:0', dtype=torch.uint8) tensor([20, 56, 31, 72], device='cuda:0', dtype=torch.uint8)
+tensor([53, 67, 55, 65], device='cuda:0', dtype=torch.uint8) tensor([20, 56, 31, 72], device='cuda:0', dtype=torch.uint8)
+tensor([52, 66, 54, 65], device='cuda:0', dtype=torch.uint8) tensor([23, 50, 38, 65], device='cuda:0', dtype=torch.uint8)
+tensor([52, 66, 54, 65], device='cuda:0', dtype=torch.uint8) tensor([23, 50, 38, 65], device='cuda:0', dtype=torch.uint8)
+Saving the best model
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|██████████| 60/60 [00:41<00:00,  1.45it/s]
+1it [00:00,  1.88it/s]
+tensor([43, 61, 49, 65], device='cuda:0', dtype=torch.uint8) tensor([25, 54, 42, 73], device='cuda:0', dtype=torch.uint8)
+
+5it [00:02,  2.01it/s]
+tensor([46, 63, 50, 65], device='cuda:0', dtype=torch.uint8) tensor([19, 52, 35, 70], device='cuda:0', dtype=torch.uint8)
+tensor([45, 62, 50, 65], device='cuda:0', dtype=torch.uint8) tensor([15, 53, 31, 73], device='cuda:0', dtype=torch.uint8)
+tensor([44, 62, 49, 65], device='cuda:0', dtype=torch.uint8) tensor([26, 47, 42, 66], device='cuda:0', dtype=torch.uint8)
+tensor([46, 63, 50, 65], device='cuda:0', dtype=torch.uint8) tensor([20, 56, 31, 72], device='cuda:0', dtype=torch.uint8)
+tensor([44, 62, 49, 65], device='cuda:0', dtype=torch.uint8) tensor([23, 50, 38, 65], device='cuda:0', dtype=torch.uint8)
+Saving the best model
+7it [00:03,  2.22it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|██████████| 60/60 [00:40<00:00,  1.48it/s]
+1it [00:00,  1.92it/s]
+tensor([36, 57, 44, 65], device='cuda:0', dtype=torch.uint8) tensor([25, 54, 42, 73], device='cuda:0', dtype=torch.uint8)
+tensor([42, 61, 48, 65], device='cuda:0', dtype=torch.uint8) tensor([25, 57, 42, 74], device='cuda:0', dtype=torch.uint8)
+
+6it [00:02,  2.02it/s]
+tensor([38, 59, 45, 65], device='cuda:0', dtype=torch.uint8) tensor([15, 53, 31, 73], device='cuda:0', dtype=torch.uint8)
+tensor([37, 58, 45, 65], device='cuda:0', dtype=torch.uint8) tensor([26, 47, 42, 66], device='cuda:0', dtype=torch.uint8)
+tensor([40, 60, 46, 65], device='cuda:0', dtype=torch.uint8) tensor([20, 56, 31, 72], device='cuda:0', dtype=torch.uint8)
+tensor([37, 58, 45, 65], device='cuda:0', dtype=torch.uint8) tensor([23, 50, 38, 65], device='cuda:0', dtype=torch.uint8)
+Saving the best model
+7it [00:03,  2.24it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|██████████| 60/60 [00:41<00:00,  1.45it/s]
+1it [00:00,  2.32it/s]
+tensor([30, 55, 40, 66], device='cuda:0', dtype=torch.uint8) tensor([25, 54, 42, 73], device='cuda:0', dtype=torch.uint8)
+
+5it [00:02,  1.94it/s]
+tensor([34, 57, 42, 66], device='cuda:0', dtype=torch.uint8) tensor([19, 52, 35, 70], device='cuda:0', dtype=torch.uint8)
+tensor([33, 57, 42, 66], device='cuda:0', dtype=torch.uint8) tensor([15, 53, 31, 73], device='cuda:0', dtype=torch.uint8)
+tensor([32, 56, 41, 66], device='cuda:0', dtype=torch.uint8) tensor([26, 47, 42, 66], device='cuda:0', dtype=torch.uint8)
+tensor([35, 58, 43, 66], device='cuda:0', dtype=torch.uint8) tensor([20, 56, 31, 72], device='cuda:0', dtype=torch.uint8)
+tensor([32, 56, 41, 66], device='cuda:0', dtype=torch.uint8) tensor([23, 50, 38, 65], device='cuda:0', dtype=torch.uint8)
+Saving the best model
+7it [00:03,  2.22it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|██████████| 60/60 [00:41<00:00,  1.45it/s]
+1it [00:00,  1.98it/s]
+tensor([26, 54, 37, 66], device='cuda:0', dtype=torch.uint8) tensor([25, 54, 42, 73], device='cuda:0', dtype=torch.uint8)
+
+5it [00:02,  1.99it/s]
+tensor([31, 56, 40, 66], device='cuda:0', dtype=torch.uint8) tensor([19, 52, 35, 70], device='cuda:0', dtype=torch.uint8)
+tensor([29, 56, 39, 66], device='cuda:0', dtype=torch.uint8) tensor([15, 53, 31, 73], device='cuda:0', dtype=torch.uint8)
+tensor([28, 55, 38, 66], device='cuda:0', dtype=torch.uint8) tensor([26, 47, 42, 66], device='cuda:0', dtype=torch.uint8)
+7it [00:03,  2.20it/s]
+  2%|▏         | 1/60 [00:00<00:44,  1.31it/s]
+tensor([28, 55, 38, 66], device='cuda:0', dtype=torch.uint8) tensor([23, 50, 38, 65], device='cuda:0', dtype=torch.uint8)
+Saving the best model
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|██████████| 60/60 [00:42<00:00,  1.43it/s]
+2it [00:01,  1.92it/s]
+tensor([24, 53, 35, 66], device='cuda:0', dtype=torch.uint8) tensor([25, 54, 42, 73], device='cuda:0', dtype=torch.uint8)
+tensor([31, 58, 41, 66], device='cuda:0', dtype=torch.uint8) tensor([25, 57, 42, 74], device='cuda:0', dtype=torch.uint8)
+tensor([28, 56, 38, 66], device='cuda:0', dtype=torch.uint8) tensor([19, 52, 35, 70], device='cuda:0', dtype=torch.uint8)
+7it [00:03,  2.20it/s]
+  0%|          | 0/60 [00:00<?, ?it/s]
+tensor([25, 54, 37, 66], device='cuda:0', dtype=torch.uint8) tensor([26, 47, 42, 66], device='cuda:0', dtype=torch.uint8)
+tensor([28, 56, 39, 66], device='cuda:0', dtype=torch.uint8) tensor([20, 56, 31, 72], device='cuda:0', dtype=torch.uint8)
+tensor([25, 54, 37, 66], device='cuda:0', dtype=torch.uint8) tensor([23, 50, 38, 65], device='cuda:0', dtype=torch.uint8)
+Saving the best model
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|██████████| 60/60 [00:41<00:00,  1.46it/s]
+2it [00:01,  1.93it/s]
+tensor([22, 53, 34, 67], device='cuda:0', dtype=torch.uint8) tensor([25, 54, 42, 73], device='cuda:0', dtype=torch.uint8)
+tensor([29, 57, 40, 66], device='cuda:0', dtype=torch.uint8) tensor([25, 57, 42, 74], device='cuda:0', dtype=torch.uint8)
+7it [00:03,  2.18it/s]
+  0%|          | 0/60 [00:00<?, ?it/s]
+tensor([24, 55, 36, 67], device='cuda:0', dtype=torch.uint8) tensor([15, 53, 31, 73], device='cuda:0', dtype=torch.uint8)
+tensor([23, 54, 36, 67], device='cuda:0', dtype=torch.uint8) tensor([26, 47, 42, 66], device='cuda:0', dtype=torch.uint8)
+tensor([26, 56, 38, 66], device='cuda:0', dtype=torch.uint8) tensor([20, 56, 31, 72], device='cuda:0', dtype=torch.uint8)
+tensor([23, 54, 35, 67], device='cuda:0', dtype=torch.uint8) tensor([23, 50, 38, 65], device='cuda:0', dtype=torch.uint8)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|██████████| 60/60 [00:40<00:00,  1.47it/s]
+3it [00:01,  1.92it/s]
+tensor([20, 53, 33, 67], device='cuda:0', dtype=torch.uint8) tensor([25, 54, 42, 73], device='cuda:0', dtype=torch.uint8)
+tensor([28, 57, 39, 66], device='cuda:0', dtype=torch.uint8) tensor([25, 57, 42, 74], device='cuda:0', dtype=torch.uint8)
+7it [00:03,  2.21it/s]
+  0%|          | 0/60 [00:00<?, ?it/s]
+tensor([23, 54, 35, 67], device='cuda:0', dtype=torch.uint8) tensor([15, 53, 31, 73], device='cuda:0', dtype=torch.uint8)
+tensor([22, 54, 35, 67], device='cuda:0', dtype=torch.uint8) tensor([26, 47, 42, 66], device='cuda:0', dtype=torch.uint8)
+tensor([25, 56, 37, 67], device='cuda:0', dtype=torch.uint8) tensor([20, 56, 31, 72], device='cuda:0', dtype=torch.uint8)
+tensor([22, 54, 35, 67], device='cuda:0', dtype=torch.uint8) tensor([23, 50, 38, 65], device='cuda:0', dtype=torch.uint8)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|██████████| 60/60 [00:40<00:00,  1.47it/s]
+3it [00:01,  1.90it/s]
+tensor([19, 52, 33, 67], device='cuda:0', dtype=torch.uint8) tensor([25, 54, 42, 73], device='cuda:0', dtype=torch.uint8)
+tensor([27, 57, 38, 66], device='cuda:0', dtype=torch.uint8) tensor([25, 57, 42, 74], device='cuda:0', dtype=torch.uint8)
+tensor([23, 55, 36, 67], device='cuda:0', dtype=torch.uint8) tensor([19, 52, 35, 70], device='cuda:0', dtype=torch.uint8)
+7it [00:03,  2.19it/s]
+  0%|          | 0/60 [00:00<?, ?it/s]
+tensor([21, 53, 34, 67], device='cuda:0', dtype=torch.uint8) tensor([26, 47, 42, 66], device='cuda:0', dtype=torch.uint8)
+tensor([24, 55, 36, 67], device='cuda:0', dtype=torch.uint8) tensor([20, 56, 31, 72], device='cuda:0', dtype=torch.uint8)
+tensor([21, 53, 34, 67], device='cuda:0', dtype=torch.uint8) tensor([23, 50, 38, 65], device='cuda:0', dtype=torch.uint8)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|██████████| 60/60 [00:41<00:00,  1.45it/s]
+2it [00:00,  2.13it/s]
+tensor([18, 52, 32, 67], device='cuda:0', dtype=torch.uint8) tensor([25, 54, 42, 73], device='cuda:0', dtype=torch.uint8)
+tensor([25, 57, 38, 66], device='cuda:0', dtype=torch.uint8) tensor([25, 57, 42, 74], device='cuda:0', dtype=torch.uint8)
+
+6it [00:03,  1.88it/s]
+tensor([21, 54, 34, 67], device='cuda:0', dtype=torch.uint8) tensor([15, 53, 31, 73], device='cuda:0', dtype=torch.uint8)
+tensor([20, 53, 34, 67], device='cuda:0', dtype=torch.uint8) tensor([26, 47, 42, 66], device='cuda:0', dtype=torch.uint8)
+tensor([23, 55, 36, 67], device='cuda:0', dtype=torch.uint8) tensor([20, 56, 31, 72], device='cuda:0', dtype=torch.uint8)
+tensor([20, 53, 33, 67], device='cuda:0', dtype=torch.uint8) tensor([23, 50, 38, 65], device='cuda:0', dtype=torch.uint8)
+
+7it [00:03,  2.16it/s]

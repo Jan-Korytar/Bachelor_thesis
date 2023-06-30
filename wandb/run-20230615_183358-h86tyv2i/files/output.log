@@ -1,0 +1,16 @@
+
+
+
+100%|██████████| 5/5 [00:09<00:00,  1.88s/it]
+0it [00:00, ?it/s]
+{'prediction': tensor([ 1.1050, -0.2276,  1.5223,  0.5778], device='cuda:0'), 'true': [tensor([103.,  45., 146.,  77.])]}
+
+2it [00:01,  1.40it/s]
+{'prediction': tensor([ 1.1529, -0.2366,  1.5892,  0.6076], device='cuda:0'), 'true': [tensor([101.,  49., 143.,  84.])]}
+{'prediction': tensor([ 1.2264, -0.2500,  1.6947,  0.6545], device='cuda:0'), 'true': [tensor([108.,  64., 148., 102.])]}
+
+5it [00:04,  1.20it/s]
+{'prediction': tensor([ 1.0525, -0.2128,  1.4461,  0.5455], device='cuda:0'), 'true': [tensor([107.,  63., 144.,  97.])]}
+7it [00:05,  1.38it/s]
+C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\train_bbox.py:117: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  torch.stack((torch.tensor(outputs[0], dtype=torch.uint8), torch.tensor(bboxes[0], dtype=torch.uint8)))))

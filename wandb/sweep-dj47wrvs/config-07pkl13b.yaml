@@ -1,0 +1,14 @@
+wandb_version: 1
+
+base_dim:
+  value: 32
+batch_norm:
+  value: false
+batch_size:
+  value: 42
+dropout:
+  value: 0.4
+loss_type:
+  value: complete_iou
+lr:
+  value: 9.627870820853252e-06

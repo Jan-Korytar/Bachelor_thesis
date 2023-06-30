@@ -1,0 +1,28 @@
+2023-06-21 12:04:03,001 INFO    Thread-126 (_run_job):21568 [wandb_setup.py:_flush():76] Current SDK version is 0.15.4
+2023-06-21 12:04:03,002 INFO    Thread-126 (_run_job):21568 [wandb_setup.py:_flush():76] Configure stats pid to 21568
+2023-06-21 12:04:03,002 INFO    Thread-126 (_run_job):21568 [wandb_setup.py:_flush():76] Loading settings from C:\Users\0005h\.config\wandb\settings
+2023-06-21 12:04:03,003 INFO    Thread-126 (_run_job):21568 [wandb_setup.py:_flush():76] Loading settings from C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\settings
+2023-06-21 12:04:03,003 INFO    Thread-126 (_run_job):21568 [wandb_setup.py:_flush():76] Loading settings from environment variables: {'project': 'sweep_1', 'entity': 'korytheholy', 'root_dir': 'C:\\Users\\0005h\\OneDrive\\Documents\\programming\\pycharm\\Bachelor_thesis', 'run_id': '7f46uxvw', 'sweep_param_path': 'C:\\Users\\0005h\\OneDrive\\Documents\\programming\\pycharm\\Bachelor_thesis\\wandb\\sweep-xzvb586t\\config-7f46uxvw.yaml', 'sweep_id': 'xzvb586t'}
+2023-06-21 12:04:03,005 INFO    Thread-126 (_run_job):21568 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2023-06-21 12:04:03,005 INFO    Thread-126 (_run_job):21568 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'train_bbox.py', 'program': 'C:\\Users\\0005h\\OneDrive\\Documents\\programming\\pycharm\\Bachelor_thesis\\train_bbox.py'}
+2023-06-21 12:04:03,006 INFO    Thread-126 (_run_job):21568 [wandb_init.py:_log_setup():507] Logging user logs to C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_120402-7f46uxvw\logs\debug.log
+2023-06-21 12:04:03,008 INFO    Thread-126 (_run_job):21568 [wandb_init.py:_log_setup():508] Logging internal logs to C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_120402-7f46uxvw\logs\debug-internal.log
+2023-06-21 12:04:03,009 INFO    Thread-126 (_run_job):21568 [wandb_init.py:init():547] calling init triggers
+2023-06-21 12:04:03,009 INFO    Thread-126 (_run_job):21568 [wandb_init.py:init():554] wandb.init called with sweep_config: {'base_dim': 80, 'batch_norm': True, 'batch_size': 49, 'dropout': 0.1, 'loss_type': 'general_iou', 'lr': 9.251467512935274e-06}
+config: {'batch_size': 20, 'lr': 1e-07, 'base_dim': 64, 'dropout': 0.2, 'batch_norm': True, 'loss_type': 'complete_iou'}
+2023-06-21 12:04:03,010 INFO    Thread-126 (_run_job):21568 [wandb_init.py:init():596] starting backend
+2023-06-21 12:04:03,010 INFO    Thread-126 (_run_job):21568 [wandb_init.py:init():600] setting up manager
+2023-06-21 12:04:03,153 INFO    Thread-126 (_run_job):21568 [backend.py:_multiprocessing_setup():106] multiprocessing start_methods=spawn, using: spawn
+2023-06-21 12:04:03,199 INFO    Thread-126 (_run_job):21568 [wandb_init.py:init():606] backend started and connected
+2023-06-21 12:04:03,246 INFO    Thread-126 (_run_job):21568 [wandb_run.py:_config_callback():1283] config_cb None None {'base_dim': 80, 'batch_norm': True, 'batch_size': 49, 'dropout': 0.1, 'loss_type': 'general_iou', 'lr': 9.251467512935274e-06}
+2023-06-21 12:04:03,251 INFO    Thread-126 (_run_job):21568 [wandb_init.py:init():703] updated telemetry
+2023-06-21 12:04:03,477 INFO    Thread-126 (_run_job):21568 [wandb_init.py:init():736] communicating run to backend with 60.0 second timeout
+2023-06-21 12:04:04,167 INFO    Thread-126 (_run_job):21568 [wandb_run.py:_on_init():2176] communicating current version
+2023-06-21 12:04:04,341 INFO    Thread-126 (_run_job):21568 [wandb_run.py:_on_init():2185] got version response 
+2023-06-21 12:04:04,341 INFO    Thread-126 (_run_job):21568 [wandb_init.py:init():787] starting run threads in backend
+2023-06-21 12:04:05,726 INFO    Thread-126 (_run_job):21568 [wandb_run.py:_console_start():2155] atexit reg
+2023-06-21 12:04:05,727 INFO    Thread-126 (_run_job):21568 [wandb_run.py:_redirect():2010] redirect: SettingsConsole.WRAP_RAW
+2023-06-21 12:04:05,727 INFO    Thread-126 (_run_job):21568 [wandb_run.py:_redirect():2075] Wrapping output streams.
+2023-06-21 12:04:05,728 INFO    Thread-126 (_run_job):21568 [wandb_run.py:_redirect():2100] Redirects installed.
+2023-06-21 12:04:05,732 INFO    Thread-126 (_run_job):21568 [wandb_init.py:init():828] run started, returning control to user process
+2023-06-21 12:04:06,466 INFO    Thread-126 (_run_job):21568 [wandb_watch.py:watch():51] Watching

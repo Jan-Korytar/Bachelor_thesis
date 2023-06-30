@@ -1,0 +1,5 @@
+
+
+  8%|▊         | 4/50 [00:06<01:00,  1.31s/it]C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\train_bbox.py:85: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  img = torchvision.utils.draw_bounding_boxes(torch.tensor(images[0], dtype=int),
+  8%|▊         | 4/50 [00:07<01:27,  1.90s/it]

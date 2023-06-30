@@ -1,0 +1,38 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|██████████| 160/160 [00:50<00:00,  3.15it/s]
+2it [00:01,  1.93it/s]
+tensor([0, 0, 0, 0], device='cuda:0', dtype=torch.uint8) tensor([25, 54, 42, 73], device='cuda:0', dtype=torch.uint8)
+tensor([0, 0, 0, 0], device='cuda:0', dtype=torch.uint8) tensor([25, 57, 42, 74], device='cuda:0', dtype=torch.uint8)
+tensor([0, 0, 0, 0], device='cuda:0', dtype=torch.uint8) tensor([19, 52, 35, 70], device='cuda:0', dtype=torch.uint8)
+
+7it [00:03,  2.11it/s]
+tensor([0, 0, 0, 0], device='cuda:0', dtype=torch.uint8) tensor([26, 47, 42, 66], device='cuda:0', dtype=torch.uint8)
+tensor([0, 0, 0, 0], device='cuda:0', dtype=torch.uint8) tensor([20, 56, 31, 72], device='cuda:0', dtype=torch.uint8)
+tensor([0, 0, 0, 0], device='cuda:0', dtype=torch.uint8) tensor([23, 50, 38, 65], device='cuda:0', dtype=torch.uint8)
+Saving the best model
+Epoch [1/40], Train Loss: 948.1035, Val Loss: 1.3700
+
+
+  9%|▉         | 15/160 [00:04<00:39,  3.67it/s]

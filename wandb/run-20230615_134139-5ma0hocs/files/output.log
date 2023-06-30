@@ -1,0 +1,38 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|██████████| 50/50 [00:55<00:00,  1.10s/it]
+1it [00:00,  1.81it/s]
+{'prediction': tensor([ 27.9327, 110.0127,  54.4640, 135.5813], device='cuda:0'), 'true': [tensor([ 52., 104.,  87., 146.])]}
+{'prediction': tensor([ 19.4910, 127.1127,  48.4548, 157.9295], device='cuda:0'), 'true': [tensor([ 30., 110.,  58., 141.])]}
+
+4it [00:02,  1.39it/s]
+{'prediction': tensor([ 29.5337, 104.3249,  56.2021, 128.4174], device='cuda:0'), 'true': [tensor([ 53., 109.,  86., 143.])]}
+7it [00:04,  1.57it/s]
+C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\train_bbox.py:115: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  img = torchvision.utils.draw_bounding_boxes(torch.tensor(images[0], dtype=torch.uint8),
+{'prediction': tensor([ 36.0488,  86.6838,  64.4721, 112.3213], device='cuda:0'), 'true': [tensor([ 56.,  89.,  93., 135.])]}
+{'prediction': tensor([ 18.4396, 102.4039,  44.2693, 129.4960], device='cuda:0'), 'true': [tensor([ 21.,  94.,  57., 132.])]}

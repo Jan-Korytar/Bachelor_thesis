@@ -1,0 +1,374 @@
+2023-06-21 01:26:12,888 INFO    StreamThr :9048 [internal.py:wandb_internal():86] W&B internal server running at pid: 9048, started at: 2023-06-21 01:26:12.887958
+2023-06-21 01:26:12,894 DEBUG   HandlerThread:9048 [handler.py:handle_request():144] handle_request: status
+2023-06-21 01:26:12,897 INFO    WriterThread:9048 [datastore.py:open_for_write():85] open: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_012612-wfxerloo\run-wfxerloo.wandb
+2023-06-21 01:26:12,910 DEBUG   SenderThread:9048 [sender.py:send():369] send: header
+2023-06-21 01:26:12,952 DEBUG   SenderThread:9048 [sender.py:send():369] send: run
+2023-06-21 01:26:13,471 INFO    SenderThread:9048 [dir_watcher.py:__init__():211] watching files in: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_012612-wfxerloo\files
+2023-06-21 01:26:13,482 INFO    SenderThread:9048 [sender.py:_start_run_threads():1100] run started: wfxerloo with start time 1687303572.871999
+2023-06-21 01:26:13,483 DEBUG   SenderThread:9048 [sender.py:send_request():396] send_request: summary_record
+2023-06-21 01:26:13,484 INFO    SenderThread:9048 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 01:26:13,499 DEBUG   HandlerThread:9048 [handler.py:handle_request():144] handle_request: check_version
+2023-06-21 01:26:13,500 DEBUG   SenderThread:9048 [sender.py:send_request():396] send_request: check_version
+2023-06-21 01:26:13,702 DEBUG   HandlerThread:9048 [handler.py:handle_request():144] handle_request: run_start
+2023-06-21 01:26:14,491 INFO    Thread-20 :9048 [dir_watcher.py:_on_file_created():272] file/dir created: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_012612-wfxerloo\files\wandb-summary.json
+2023-06-21 01:26:14,573 DEBUG   HandlerThread:9048 [system_info.py:__init__():31] System info init
+2023-06-21 01:26:14,574 DEBUG   HandlerThread:9048 [system_info.py:__init__():46] System info init done
+2023-06-21 01:26:14,574 INFO    HandlerThread:9048 [system_monitor.py:start():181] Starting system monitor
+2023-06-21 01:26:14,576 INFO    SystemMonitor:9048 [system_monitor.py:_start():145] Starting system asset monitoring threads
+2023-06-21 01:26:14,577 INFO    HandlerThread:9048 [system_monitor.py:probe():201] Collecting system info
+2023-06-21 01:26:14,586 INFO    SystemMonitor:9048 [interfaces.py:start():190] Started cpu monitoring
+2023-06-21 01:26:14,588 INFO    SystemMonitor:9048 [interfaces.py:start():190] Started disk monitoring
+2023-06-21 01:26:14,591 INFO    SystemMonitor:9048 [interfaces.py:start():190] Started gpu monitoring
+2023-06-21 01:26:14,594 INFO    SystemMonitor:9048 [interfaces.py:start():190] Started memory monitoring
+2023-06-21 01:26:14,631 INFO    SystemMonitor:9048 [interfaces.py:start():190] Started network monitoring
+2023-06-21 01:26:14,645 DEBUG   HandlerThread:9048 [system_info.py:probe():195] Probing system
+2023-06-21 01:26:14,649 DEBUG   HandlerThread:9048 [system_info.py:_probe_git():180] Probing git
+2023-06-21 01:26:14,661 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:26:14,662 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:26:14,879 DEBUG   HandlerThread:9048 [system_info.py:_probe_git():188] Probing git done
+2023-06-21 01:26:14,880 DEBUG   HandlerThread:9048 [system_info.py:probe():240] Probing system done
+2023-06-21 01:26:14,880 DEBUG   HandlerThread:9048 [system_monitor.py:probe():210] {'os': 'Windows-10-10.0.22621-SP0', 'python': '3.10.11', 'heartbeatAt': '2023-06-20T23:26:14.645918', 'startedAt': '2023-06-20T23:26:12.796630', 'docker': None, 'cuda': None, 'args': (), 'state': 'running', 'program': 'C:\\Users\\0005h\\OneDrive\\Documents\\programming\\pycharm\\Bachelor_thesis\\train_bbox.py', 'codePath': 'train_bbox.py', 'git': {'remote': 'https://github.com/KorytheHoly/Bachelor_thesis.git', 'commit': '28a29803c6c1d2d02b416f68d01ad5f4fd1f2fb9'}, 'email': '82505847+KorytheHoly@users.noreply.github.com', 'root': 'C:/Users/0005h/OneDrive/Documents/programming/pycharm/Bachelor_thesis', 'host': 'Kory_notebook', 'username': '0005h', 'executable': 'C:\\Users\\0005h\\miniconda3\\envs\\thesis\\python.exe', 'cpu_count': 6, 'cpu_count_logical': 12, 'cpu_freq': {'current': 2208.0, 'min': 0.0, 'max': 2208.0}, 'cpu_freq_per_core': [{'current': 2208.0, 'min': 0.0, 'max': 2208.0}], 'disk': {'total': 464.7678871154785, 'used': 223.24113082885742}, 'gpu': 'NVIDIA GeForce GTX 1050 Ti with Max-Q Design', 'gpu_count': 1, 'gpu_devices': [{'name': 'NVIDIA GeForce GTX 1050 Ti with Max-Q Design', 'memory_total': 4294967296}], 'memory': {'total': 15.740032196044922}}
+2023-06-21 01:26:14,881 INFO    HandlerThread:9048 [system_monitor.py:probe():211] Finished collecting system info
+2023-06-21 01:26:14,881 INFO    HandlerThread:9048 [system_monitor.py:probe():214] Publishing system info
+2023-06-21 01:26:14,881 DEBUG   HandlerThread:9048 [system_info.py:_save_pip():51] Saving list of pip packages installed into the current environment
+2023-06-21 01:26:14,886 DEBUG   HandlerThread:9048 [system_info.py:_save_pip():67] Saving pip packages done
+2023-06-21 01:26:14,887 DEBUG   HandlerThread:9048 [system_info.py:_save_conda():74] Saving list of conda packages installed into the current environment
+2023-06-21 01:26:14,899 ERROR   HandlerThread:9048 [system_info.py:_save_conda():85] Error saving conda packages: [WinError 2] The system cannot find the file specified
+Traceback (most recent call last):
+  File "C:\Users\0005h\miniconda3\envs\thesis\lib\site-packages\wandb\sdk\internal\system\system_info.py", line 81, in _save_conda
+    subprocess.call(
+  File "C:\Users\0005h\miniconda3\envs\thesis\lib\subprocess.py", line 345, in call
+    with Popen(*popenargs, **kwargs) as p:
+  File "C:\Users\0005h\miniconda3\envs\thesis\lib\subprocess.py", line 971, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "C:\Users\0005h\miniconda3\envs\thesis\lib\subprocess.py", line 1456, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+  File "C:\Users\0005h\AppData\Local\JetBrains\Toolbox\apps\PyCharm-P\ch-0\231.9011.38\plugins\python\helpers\pydev\_pydev_bundle\pydev_monkey.py", line 585, in new_CreateProcess
+    return getattr(_subprocess, original_name)(app_name, patch_arg_str_win(cmd_line), *args)
+FileNotFoundError: [WinError 2] The system cannot find the file specified
+2023-06-21 01:26:14,908 DEBUG   HandlerThread:9048 [system_info.py:_save_conda():86] Saving conda packages done
+2023-06-21 01:26:14,913 INFO    HandlerThread:9048 [system_monitor.py:probe():216] Finished publishing system info
+2023-06-21 01:26:14,950 DEBUG   SenderThread:9048 [sender.py:send():369] send: files
+2023-06-21 01:26:14,951 INFO    SenderThread:9048 [sender.py:_save_file():1354] saving file wandb-metadata.json with policy now
+2023-06-21 01:26:14,999 DEBUG   HandlerThread:9048 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-21 01:26:15,004 DEBUG   SenderThread:9048 [sender.py:send_request():396] send_request: stop_status
+2023-06-21 01:26:15,295 DEBUG   SenderThread:9048 [sender.py:send():369] send: telemetry
+2023-06-21 01:26:15,482 INFO    Thread-20 :9048 [dir_watcher.py:_on_file_created():272] file/dir created: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_012612-wfxerloo\files\wandb-metadata.json
+2023-06-21 01:26:15,484 INFO    Thread-20 :9048 [dir_watcher.py:_on_file_created():272] file/dir created: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_012612-wfxerloo\files\requirements.txt
+2023-06-21 01:26:15,488 INFO    Thread-20 :9048 [dir_watcher.py:_on_file_created():272] file/dir created: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_012612-wfxerloo\files\conda-environment.yaml
+2023-06-21 01:26:15,664 INFO    wandb-upload_0:9048 [upload_job.py:push():133] Uploaded file C:\Users\0005h\AppData\Local\Temp\tmp6qk51uqlwandb\fc8wp47m-wandb-metadata.json
+2023-06-21 01:26:16,737 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:26:16,740 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:26:17,093 DEBUG   SenderThread:9048 [sender.py:send():369] send: telemetry
+2023-06-21 01:26:17,505 INFO    Thread-20 :9048 [dir_watcher.py:_on_file_created():272] file/dir created: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_012612-wfxerloo\files\output.log
+2023-06-21 01:26:18,121 DEBUG   HandlerThread:9048 [handler.py:handle_request():144] handle_request: status_report
+2023-06-21 01:26:18,766 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:26:18,767 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:26:19,513 INFO    Thread-20 :9048 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_012612-wfxerloo\files\output.log
+2023-06-21 01:26:20,793 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:26:20,794 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:26:22,812 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:26:22,813 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:26:23,145 DEBUG   HandlerThread:9048 [handler.py:handle_request():144] handle_request: status_report
+2023-06-21 01:26:24,853 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:26:24,855 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:26:26,873 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:26:26,873 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:26:28,197 DEBUG   HandlerThread:9048 [handler.py:handle_request():144] handle_request: status_report
+2023-06-21 01:26:28,895 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:26:28,896 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:26:30,004 DEBUG   HandlerThread:9048 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-21 01:26:30,005 DEBUG   SenderThread:9048 [sender.py:send_request():396] send_request: stop_status
+2023-06-21 01:26:30,934 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:26:30,934 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:26:32,951 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:26:32,951 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:26:33,653 INFO    Thread-20 :9048 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_012612-wfxerloo\files\output.log
+2023-06-21 01:26:34,155 DEBUG   HandlerThread:9048 [handler.py:handle_request():144] handle_request: status_report
+2023-06-21 01:26:34,984 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:26:34,984 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:26:37,014 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:26:37,015 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:26:39,044 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:26:39,044 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:26:39,219 DEBUG   HandlerThread:9048 [handler.py:handle_request():144] handle_request: status_report
+2023-06-21 01:26:41,076 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:26:41,077 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:26:43,101 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:26:43,102 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:26:44,274 DEBUG   HandlerThread:9048 [handler.py:handle_request():144] handle_request: status_report
+2023-06-21 01:26:44,778 INFO    Thread-20 :9048 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_012612-wfxerloo\files\config.yaml
+2023-06-21 01:26:45,027 DEBUG   HandlerThread:9048 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-21 01:26:45,028 DEBUG   SenderThread:9048 [sender.py:send_request():396] send_request: stop_status
+2023-06-21 01:26:45,176 ERROR   gpu       :9048 [interfaces.py:aggregate():161] Failed to serialize metric: division by zero
+2023-06-21 01:26:45,193 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:26:45,193 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:26:47,232 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:26:47,233 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:26:49,252 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:26:49,253 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:26:50,253 DEBUG   HandlerThread:9048 [handler.py:handle_request():144] handle_request: status_report
+2023-06-21 01:26:51,272 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:26:51,273 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:26:53,284 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:26:53,284 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:26:55,289 DEBUG   HandlerThread:9048 [handler.py:handle_request():144] handle_request: status_report
+2023-06-21 01:26:55,313 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:26:55,313 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:26:57,326 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:26:57,326 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:26:59,714 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:26:59,715 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:27:00,031 DEBUG   HandlerThread:9048 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-21 01:27:00,031 DEBUG   SenderThread:9048 [sender.py:send_request():396] send_request: stop_status
+2023-06-21 01:27:01,206 DEBUG   HandlerThread:9048 [handler.py:handle_request():144] handle_request: status_report
+2023-06-21 01:27:01,733 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:27:01,734 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:27:03,753 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:27:03,753 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:27:05,791 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:27:05,792 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:27:06,231 DEBUG   HandlerThread:9048 [handler.py:handle_request():144] handle_request: status_report
+2023-06-21 01:27:07,836 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:27:07,836 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:27:10,241 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:27:10,241 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:27:11,268 DEBUG   HandlerThread:9048 [handler.py:handle_request():144] handle_request: status_report
+2023-06-21 01:27:12,279 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:27:12,280 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:27:14,300 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:27:14,301 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:27:14,645 DEBUG   SystemMonitor:9048 [system_monitor.py:_start():159] Starting system metrics aggregation loop
+2023-06-21 01:27:14,659 DEBUG   SenderThread:9048 [sender.py:send():369] send: stats
+2023-06-21 01:27:15,049 DEBUG   HandlerThread:9048 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-21 01:27:15,053 DEBUG   SenderThread:9048 [sender.py:send_request():396] send_request: stop_status
+2023-06-21 01:27:16,339 ERROR   gpu       :9048 [interfaces.py:aggregate():161] Failed to serialize metric: division by zero
+2023-06-21 01:27:16,349 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:27:16,349 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:27:17,259 DEBUG   HandlerThread:9048 [handler.py:handle_request():144] handle_request: status_report
+2023-06-21 01:27:18,379 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:27:18,380 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:27:20,777 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:27:20,777 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:27:22,297 DEBUG   HandlerThread:9048 [handler.py:handle_request():144] handle_request: status_report
+2023-06-21 01:27:22,793 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:27:22,793 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:27:24,833 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:27:24,833 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:27:26,867 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:27:26,868 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:27:27,339 DEBUG   HandlerThread:9048 [handler.py:handle_request():144] handle_request: status_report
+2023-06-21 01:27:28,891 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:27:28,891 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:27:30,051 DEBUG   HandlerThread:9048 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-21 01:27:30,052 DEBUG   SenderThread:9048 [sender.py:send_request():396] send_request: stop_status
+2023-06-21 01:27:31,291 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:27:31,291 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:27:33,240 DEBUG   HandlerThread:9048 [handler.py:handle_request():144] handle_request: status_report
+2023-06-21 01:27:33,324 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:27:33,324 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:27:35,351 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:27:35,351 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:27:37,397 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:27:37,397 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:27:38,281 DEBUG   HandlerThread:9048 [handler.py:handle_request():144] handle_request: status_report
+2023-06-21 01:27:39,432 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:27:39,433 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:27:41,467 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:27:41,468 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:27:43,335 DEBUG   HandlerThread:9048 [handler.py:handle_request():144] handle_request: status_report
+2023-06-21 01:27:43,486 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:27:43,486 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:27:44,672 DEBUG   SenderThread:9048 [sender.py:send():369] send: stats
+2023-06-21 01:27:45,073 DEBUG   HandlerThread:9048 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-21 01:27:45,076 DEBUG   SenderThread:9048 [sender.py:send_request():396] send_request: stop_status
+2023-06-21 01:27:45,519 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:27:45,519 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:27:47,590 ERROR   gpu       :9048 [interfaces.py:aggregate():161] Failed to serialize metric: division by zero
+2023-06-21 01:27:47,610 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:27:47,610 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:27:49,282 DEBUG   HandlerThread:9048 [handler.py:handle_request():144] handle_request: status_report
+2023-06-21 01:27:49,654 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:27:49,654 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:27:51,675 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:27:51,675 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:27:53,713 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:27:53,713 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:27:54,317 DEBUG   HandlerThread:9048 [handler.py:handle_request():144] handle_request: status_report
+2023-06-21 01:27:56,111 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:27:56,112 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:27:58,137 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:27:58,138 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:27:59,386 DEBUG   HandlerThread:9048 [handler.py:handle_request():144] handle_request: status_report
+2023-06-21 01:28:00,083 DEBUG   HandlerThread:9048 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-21 01:28:00,084 DEBUG   SenderThread:9048 [sender.py:send_request():396] send_request: stop_status
+2023-06-21 01:28:00,169 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:28:00,170 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:28:02,211 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:28:02,212 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:28:04,254 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:28:04,255 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:28:04,499 DEBUG   HandlerThread:9048 [handler.py:handle_request():144] handle_request: status_report
+2023-06-21 01:28:04,626 INFO    Thread-20 :9048 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_012612-wfxerloo\files\output.log
+2023-06-21 01:28:06,297 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:28:06,298 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:28:06,641 INFO    Thread-20 :9048 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_012612-wfxerloo\files\output.log
+2023-06-21 01:28:08,324 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:28:08,324 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:28:08,661 INFO    Thread-20 :9048 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_012612-wfxerloo\files\output.log
+2023-06-21 01:28:09,519 DEBUG   HandlerThread:9048 [handler.py:handle_request():144] handle_request: status_report
+2023-06-21 01:28:10,344 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:28:10,345 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:28:12,373 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:28:12,374 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:28:14,419 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:28:14,419 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:28:14,577 DEBUG   HandlerThread:9048 [handler.py:handle_request():144] handle_request: status_report
+2023-06-21 01:28:14,686 DEBUG   SenderThread:9048 [sender.py:send():369] send: stats
+2023-06-21 01:28:15,087 DEBUG   HandlerThread:9048 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-21 01:28:15,088 DEBUG   SenderThread:9048 [sender.py:send_request():396] send_request: stop_status
+2023-06-21 01:28:16,461 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:28:16,461 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:28:18,528 ERROR   gpu       :9048 [interfaces.py:aggregate():161] Failed to serialize metric: division by zero
+2023-06-21 01:28:18,542 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:28:18,542 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:28:20,311 DEBUG   HandlerThread:9048 [handler.py:handle_request():144] handle_request: status_report
+2023-06-21 01:28:20,558 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:28:20,558 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:28:22,591 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:28:22,592 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:28:24,622 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:28:24,626 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:28:25,347 DEBUG   HandlerThread:9048 [handler.py:handle_request():144] handle_request: status_report
+2023-06-21 01:28:26,655 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:28:26,656 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:28:27,861 INFO    Thread-20 :9048 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_012612-wfxerloo\files\output.log
+2023-06-21 01:28:28,700 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:28:28,701 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:28:30,102 DEBUG   HandlerThread:9048 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-21 01:28:30,104 DEBUG   SenderThread:9048 [sender.py:send_request():396] send_request: stop_status
+2023-06-21 01:28:30,725 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:28:30,725 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:28:31,275 DEBUG   HandlerThread:9048 [handler.py:handle_request():144] handle_request: status_report
+2023-06-21 01:28:32,759 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:28:32,759 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:28:34,784 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:28:34,785 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:28:36,316 DEBUG   HandlerThread:9048 [handler.py:handle_request():144] handle_request: status_report
+2023-06-21 01:28:36,812 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:28:36,812 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:28:38,854 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:28:38,855 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:28:40,876 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:28:40,876 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:28:41,360 DEBUG   HandlerThread:9048 [handler.py:handle_request():144] handle_request: status_report
+2023-06-21 01:28:42,915 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:28:42,915 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:28:44,698 DEBUG   SenderThread:9048 [sender.py:send():369] send: stats
+2023-06-21 01:28:44,954 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:28:44,955 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:28:45,103 DEBUG   HandlerThread:9048 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-21 01:28:45,103 DEBUG   SenderThread:9048 [sender.py:send_request():396] send_request: stop_status
+2023-06-21 01:28:46,998 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:28:46,998 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:28:47,283 DEBUG   HandlerThread:9048 [handler.py:handle_request():144] handle_request: status_report
+2023-06-21 01:28:49,417 ERROR   gpu       :9048 [interfaces.py:aggregate():161] Failed to serialize metric: division by zero
+2023-06-21 01:28:49,428 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:28:49,428 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:28:51,460 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:28:51,460 ERROR   gpu       :9048 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-21 01:28:52,328 DEBUG   HandlerThread:9048 [handler.py:handle_request():144] handle_request: status_report
+2023-06-21 01:28:52,332 DEBUG   SenderThread:9048 [sender.py:send():369] send: telemetry
+2023-06-21 01:28:52,332 DEBUG   SenderThread:9048 [sender.py:send():369] send: exit
+2023-06-21 01:28:52,332 INFO    SenderThread:9048 [sender.py:send_exit():574] handling exit code: 1
+2023-06-21 01:28:52,333 INFO    SenderThread:9048 [sender.py:send_exit():576] handling runtime: 158
+2023-06-21 01:28:52,334 INFO    SenderThread:9048 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 01:28:52,335 INFO    SenderThread:9048 [sender.py:send_exit():582] send defer
+2023-06-21 01:28:52,335 DEBUG   HandlerThread:9048 [handler.py:handle_request():144] handle_request: defer
+2023-06-21 01:28:52,335 INFO    HandlerThread:9048 [handler.py:handle_request_defer():170] handle defer: 0
+2023-06-21 01:28:52,336 DEBUG   SenderThread:9048 [sender.py:send_request():396] send_request: defer
+2023-06-21 01:28:52,337 INFO    SenderThread:9048 [sender.py:send_request_defer():598] handle sender defer: 0
+2023-06-21 01:28:52,337 INFO    SenderThread:9048 [sender.py:transition_state():602] send defer: 1
+2023-06-21 01:28:52,337 DEBUG   HandlerThread:9048 [handler.py:handle_request():144] handle_request: defer
+2023-06-21 01:28:52,338 INFO    HandlerThread:9048 [handler.py:handle_request_defer():170] handle defer: 1
+2023-06-21 01:28:52,339 DEBUG   SenderThread:9048 [sender.py:send_request():396] send_request: defer
+2023-06-21 01:28:52,339 INFO    SenderThread:9048 [sender.py:send_request_defer():598] handle sender defer: 1
+2023-06-21 01:28:52,339 INFO    SenderThread:9048 [sender.py:transition_state():602] send defer: 2
+2023-06-21 01:28:52,340 DEBUG   HandlerThread:9048 [handler.py:handle_request():144] handle_request: defer
+2023-06-21 01:28:52,341 INFO    HandlerThread:9048 [handler.py:handle_request_defer():170] handle defer: 2
+2023-06-21 01:28:52,341 INFO    HandlerThread:9048 [system_monitor.py:finish():190] Stopping system monitor
+2023-06-21 01:28:52,341 DEBUG   SystemMonitor:9048 [system_monitor.py:_start():166] Finished system metrics aggregation loop
+2023-06-21 01:28:52,341 DEBUG   SystemMonitor:9048 [system_monitor.py:_start():170] Publishing last batch of metrics
+2023-06-21 01:28:52,347 INFO    HandlerThread:9048 [interfaces.py:finish():202] Joined cpu monitor
+2023-06-21 01:28:52,347 INFO    HandlerThread:9048 [interfaces.py:finish():202] Joined disk monitor
+2023-06-21 01:28:52,388 ERROR   gpu       :9048 [interfaces.py:aggregate():161] Failed to serialize metric: division by zero
+2023-06-21 01:28:52,388 INFO    HandlerThread:9048 [interfaces.py:finish():202] Joined gpu monitor
+2023-06-21 01:28:52,389 INFO    HandlerThread:9048 [interfaces.py:finish():202] Joined memory monitor
+2023-06-21 01:28:52,389 INFO    HandlerThread:9048 [interfaces.py:finish():202] Joined network monitor
+2023-06-21 01:28:52,393 DEBUG   SenderThread:9048 [sender.py:send_request():396] send_request: defer
+2023-06-21 01:28:52,393 INFO    SenderThread:9048 [sender.py:send_request_defer():598] handle sender defer: 2
+2023-06-21 01:28:52,393 INFO    SenderThread:9048 [sender.py:transition_state():602] send defer: 3
+2023-06-21 01:28:52,393 DEBUG   SenderThread:9048 [sender.py:send():369] send: stats
+2023-06-21 01:28:52,394 DEBUG   HandlerThread:9048 [handler.py:handle_request():144] handle_request: defer
+2023-06-21 01:28:52,395 INFO    HandlerThread:9048 [handler.py:handle_request_defer():170] handle defer: 3
+2023-06-21 01:28:52,395 DEBUG   SenderThread:9048 [sender.py:send_request():396] send_request: defer
+2023-06-21 01:28:52,395 INFO    SenderThread:9048 [sender.py:send_request_defer():598] handle sender defer: 3
+2023-06-21 01:28:52,395 INFO    SenderThread:9048 [sender.py:transition_state():602] send defer: 4
+2023-06-21 01:28:52,395 DEBUG   HandlerThread:9048 [handler.py:handle_request():144] handle_request: defer
+2023-06-21 01:28:52,396 INFO    HandlerThread:9048 [handler.py:handle_request_defer():170] handle defer: 4
+2023-06-21 01:28:52,396 DEBUG   SenderThread:9048 [sender.py:send_request():396] send_request: defer
+2023-06-21 01:28:52,396 INFO    SenderThread:9048 [sender.py:send_request_defer():598] handle sender defer: 4
+2023-06-21 01:28:52,397 INFO    SenderThread:9048 [sender.py:transition_state():602] send defer: 5
+2023-06-21 01:28:52,397 DEBUG   HandlerThread:9048 [handler.py:handle_request():144] handle_request: defer
+2023-06-21 01:28:52,397 INFO    HandlerThread:9048 [handler.py:handle_request_defer():170] handle defer: 5
+2023-06-21 01:28:52,399 DEBUG   SenderThread:9048 [sender.py:send():369] send: summary
+2023-06-21 01:28:52,400 INFO    SenderThread:9048 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-21 01:28:52,400 DEBUG   SenderThread:9048 [sender.py:send_request():396] send_request: defer
+2023-06-21 01:28:52,401 INFO    SenderThread:9048 [sender.py:send_request_defer():598] handle sender defer: 5
+2023-06-21 01:28:52,401 INFO    SenderThread:9048 [sender.py:transition_state():602] send defer: 6
+2023-06-21 01:28:52,401 DEBUG   HandlerThread:9048 [handler.py:handle_request():144] handle_request: defer
+2023-06-21 01:28:52,401 INFO    HandlerThread:9048 [handler.py:handle_request_defer():170] handle defer: 6
+2023-06-21 01:28:52,402 DEBUG   SenderThread:9048 [sender.py:send_request():396] send_request: defer
+2023-06-21 01:28:52,402 INFO    SenderThread:9048 [sender.py:send_request_defer():598] handle sender defer: 6
+2023-06-21 01:28:52,417 DEBUG   HandlerThread:9048 [handler.py:handle_request():144] handle_request: status_report
+2023-06-21 01:28:52,633 INFO    SenderThread:9048 [sender.py:transition_state():602] send defer: 7
+2023-06-21 01:28:52,634 DEBUG   HandlerThread:9048 [handler.py:handle_request():144] handle_request: defer
+2023-06-21 01:28:52,634 INFO    HandlerThread:9048 [handler.py:handle_request_defer():170] handle defer: 7
+2023-06-21 01:28:52,635 DEBUG   SenderThread:9048 [sender.py:send_request():396] send_request: defer
+2023-06-21 01:28:52,635 INFO    SenderThread:9048 [sender.py:send_request_defer():598] handle sender defer: 7
+2023-06-21 01:28:53,163 INFO    Thread-20 :9048 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_012612-wfxerloo\files\wandb-summary.json
+2023-06-21 01:28:53,164 INFO    Thread-20 :9048 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_012612-wfxerloo\files\config.yaml
+2023-06-21 01:28:53,330 DEBUG   HandlerThread:9048 [handler.py:handle_request():144] handle_request: poll_exit
+2023-06-21 01:28:53,893 INFO    SenderThread:9048 [sender.py:transition_state():602] send defer: 8
+2023-06-21 01:28:53,894 DEBUG   SenderThread:9048 [sender.py:send_request():396] send_request: poll_exit
+2023-06-21 01:28:53,896 DEBUG   HandlerThread:9048 [handler.py:handle_request():144] handle_request: defer
+2023-06-21 01:28:53,896 INFO    HandlerThread:9048 [handler.py:handle_request_defer():170] handle defer: 8
+2023-06-21 01:28:53,897 DEBUG   SenderThread:9048 [sender.py:send_request():396] send_request: defer
+2023-06-21 01:28:53,897 INFO    SenderThread:9048 [sender.py:send_request_defer():598] handle sender defer: 8
+2023-06-21 01:28:53,897 INFO    SenderThread:9048 [job_builder.py:build():232] Attempting to build job artifact
+2023-06-21 01:28:53,898 INFO    SenderThread:9048 [job_builder.py:build():256] is repo sourced job
+2023-06-21 01:28:53,913 INFO    SenderThread:9048 [job_builder.py:build():297] adding wandb-job metadata file
+2023-06-21 01:28:53,924 INFO    SenderThread:9048 [sender.py:transition_state():602] send defer: 9
+2023-06-21 01:28:53,925 DEBUG   HandlerThread:9048 [handler.py:handle_request():144] handle_request: defer
+2023-06-21 01:28:53,925 INFO    HandlerThread:9048 [handler.py:handle_request_defer():170] handle defer: 9
+2023-06-21 01:28:53,927 DEBUG   SenderThread:9048 [sender.py:send():369] send: artifact
+2023-06-21 01:28:54,175 INFO    Thread-20 :9048 [dir_watcher.py:_on_file_modified():289] file/dir modified: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_012612-wfxerloo\files\output.log
+2023-06-21 01:28:54,345 DEBUG   HandlerThread:9048 [handler.py:handle_request():144] handle_request: poll_exit
+2023-06-21 01:28:54,926 INFO    SenderThread:9048 [sender.py:send_artifact():1450] sent artifact job-https___github.com_KorytheHoly_Bachelor_thesis.git_train_bbox.py - {'id': 'QXJ0aWZhY3Q6NDk0MDEyNjk2', 'digest': 'bcf1c6ac7a3f0050e0602a8073b3caf1', 'state': 'COMMITTED', 'aliases': [{'artifactCollectionName': 'job-https___github.com_KorytheHoly_Bachelor_thesis.git_train_bbox.py', 'alias': 'latest'}, {'artifactCollectionName': 'job-https___github.com_KorytheHoly_Bachelor_thesis.git_train_bbox.py', 'alias': 'v0'}], 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjc4MTQzNDI2', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6NDk0MDEyNjk2', 'versionIndex': 0}}, 'version': 'v0'}
+2023-06-21 01:28:54,927 DEBUG   SenderThread:9048 [sender.py:send_request():396] send_request: defer
+2023-06-21 01:28:54,927 INFO    SenderThread:9048 [sender.py:send_request_defer():598] handle sender defer: 9
+2023-06-21 01:28:54,927 INFO    SenderThread:9048 [dir_watcher.py:finish():359] shutting down directory watcher
+2023-06-21 01:28:55,193 INFO    SenderThread:9048 [dir_watcher.py:finish():389] scan: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_012612-wfxerloo\files
+2023-06-21 01:28:55,195 INFO    SenderThread:9048 [dir_watcher.py:finish():403] scan save: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_012612-wfxerloo\files\conda-environment.yaml conda-environment.yaml
+2023-06-21 01:28:55,198 INFO    SenderThread:9048 [dir_watcher.py:finish():403] scan save: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_012612-wfxerloo\files\config.yaml config.yaml
+2023-06-21 01:28:55,202 INFO    SenderThread:9048 [dir_watcher.py:finish():403] scan save: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_012612-wfxerloo\files\output.log output.log
+2023-06-21 01:28:55,233 INFO    SenderThread:9048 [dir_watcher.py:finish():403] scan save: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_012612-wfxerloo\files\requirements.txt requirements.txt
+2023-06-21 01:28:55,255 INFO    SenderThread:9048 [dir_watcher.py:finish():403] scan save: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_012612-wfxerloo\files\wandb-metadata.json wandb-metadata.json
+2023-06-21 01:28:55,255 INFO    SenderThread:9048 [dir_watcher.py:finish():403] scan save: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230621_012612-wfxerloo\files\wandb-summary.json wandb-summary.json
+2023-06-21 01:28:55,270 INFO    SenderThread:9048 [sender.py:transition_state():602] send defer: 10
+2023-06-21 01:28:55,272 DEBUG   SenderThread:9048 [sender.py:send_request():396] send_request: poll_exit
+2023-06-21 01:28:55,273 DEBUG   HandlerThread:9048 [handler.py:handle_request():144] handle_request: defer
+2023-06-21 01:28:55,285 INFO    HandlerThread:9048 [handler.py:handle_request_defer():170] handle defer: 10
+2023-06-21 01:28:55,287 DEBUG   SenderThread:9048 [sender.py:send_request():396] send_request: defer
+2023-06-21 01:28:55,287 INFO    SenderThread:9048 [sender.py:send_request_defer():598] handle sender defer: 10
+2023-06-21 01:28:55,287 INFO    SenderThread:9048 [file_pusher.py:finish():159] shutting down file pusher

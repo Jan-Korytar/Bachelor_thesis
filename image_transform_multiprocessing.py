@@ -26,12 +26,12 @@ val_masks_path = 'REFUGE-Validation400-GT/**/*.bmp'
 test_images_path = 'REFUGE-Test400/**/*.jpg'
 test_masks_path = 'REFUGE-Test-GT/**/*.bmp'
 
-train_images = sorted(glob(os.path.join(images_path, train_images_path), recursive=True))
-train_masks = sorted(glob(os.path.join(images_path, train_masks_path), recursive=True))
-val_images = sorted(glob(os.path.join(images_path, val_images_path), recursive=True))
-val_masks = sorted(glob(os.path.join(images_path, val_masks_path), recursive=True))
-test_images = sorted(glob(os.path.join(images_path, test_images_path), recursive=True))
-test_images = sorted(glob(os.path.join(images_path, test_masks_path), recursive=True))
+train_images = sorted(glob(os.path.join(images_path, train_images_path), recursive=True), key=lambda x:os.path.basename(x))
+train_masks = sorted(glob(os.path.join(images_path, train_masks_path), recursive=True),key=lambda x:os.path.basename(x))
+val_images = sorted(glob(os.path.join(images_path, val_images_path), recursive=True),key=lambda x:os.path.basename(x))
+val_masks = sorted(glob(os.path.join(images_path, val_masks_path), recursive=True),key=lambda x:os.path.basename(x))
+test_images = sorted(glob(os.path.join(images_path, test_images_path), recursive=True),key=lambda x:os.path.basename(x))
+test_masks = sorted(glob(os.path.join(images_path, test_masks_path), recursive=True),key=lambda x:os.path.basename(x))
 
 
 def image_train_transform(input_img, mask, alpha=10, size=256, mode='train'):
@@ -40,6 +40,8 @@ def image_train_transform(input_img, mask, alpha=10, size=256, mode='train'):
         input_img = datapoints.Image(read_image(input_img))
         mask = datapoints.Mask(transforms.RandomInvert(1)(transforms.ToImageTensor()(Image.open(mask))))
 
+        resize = transforms.Resize((size, size), antialias=True, interpolation=torchvision.transforms.InterpolationMode.BILINEAR)
+
         both_transforms = transforms.Compose([
             transforms.Resize((size, size), antialias=True, interpolation=torchvision.transforms.InterpolationMode.BILINEAR),
             transforms.RandomPerspective(.1),
@@ -47,12 +49,14 @@ def image_train_transform(input_img, mask, alpha=10, size=256, mode='train'):
         ])
 
         img_transforms = transforms.Compose([
-            transforms.ColorJitter(0.1, 0.1, 0.1, 0.1)
+            transforms.ColorJitter(0.05, 0.05, 0.05, 0.05)
         ])
 
         masks = []
         images = []
-        for i in range(alpha):
+        masks.append(torch.tensor(resize(mask)))
+        images.append(torch.tensor(resize(input_img)))
+        for i in range(alpha-1):
             t_img, t_mask = both_transforms(input_img, mask)
 
             masks.append(torch.tensor(t_mask))
@@ -79,27 +83,27 @@ def process_image(i):
     i = i[0]
 
     torchvision.disable_beta_transforms_warning()
-    path = r'C:\my files\REFUGE\1'
+    path = r'C:\my files\REFUGE\3'
 
     if not os.path.exists(os.path.join(path, fr'{mode}')):
-        os.makedirs(os.path.join(path, fr'{mode}\masks'))
-        os.makedirs(os.path.join(path, fr'{mode}\image'))
+        os.makedirs(os.path.join(path, fr'{mode}\masks'), exist_ok=True)
+        os.makedirs(os.path.join(path, fr'{mode}\image'),  exist_ok=True)
 
     if mode == 'train':
         image, label = train_images[i], train_masks[i]
-        if os.path.exists(os.path.join(path, fr'training\masks\mask_{i}_9.bmp')):
-            return
+        #if os.path.exists(os.path.join(path, fr'training\masks\mask_{i}_9.bmp')):
+        #    return
 
     elif mode == 'validation':
         image, label = val_images[i], val_masks[i]
 
-        if os.path.exists(os.path.join(path, fr'validation\masks\mask_{i}_0.bmp')):
-            return
+        #if os.path.exists(os.path.join(path, fr'validation\masks\mask_{i}_0.bmp')):
+        #    return
 
     elif mode == 'test':
         image, label = val_images[i], val_masks[i]
-        if os.path.exists(os.path.join(path, fr'\test\masks\mask_{i}_0.bmp')):
-            return
+        #if os.path.exists(os.path.join(path, fr'\test\masks\mask_{i}_0.bmp')):
+        #    return
 
 
 

@@ -1,0 +1,51 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|██████████| 400/400 [00:53<00:00,  7.44it/s]
+0it [00:00, ?it/s]
+tensor([0, 0, 0, 0], device='cuda:0', dtype=torch.uint8) tensor([25, 54, 42, 73], device='cuda:0', dtype=torch.uint8)
+tensor([0, 0, 0, 0], device='cuda:0', dtype=torch.uint8) tensor([25, 57, 42, 74], device='cuda:0', dtype=torch.uint8)
+
+3it [00:01,  1.81it/s]
+tensor([0, 0, 0, 0], device='cuda:0', dtype=torch.uint8) tensor([15, 53, 31, 73], device='cuda:0', dtype=torch.uint8)
+tensor([0, 0, 0, 0], device='cuda:0', dtype=torch.uint8) tensor([26, 47, 42, 66], device='cuda:0', dtype=torch.uint8)
+tensor([0, 0, 0, 0], device='cuda:0', dtype=torch.uint8) tensor([20, 56, 31, 72], device='cuda:0', dtype=torch.uint8)
+tensor([0, 0, 0, 0], device='cuda:0', dtype=torch.uint8) tensor([23, 50, 38, 65], device='cuda:0', dtype=torch.uint8)
+Saving the best model
+7it [00:03,  2.00it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 52%|█████▏    | 209/400 [00:25<00:23,  8.25it/s]

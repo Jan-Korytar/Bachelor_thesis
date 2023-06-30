@@ -1,0 +1,42 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|██████████| 50/50 [00:58<00:00,  1.18s/it]
+1it [00:00,  1.81it/s]
+{'prediction': tensor([111.8909,  26.1885, 148.1226,  61.2370], device='cuda:0'), 'true': [tensor([103.,  55., 144.,  89.])]}
+
+4it [00:02,  1.38it/s]
+{'prediction': tensor([110.0538,  27.5338, 146.2587,  63.3146], device='cuda:0'), 'true': [tensor([ 99.,  53., 144.,  84.])]}
+{'prediction': tensor([114.6657,  27.5938, 150.2550,  62.8361], device='cuda:0'), 'true': [tensor([106.,  52., 144.,  86.])]}
+7it [00:04,  1.59it/s]
+C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\train_bbox.py:115: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  img = torchvision.utils.draw_bounding_boxes(torch.tensor(images[0], dtype=torch.uint8),
+C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\train_bbox.py:116: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  torch.stack((torch.tensor(outputs[0], dtype=torch.uint8), torch.tensor(bboxes[0], dtype=torch.uint8))))
+{'prediction': tensor([ 96.7491,  27.7934, 131.3175,  63.6066], device='cuda:0'), 'true': [tensor([108.,  60., 143.,  88.])]}
+{'prediction': tensor([106.0719,  26.1359, 141.7443,  61.5170], device='cuda:0'), 'true': [tensor([106.,  64., 142., 100.])]}
