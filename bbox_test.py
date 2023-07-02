@@ -4,7 +4,7 @@ import torchvision
 torchvision.disable_beta_transforms_warning()
 import torch
 from bbox_model import bbox_model
-from  my_dataset import BboxDataset
+from  datasets import BboxDataset
 from torch.utils.data import DataLoader, Dataset
 from paths import get_preprocessed_images_paths
 from tqdm import tqdm
@@ -45,7 +45,7 @@ with torch.no_grad():
         outputs = model(images) * 126
 
         bboxes = masks_to_boxes(masks)
-        dist_mean.append(torch.mean(torch.abs(outputs - bboxes)))
+        dist_mean.append(torch.abs(outputs - bboxes))
         bboxes.to(device)
         image = images[0].detach().cpu() * 255
         image = image.to(torch.uint8)

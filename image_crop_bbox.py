@@ -115,7 +115,7 @@ def process_images(idx, train_img, train_mask, val_img, val_mask, test_img, test
     val_bbox[:, [2, 3]] = torch.clamp(val_bbox[:, [2, 3]], max=val_img.shape[1])
     val_bbox_true = masks_to_boxes(val_mask) + torch.tensor([-100, -100, 100, 100])
     val_bbox_true[:, [0, 1]] = torch.clamp(val_bbox_true[:, [0, 1]], min=0)
-    val_bbox_true[:, [2, 3]] = torch.clamp(val_bbox_true[:, [2, 3]], max=train_img.shape[1])
+    val_bbox_true[:, [2, 3]] = torch.clamp(val_bbox_true[:, [2, 3]], max=val_img.shape[1])
 
     val_image_crop_model = val_img[:, int(val_bbox[:, 1]):int(val_bbox[:, 3]),
                            int(val_bbox[:, 0]):int(val_bbox[:, 2])]
@@ -148,7 +148,7 @@ def process_images(idx, train_img, train_mask, val_img, val_mask, test_img, test
     test_bbox[:, [2, 3]] = torch.clamp(test_bbox[:, [2, 3]], max=test_img.shape[1])
     test_bbox_true = masks_to_boxes(test_mask) + torch.tensor([-100, -100, 100, 100])
     test_bbox_true[:, [0, 1]] = torch.clamp(test_bbox_true[:, [0, 1]], min=0)
-    test_bbox_true[:, [2, 3]] = torch.clamp(test_bbox_true[:, [2, 3]], max=train_img.shape[1])
+    test_bbox_true[:, [2, 3]] = torch.clamp(test_bbox_true[:, [2, 3]], max=test_img.shape[1])
 
     test_image_crop_model = test_img[:, int(test_bbox[:, 1]):int(test_bbox[:, 3]),
                             int(test_bbox[:, 0]):int(test_bbox[:, 2])]

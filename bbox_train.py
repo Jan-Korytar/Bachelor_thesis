@@ -5,7 +5,7 @@ torchvision.disable_beta_transforms_warning()
 import torch
 from torch.utils.data import DataLoader
 from tqdm import tqdm
-from my_dataset import BboxDataset
+from datasets import BboxDataset
 from paths import get_preprocessed_images_paths
 from bbox_model import bbox_model
 import wandb

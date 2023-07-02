@@ -1,6 +1,0 @@
-
-  0%|          | 0/50 [00:00<?, ?it/s]C:\Users\0005h\miniconda3\envs\thesis\lib\site-packages\torch\nn\functional.py:1331: UserWarning: dropout2d: Received a 2-D input to dropout2d, which is deprecated and will result in an error in a future release. To retain the behavior and silence this warning, please use dropout instead. Note that dropout2d exists to provide channel-wise dropout on inputs with 2 spatial dimensions, a channel dimension, and an optional batch dimension (i.e. 3D or 4D inputs).
-  warnings.warn(warn_msg)
-  8%|▊         | 4/50 [00:06<00:59,  1.29s/it]C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\train_bbox.py:85: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
-  img = torchvision.utils.draw_bounding_boxes(torch.tensor(images[0], dtype=int),
-  8%|▊         | 4/50 [00:07<01:25,  1.87s/it]
