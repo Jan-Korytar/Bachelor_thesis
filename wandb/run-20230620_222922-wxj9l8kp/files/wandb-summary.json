@@ -1,1 +1,0 @@
-{"epoch": 0, "loss": NaN, "_timestamp": 1687293020.8490236, "_runtime": 58.25855469703674, "_step": 3, "train_image": {"_type": "image-file", "sha256": "32e8d790bd5ba339e5a77c73b10df6900cb875f8fa745383cf3f1bf01901e86a", "size": 15063, "path": "media/images/train_image_2_32e8d790bd5ba339e5a7.png", "format": "png", "width": 126, "height": 126}}

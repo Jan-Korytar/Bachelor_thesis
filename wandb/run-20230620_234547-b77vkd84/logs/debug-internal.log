@@ -1,5 +1,0 @@
-2023-06-20 23:45:47,478 INFO    StreamThr :22964 [internal.py:wandb_internal():86] W&B internal server running at pid: 22964, started at: 2023-06-20 23:45:47.476724
-2023-06-20 23:45:47,486 DEBUG   HandlerThread:22964 [handler.py:handle_request():144] handle_request: status
-2023-06-20 23:45:47,505 INFO    WriterThread:22964 [datastore.py:open_for_write():85] open: C:\Users\0005h\OneDrive\Documents\programming\pycharm\Bachelor_thesis\wandb\run-20230620_234547-b77vkd84\run-b77vkd84.wandb
-2023-06-20 23:45:47,513 DEBUG   SenderThread:22964 [sender.py:send():369] send: header
-2023-06-20 23:45:47,652 DEBUG   SenderThread:22964 [sender.py:send():369] send: run

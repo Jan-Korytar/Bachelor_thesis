@@ -211,7 +211,8 @@ def main():
                     'decay': {'max': 1.0, 'min':  0.7},
                     },
 
-                }'''
+                }
+'''
 #sweep_id = wandb.sweep(sweep=sweep_config, project="sweep_1")
 
 #wandb.agent(sweep_id, function=main, count=100)
@@ -219,5 +220,5 @@ def main():
 main()
 
 
-
+#  ll   sadfasdfasdf
 
