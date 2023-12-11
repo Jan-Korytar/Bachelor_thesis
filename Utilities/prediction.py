@@ -3,18 +3,13 @@ import torch
 import torchvision
 torchvision.disable_beta_transforms_warning()
 from torchvision.transforms import v2 as transforms
-from paths import get_preprocessed_images_paths
 from tqdm import tqdm
-from torchvision.ops import masks_to_boxes
 from PIL import Image
 from torchvision import datapoints
 from torchvision.io import read_image
 from glob import glob
 import os
-from bbox_model import bbox_model
-from multiprocessing import freeze_support
-import multiprocessing
-from seg_model import SegmentationModel
+from Utilities.models import bbox_model, SegmentationModel
 
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 
@@ -55,7 +50,7 @@ test_masks = sorted(glob(os.path.join(images_path, test_masks_path), recursive=T
 model_bbox = bbox_model(in_channels=3, base_dim=config_bbox['base_dim'], dropout=config_bbox['dropout'],
                    batch_norm=config_bbox['batch_norm'])
 
-model_bbox.load_state_dict(torch.load('best_model_3.pt'))
+model_bbox.load_state_dict(torch.load('../Models/best_model_3.pt'))
 model_bbox.to(device)
 
 

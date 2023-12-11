@@ -1,7 +1,6 @@
 import os
 from glob import glob
 from multiprocessing import Pool, freeze_support
-
 import torch
 import torchvision
 torchvision.disable_beta_transforms_warning()
@@ -10,6 +9,7 @@ from torchvision import datapoints
 from torchvision.io import read_image
 from torchvision.transforms import v2 as transforms
 from tqdm import tqdm
+import numpy as yaml
 import warnings
 
 warnings.filterwarnings("ignore", category=UserWarning)
@@ -17,21 +17,23 @@ warnings.filterwarnings("ignore", category=UserWarning)
 
 
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
+with open('config_paths.yaml', 'r') as file:
+    paths_data = yaml.safe_load(file)
 
-images_path = r'C:\my files\REFUGE'
-train_images_path = 'Training400/**/*.jpg'
-train_masks_path = 'Annotation-Training400/Disc_Cup_Masks/**/*.bmp'
-val_images_path = 'REFUGE-Validation400/**/*.jpg'
-val_masks_path = 'REFUGE-Validation400-GT/**/*.bmp'
-test_images_path = 'REFUGE-Test400/**/*.jpg'
-test_masks_path = 'REFUGE-Test-GT/**/*.bmp'
+images_path = paths_data['paths']['images_path']
+train_images_path = paths_data['paths']['train_images_path']
+train_masks_path = paths_data['paths']['train_masks_path']
+val_images_path = paths_data['paths']['val_images_path']
+val_masks_path = paths_data['paths']['val_masks_path']
+test_images_path = paths_data['paths']['test_images_path']
+test_masks_path = paths_data['paths']['test_masks_path']
 
-train_images = sorted(glob(os.path.join(images_path, train_images_path), recursive=True), key=lambda x:os.path.basename(x))
-train_masks = sorted(glob(os.path.join(images_path, train_masks_path), recursive=True),key=lambda x:os.path.basename(x))
-val_images = sorted(glob(os.path.join(images_path, val_images_path), recursive=True),key=lambda x:os.path.basename(x))
-val_masks = sorted(glob(os.path.join(images_path, val_masks_path), recursive=True),key=lambda x:os.path.basename(x))
-test_images = sorted(glob(os.path.join(images_path, test_images_path), recursive=True),key=lambda x:os.path.basename(x))
-test_masks = sorted(glob(os.path.join(images_path, test_masks_path), recursive=True),key=lambda x:os.path.basename(x))
+train_images = sorted(glob(os.path.join(images_path, train_images_path), recursive=True), key=lambda x: os.path.basename(x))
+train_masks = sorted(glob(os.path.join(images_path, train_masks_path), recursive=True), key=lambda x: os.path.basename(x))
+val_images = sorted(glob(os.path.join(images_path, val_images_path), recursive=True), key=lambda x: os.path.basename(x))
+val_masks = sorted(glob(os.path.join(images_path, val_masks_path), recursive=True), key=lambda x: os.path.basename(x))
+test_images = sorted(glob(os.path.join(images_path, test_images_path), recursive=True), key=lambda x: os.path.basename(x))
+test_masks = sorted(glob(os.path.join(images_path, test_masks_path), recursive=True), key=lambda x: os.path.basename(x))
 
 
 def image_train_transform(input_img, mask, alpha=10, size=256, mode='train'):
@@ -85,9 +87,9 @@ def process_image(i):
     torchvision.disable_beta_transforms_warning()
     path = r'C:\my files\REFUGE\3'
 
-    if not os.path.exists(os.path.join(path, fr'{mode}')):
-        os.makedirs(os.path.join(path, fr'{mode}\masks'), exist_ok=True)
-        os.makedirs(os.path.join(path, fr'{mode}\image'),  exist_ok=True)
+    if not os.path.exists(os.path.join(path, fr'{mode}\images')):
+        os.makedirs(os.path.join(path, fr'{mode}\images'), exist_ok=True)
+        os.makedirs(os.path.join(path, fr'{mode}\labels'),  exist_ok=True)
 
     if mode == 'train':
         image, label = train_images[i], train_masks[i]
@@ -111,8 +113,8 @@ def process_image(i):
     for j, (img, lab) in enumerate(zip(images, masks)):
         img = transforms.ToPILImage()(img)
         lab = transforms.ToPILImage()(lab)
-        lab.save(os.path.join(path, fr'{mode}\masks\mask_{i}_{j}.bmp'))
-        img.save(os.path.join(path, fr'{mode}\image\input_{i}_{j}.jpg'))
+        lab.save(os.path.join(path, fr'{mode}\images\mask_{i}_{j}.bmp'))
+        img.save(os.path.join(path, fr'{mode}\labels\input_{i}_{j}.jpg'))
 
 
 if __name__ == '__main__':

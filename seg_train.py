@@ -2,29 +2,25 @@ import os.path
 
 import matplotlib.pyplot as plt
 import numpy as np
-import torchmetrics
 import torchvision
 from glob import glob
 
 torchvision.disable_beta_transforms_warning()
-from torch.nn import functional as F
 import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader
 from tqdm import tqdm
-from datasets import SegDatset
-from paths import get_preprocessed_images_paths
-from seg_model import SegmentationModel
+from Utilities.models import SegmentationModel
 import wandb
 import torch.optim as optim
 
 wandb.login()
-import sys
 from torchmetrics import Dice
 
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
-from focal_loss import FocalLoss
-from dice_loss import GDiceLoss
+
+from Losses_pytorch.focal_loss import FocalLoss
+from Losses_pytorch.dice_loss import GDiceLoss
 
 
 

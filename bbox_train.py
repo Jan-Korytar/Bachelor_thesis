@@ -1,19 +1,25 @@
-import numpy as np
 import torchvision
 torchvision.disable_beta_transforms_warning()
 
 import torch
 from torch.utils.data import DataLoader
 from tqdm import tqdm
-from datasets import BboxDataset
-from paths import get_preprocessed_images_paths
-from bbox_model import bbox_model
+from Utilities.datasets import BboxDataset
+from Utilities.paths import get_preprocessed_images_paths
+from Utilities.models import bbox_model
 import wandb
 import torch.optim as optim
-from torchvision.ops import masks_to_boxes, generalized_box_iou_loss, complete_box_iou_loss, distance_box_iou_loss
+from torchvision.ops import masks_to_boxes, generalized_box_iou_loss, distance_box_iou_loss
 wandb.login()
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 best_of_all_val_loss = -torch.inf
+
+
+# Load model directly
+from transformers import AutoFeatureExtractor, AutoModelForObjectDetection
+
+extractor = AutoFeatureExtractor.from_pretrained("facebook/detr-resnet-50")
+model = AutoModelForObjectDetection.from_pretrained("facebook/detr-resnet-50")
 
 
 
@@ -73,25 +79,11 @@ def main():
                 masks = masks.to(device)
                 optimizer.zero_grad()
                 outputs = model(images) * 126
-                '''
-                a = torch.clamp(outputs[:, 0], max=outputs[:, 2])
-                b = torch.clamp(outputs[:, 1], max=outputs[:, 3])
-                c = torch.clamp(outputs[:, 2], min=outputs[:, 0])
-                d = torch.clamp(outputs[:, 3], min=outputs[:, 1])
-                outputs = torch.stack([a, b, c, d], dim=1) '''
+
                 bboxes = masks_to_boxes(masks).to(device)
 
                 if epoch < 3:  # won't be used
                     loss = torch.nn.functional.mse_loss(outputs, bboxes)
-                    '''
-                    loss = (generalized_box_iou_loss if config.loss_type == 'general_iou' else complete_box_iou_loss)(outputs, bboxes, reduction='mean') - (
-                        torch.sum(outputs[outputs < 0])) / config.batch_size +torch.sum(outputs[outputs>1])/config.batch_size \
-                           + torch.mean(
-                        torch.max(torch.stack((torch.zeros_like(outputs[:, 0]), outputs[:, 0] - outputs[:, 2])),
-                                  keepdim=True, dim=0)[0]) + \
-                           torch.mean(
-                               torch.max(torch.stack((torch.zeros_like(outputs[:, 0]), outputs[:, 1] - outputs[:, 3])),
-                                         keepdim=True, dim=0)[0])'''
                 else:
                     if config.loss_type == 'general_iou':
                         loss = generalized_box_iou_loss(outputs, bboxes, reduction='mean')
@@ -179,7 +171,7 @@ def main():
             if val_loss < best_val_loss:
                 tolerance = 5
                 best_val_loss = val_loss
-                torch.save(model.state_dict(), 'best_model_4.pt')
+                torch.save(model.state_dict(), 'Models/best_model_4.pt')
                 tqdm.write(f'Saving the best model')
             else:
                 tolerance -= 1
