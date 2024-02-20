@@ -1,3 +1,6 @@
+# Note that this repository is getting restructured and doesn't have to wokr properly
+
+
 # Bachelor Thesis
 This code base is a part of Bachelor thesis in AI, on Johannes kepler university. 
 
