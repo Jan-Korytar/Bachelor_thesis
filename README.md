@@ -1,4 +1,4 @@
-# Note that this repository is getting restructured and doesn't have to wokr properly
+# Note that this repository is getting restructured and doesn't have to work properly
 
 
 # Bachelor Thesis
