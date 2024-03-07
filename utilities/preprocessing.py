@@ -5,42 +5,41 @@ import torch
 import torchvision
 torchvision.disable_beta_transforms_warning()
 from PIL import Image
-from torchvision import datapoints
+from torchvision import tv_tensors as datapoints
 from torchvision.io import read_image
 from torchvision.transforms import v2 as transforms
 from tqdm import tqdm
-import numpy as yaml
+import numpy as np
+import yaml
 import warnings
 
 warnings.filterwarnings("ignore", category=UserWarning)
-
-
-
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
-with open('config_paths.yaml', 'r') as file:
-    paths_data = yaml.safe_load(file)
 
-images_path = paths_data['paths']['images_path']
-train_images_path = paths_data['paths']['train_images_path']
-train_masks_path = paths_data['paths']['train_masks_path']
-val_images_path = paths_data['paths']['val_images_path']
-val_masks_path = paths_data['paths']['val_masks_path']
-test_images_path = paths_data['paths']['test_images_path']
-test_masks_path = paths_data['paths']['test_masks_path']
+with open('../config.yaml', 'r') as file:
+    paths_data = yaml.safe_load(file)['paths']
 
-train_images = sorted(glob(os.path.join(images_path, train_images_path), recursive=True), key=lambda x: os.path.basename(x))
-train_masks = sorted(glob(os.path.join(images_path, train_masks_path), recursive=True), key=lambda x: os.path.basename(x))
-val_images = sorted(glob(os.path.join(images_path, val_images_path), recursive=True), key=lambda x: os.path.basename(x))
-val_masks = sorted(glob(os.path.join(images_path, val_masks_path), recursive=True), key=lambda x: os.path.basename(x))
-test_images = sorted(glob(os.path.join(images_path, test_images_path), recursive=True), key=lambda x: os.path.basename(x))
-test_masks = sorted(glob(os.path.join(images_path, test_masks_path), recursive=True), key=lambda x: os.path.basename(x))
+images_path = paths_data['data_path']
+train_images_path = paths_data['train_images_path']
+train_masks_path = paths_data['train_masks_path']
+val_images_path = paths_data['val_images_path']
+val_masks_path = paths_data['val_masks_path']
+test_images_path = paths_data['test_images_path']
+test_masks_path = paths_data['test_masks_path']
+
+train_images = sorted(glob(os.path.join(images_path, train_images_path + '/**/*.jpg'), recursive=True), key=lambda x: os.path.basename(x))
+train_masks = sorted(glob(os.path.join(images_path, train_masks_path + '/**/*.bmp'), recursive=True), key=lambda x: os.path.basename(x))
+val_images = sorted(glob(os.path.join(images_path, val_images_path)+ '/**/*.jpg', recursive=True), key=lambda x: os.path.basename(x))
+val_masks = sorted(glob(os.path.join(images_path, val_masks_path + '/**/*.bmp'), recursive=True), key=lambda x: os.path.basename(x))
+test_images = sorted(glob(os.path.join(images_path, test_images_path + '/**/*.jpg'), recursive=True), key=lambda x: os.path.basename(x))
+test_masks = sorted(glob(os.path.join(images_path, test_masks_path + '/**/*.bmp'), recursive=True), key=lambda x: os.path.basename(x))
 
 
-def image_train_transform(input_img, mask, alpha=10, size=256, mode='train'):
+def image_train_transform(input_img, mask, alpha=10, size=128, mode='train'):
     if mode == 'train':
 
         input_img = datapoints.Image(read_image(input_img))
-        mask = datapoints.Mask(transforms.RandomInvert(1)(transforms.ToImageTensor()(Image.open(mask))))
+        mask = datapoints.Mask(transforms.RandomInvert(1)(transforms.ToImage()(Image.open(mask))))
 
         resize = transforms.Resize((size, size), antialias=True, interpolation=torchvision.transforms.InterpolationMode.BILINEAR)
 
@@ -73,7 +72,7 @@ def image_train_transform(input_img, mask, alpha=10, size=256, mode='train'):
     else:
 
         input_img = datapoints.Image(read_image(input_img))
-        mask = datapoints.Mask(transforms.RandomInvert(1)(transforms.ToImageTensor()(Image.open(mask))))
+        mask = datapoints.Mask(transforms.RandomInvert(1)(transforms.ToImage()(Image.open(mask))))
         both_transforms = transforms.Compose([
             transforms.Resize((size, size), antialias=True, interpolation=torchvision.transforms.InterpolationMode.NEAREST_EXACT)])
         input_img, mask = both_transforms(input_img, mask)
@@ -85,10 +84,10 @@ def process_image(i):
     i = i[0]
 
     torchvision.disable_beta_transforms_warning()
-    path = r'C:\my files\REFUGE\3'
+    path = r'C:\my files\REFUGE\preprocessed'
 
-    if not os.path.exists(os.path.join(path, fr'{mode}\images')):
-        os.makedirs(os.path.join(path, fr'{mode}\images'), exist_ok=True)
+    if not os.path.exists(os.path.join(path, fr'{mode}\input')):
+        os.makedirs(os.path.join(path, fr'{mode}\input'), exist_ok=True)
         os.makedirs(os.path.join(path, fr'{mode}\labels'),  exist_ok=True)
 
     if mode == 'train':
@@ -109,12 +108,12 @@ def process_image(i):
 
 
 
-    images, masks = image_train_transform(image, label, 8, 126, mode=mode)
+    images, masks = image_train_transform(image, label, 8, 2**8, mode=mode)
     for j, (img, lab) in enumerate(zip(images, masks)):
         img = transforms.ToPILImage()(img)
         lab = transforms.ToPILImage()(lab)
-        lab.save(os.path.join(path, fr'{mode}\images\mask_{i}_{j}.bmp'))
-        img.save(os.path.join(path, fr'{mode}\labels\input_{i}_{j}.jpg'))
+        lab.save(os.path.join(path, fr'{mode}\labels\mask_{i}_{j}.bmp'))
+        img.save(os.path.join(path, fr'{mode}\input\input_{i}_{j}.jpg'))
 
 
 if __name__ == '__main__':
@@ -122,16 +121,17 @@ if __name__ == '__main__':
 
     with Pool(processes=os.cpu_count()) as pool:
         for _ in tqdm(pool.imap_unordered(process_image, [[i, 'train'] for i in range(len(train_masks))]),
-                      total=len(train_masks)):
+                      total=len(train_masks), desc = 'train'):
             pass
 
     with Pool(processes=os.cpu_count()) as pool:
         for _ in tqdm(pool.imap_unordered(process_image, [[i, 'test'] for i in range(len(val_masks))]),
-                      total=len(val_masks)):
+                      total=len(val_masks),  desc = 'test'):
             pass
 
     with Pool(processes=os.cpu_count()) as pool:
         for _ in tqdm(pool.imap_unordered(process_image, [[i, 'validation'] for i in range(len(val_masks))]),
-                      total=len(val_masks)):
+                      total=len(val_masks),  desc = 'validation'):
             pass
 
+    print(f'Preprocessing finished')

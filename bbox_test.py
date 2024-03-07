@@ -3,10 +3,10 @@ import os
 import torchvision
 torchvision.disable_beta_transforms_warning()
 import torch
-from Utilities.models import bbox_model
-from Utilities.datasets import BboxDataset
+from utilities.models import bbox_model
+from utilities.datasets import BboxDataset
 from torch.utils.data import DataLoader
-from Utilities.paths import get_preprocessed_images_paths
+from utilities.utils import get_preprocessed_images_paths
 from tqdm import tqdm
 from torchvision.ops import masks_to_boxes
 
@@ -23,7 +23,7 @@ config = {
 
     }
 model = bbox_model(in_channels=3, base_dim=config['base_dim'], dropout=config['dropout'], batch_norm=config['batch_norm'])
-model.load_state_dict(torch.load('Models/best_model_4.pt'))
+model.load_state_dict(torch.load('models/best_model_4.pt'))
 model.to(device)
 
 

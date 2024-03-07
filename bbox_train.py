@@ -4,9 +4,9 @@ torchvision.disable_beta_transforms_warning()
 import torch
 from torch.utils.data import DataLoader
 from tqdm import tqdm
-from Utilities.datasets import BboxDataset
-from Utilities.paths import get_preprocessed_images_paths
-from Utilities.models import bbox_model
+from utilities.datasets import BboxDataset
+from utilities.utils import get_preprocessed_images_paths
+from utilities.models import bbox_model
 import wandb
 import torch.optim as optim
 from torchvision.ops import masks_to_boxes, generalized_box_iou_loss, distance_box_iou_loss
@@ -26,18 +26,6 @@ model = AutoModelForObjectDetection.from_pretrained("facebook/detr-resnet-50")
 
 def main():
 
-    wrong_output_dim = False
-    config = {
-        'batch_size': 1,
-        'lr': 1.781623386838983e-06,
-        'base_dim': 60,
-        'dropout': 0.3,
-        'batch_norm': True,
-        'loss_type': 'distance_iou',
-        'decay': .728363910889139,
-        'normalize_images': False
-
-    }
     with wandb.init(project='sweep_1', config=config):
         config = wandb.config
         batch_size = config.batch_size
@@ -171,7 +159,7 @@ def main():
             if val_loss < best_val_loss:
                 tolerance = 5
                 best_val_loss = val_loss
-                torch.save(model.state_dict(), 'Models/best_model_4.pt')
+                torch.save(model.state_dict(), 'models/best_model_4.pt')
                 tqdm.write(f'Saving the best model')
             else:
                 tolerance -= 1
@@ -210,7 +198,4 @@ def main():
 #wandb.agent(sweep_id, function=main, count=100)
 
 main()
-
-
-#  ll   sadfasdfasdf
 

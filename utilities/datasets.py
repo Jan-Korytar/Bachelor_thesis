@@ -62,7 +62,7 @@ class SegDataset(Dataset):
         self.transform = transforms.Compose([transforms.PILToTensor(), transforms.ConvertImageDtype(torch.float32)])
         if normalize_images:
             self.transform = transforms.Compose([transforms.PILToTensor(), transforms.ConvertImageDtype(torch.float32), transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])])
-        self.transform_mask = transforms.Compose([transforms.PILToTensor(), transforms.ToDtype(torch.int64)])
+        self.transform_mask = transforms.Compose([transforms.PILToTensor(), transforms.ToDtype(torch.long)])
 
     def __len__(self):
         return len(self.images)

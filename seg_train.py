@@ -1,41 +1,28 @@
 import os.path
-
 import matplotlib.pyplot as plt
 import numpy as np
 import torchvision
-from glob import glob
-
 torchvision.disable_beta_transforms_warning()
 import torch
 import torch.nn as nn
-from torch.utils.data import DataLoader
-from tqdm import tqdm
-from Utilities.models import SegmentationModel
 import wandb
 import torch.optim as optim
 
-wandb.login()
+from glob import glob
+from torch.utils.data import DataLoader
+from tqdm import tqdm
+from utilities.models import UNet_segmentation
 from torchmetrics import Dice
+from losses_pytorch.focal_loss import FocalLoss
+from losses_pytorch.dice_loss import GDiceLoss
+from utilities.utils import plot_input_mask_output
 
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 
-from Losses_pytorch.focal_loss import FocalLoss
-from Losses_pytorch.dice_loss import GDiceLoss
-
-
-
+wandb.login()
 
 def main():
-    config = {
-        'base_dim': 51,
-        'batch_norm': True,
-        'batch_size': 10,
-        'importance': 1.9233588295561803,
-        'loss_type': 'dice',
-        'lr': 0.00021549015427425473,
-        'mode': 'model',
-        'normalize_images': False
-    }
+
 
     with wandb.init(project='sweep_1', config=config):
         torch.cuda.empty_cache()
@@ -47,8 +34,8 @@ def main():
         val_images = sorted(glob(os.path.join(path, fr'val/{mode}/*jpg')))
         val_masks = sorted(glob(os.path.join(path, fr'val/{mode}/*bmp')))
 
-        train_dataset = SegDatset(train_images, train_masks, normalize_images=config.normalize_images)
-        val_dataset = SegDatset(val_images, val_masks, normalize_images=config.normalize_images)
+        train_dataset = Seq(train_images, train_masks, normalize_images=config.normalize_images)
+        val_dataset = se(val_images, val_masks, normalize_images=config.normalize_images)
         train_loader = DataLoader(train_dataset, batch_size=config.batch_size, shuffle=True)
         val_loader = DataLoader(val_dataset, batch_size=10, shuffle=True)
 
@@ -81,11 +68,11 @@ def main():
             # Train
             model.train()
             train_loss = 0
-            for idx, (images, masks) in tqdm(enumerate(train_loader), total=len(train_loader)):
-                images = images.to(device)
+            for idx, (img_input, masks) in tqdm(enumerate(train_loader), total=len(train_loader)):
+                img_input = img_input.to(device)
                 masks = masks.to(device)
                 optimizer.zero_grad()
-                outputs = model(images)
+                outputs = model(img_input)
                 loss = criterion(outputs, masks.unsqueeze(1) if config.loss_type == 'dice' else masks)
 
                 loss.backward()
@@ -93,29 +80,7 @@ def main():
                 train_loss += loss.item()
 
                 if ((idx + 1) % 10) == -1:
-
-                    fig, ax = plt.subplots(ncols=3)
-                    output = np.argmax(outputs[0].detach().cpu().numpy(), axis=0)
-                    mask = masks[0].detach().cpu().numpy()
-                    mask[mask == 1] = 126
-                    mask[mask == 2] = 255
-                    ax[0].imshow(mask, cmap='gray')
-                    ax[0].axis('off')
-                    ax[0].set_title('mask')
-                    pic = np.zeros_like(output)
-                    pic[output == 1] = 126
-                    pic[output == 2] = 255
-                    ax[1].imshow(pic, cmap='gray')
-                    ax[1].axis('off')
-                    ax[1].set_title('output')
-                    image = images[0].detach().cpu().numpy()
-                    image = np.transpose(image, (1, 2, 0))
-                    ax[2].imshow(image, cmap='gray')
-                    ax[2].axis('off')
-                    ax[2].set_title('input')
-                    fig.suptitle('Training')
-                    plt.savefig(f'pictures_training/picture_{idx}')
-                    plt.show()
+                    plot_input_mask_output(img_input=img_input[0], mask=masks[0], output=outputs[0])
 
             train_loss /= len(train_loader)
             wandb.log({'train_loss': train_loss})
@@ -123,10 +88,10 @@ def main():
             model.eval()
             val_loss = 0.0
             with torch.no_grad():
-                for idx, (images, masks) in tqdm(enumerate(val_loader)):
-                    images = images.to(device)
+                for idx, (img_input, masks) in tqdm(enumerate(val_loader)):
+                    img_input = img_input.to(device)
                     masks = masks.to(device)
-                    outputs = model(images)
+                    outputs = model(img_input)
                     loss = val_crit(outputs, masks)
                     val_loss += (1 - loss.item())
                     if ((idx + 1) % 10) == -1:
@@ -145,7 +110,7 @@ def main():
                         ax[1].imshow(pic, cmap='gray')
                         ax[1].axis('off')
                         ax[1].set_title('output')
-                        image = images[0].detach().cpu().numpy()
+                        image = img_input[0].detach().cpu().numpy()
                         image = np.transpose(image, (1, 2, 0))
                         ax[2].imshow(image, cmap='gray')
                         ax[2].axis('off')
