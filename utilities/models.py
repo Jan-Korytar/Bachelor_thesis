@@ -3,41 +3,7 @@ from torch import nn
 from torch.nn import functional as F
 
 
-class bbox_model(nn.Module):
-    def __init__(self, in_channels, base_dim=32, dropout=0.25, batch_norm=False, kernel_size=3):
-        super(bbox_model, self).__init__()
-
-        self.dropout = nn.Dropout2d(p=dropout)
-        self.dropout2 = nn.Dropout(p=.2)
-
-        self.conv1 = nn.Conv2d(in_channels, base_dim, kernel_size=5)
-        self.bn1 = nn.BatchNorm2d(base_dim) if batch_norm else nn.Identity()
-        self.pool = nn.MaxPool2d(2)
-        self.conv2 = nn.Conv2d(base_dim, 2 * base_dim, kernel_size=3)
-        self.bn2 = nn.BatchNorm2d(2 * base_dim) if batch_norm else nn.Identity()
-        self.conv3 = nn.Conv2d(2 * base_dim, 4 * base_dim, kernel_size=3)
-        self.bn3 = nn.BatchNorm2d(4 * base_dim) if batch_norm else nn.Identity()
-        self.conv4 = nn.Conv2d(4 * base_dim, 8 * base_dim, kernel_size=3)
-        self.bn4 = nn.BatchNorm2d(8 * base_dim) if batch_norm else nn.Identity()
-        self.bbox = nn.Linear(int(25 * 8 * base_dim), 512)
-        self.bbox2 = nn.Linear(512, 4)
-
-    def forward(self, x: torch.Tensor):
-        x = self.pool(self.dropout(F.relu(self.bn1(self.conv1(x)))))
-        x = self.pool(self.dropout(F.relu(self.bn2(self.conv2(x)))))
-        x = self.pool(self.dropout(F.relu(self.bn3(self.conv3(x)))))
-        x = self.pool(self.dropout(F.relu(self.bn4(self.conv4(x)))))
-        x = torch.flatten(x, start_dim=1)
-        x = F.sigmoid(self.dropout2(self.bbox(x)))
-        x = F.sigmoid(self.bbox2(x))
-        return x
-
-
-import torch
-import torch.nn as nn
-
-
-class conv_block(nn.Module):
+class ConvBlock(nn.Module):
 
     def __init__(self, in_c, out_c):
         super().__init__()
@@ -56,26 +22,31 @@ class conv_block(nn.Module):
         x = self.relu(x)
         return x
 
-class encoder_block(nn.Module):
+
+class EncoderBlock(nn.Module):
     def __init__(self, in_c, out_c):
         super().__init__()
-        self.conv = conv_block(in_c, out_c)
+        self.conv = ConvBlock(in_c, out_c)
         self.pool = nn.MaxPool2d((2, 2))
+
     def forward(self, inputs):
         x = self.conv(inputs)
         p = self.pool(x)
         return x, p
 
-class decoder_block(nn.Module):
+
+class DecoderBlock(nn.Module):
     def __init__(self, in_c, out_c):
         super().__init__()
         self.up = nn.ConvTranspose2d(in_c, out_c, kernel_size=2, stride=2, padding=0)
-        self.conv = conv_block(out_c+out_c, out_c)
+        self.conv = ConvBlock(out_c + out_c, out_c)
+
     def forward(self, inputs, skip):
         x = self.up(inputs)
         x = torch.cat([x, skip], axis=1)
         x = self.conv(x)
         return x
+
 
 class UNet_segmentation(torch.nn.Module):
     def __init__(self, depth, base_dim, in_channels, out_channels):
@@ -92,18 +63,18 @@ class UNet_segmentation(torch.nn.Module):
 
         # Encoder
         self.depth = depth
-        self.e1 = encoder_block(in_channels, base_dim)
+        self.e1 = EncoderBlock(in_channels, base_dim)
         for i in range(2, depth + 1):
-            setattr(self, f'e{i}', encoder_block(int(base_dim), int(base_dim * 2)))
+            setattr(self, f'e{i}', EncoderBlock(int(base_dim), int(base_dim * 2)))
             base_dim *= 2
 
         # Bottleneck
-        self.b = conv_block(base_dim, base_dim * 2)
+        self.b = ConvBlock(base_dim, base_dim * 2)
         base_dim *= 2
 
         # Decoder
         for i in range(1, depth + 1):
-            setattr(self, f'd{i}', decoder_block(int(base_dim), int(base_dim / 2)))
+            setattr(self, f'd{i}', DecoderBlock(int(base_dim), int(base_dim / 2)))
             base_dim /= 2
 
         # Classifier
@@ -119,7 +90,7 @@ class UNet_segmentation(torch.nn.Module):
             s[i - 1], p[i - 1] = e_block(p[i - 2])
 
         # Bottleneck
-        b = self.b(p[self.depth - 1])
+        b = self.b(p[self.depth - 1])  # C, 1024, 4, 4 for 128**2 input
 
         # Decoder
         for i in range(1, self.depth + 1):
@@ -129,3 +100,66 @@ class UNet_segmentation(torch.nn.Module):
         # Classifier
         outputs = self.outputs(b)
         return outputs
+
+
+class ConvBlockBBox(nn.Module):
+    def __init__(self, in_c, out_c):
+        super().__init__()
+        self.conv = nn.Conv2d(in_c, out_c, kernel_size=3, padding=1)
+        self.bn = nn.BatchNorm2d(out_c)
+        self.pool = nn.AvgPool2d(kernel_size=2, stride=2)
+        self.relu = nn.ReLU()
+
+    def forward(self, x):
+        x = self.conv(x)
+        x = self.bn(x)
+        x = self.pool(x)
+        x = self.relu(x)
+
+        return x
+
+
+class RegressorBlock(nn.Module):
+
+    def __init__(self, in_c, out_c):
+        super().__init__()
+        self.fc1 = nn.Linear(in_c, out_c)
+        self.bn1 = nn.BatchNorm1d()
+        self.relu = nn.ReLU()
+
+    def forward(self, x):
+        x = self.relu(self.bn1(self.fc1(x)))
+        return x
+
+
+class BboxModel(nn.Module):
+    def __init__(self, in_channels, base_dim=32, dropout=0.25, batch_norm=False, kernel_size=3, depth=6, img_dim=512):
+        super(BboxModel, self).__init__()
+
+        self.depth = depth
+        self.base_dim_start = base_dim
+        self.img_dim = img_dim
+        self.e1 = ConvBlockBBox(in_channels, base_dim)
+        for i in range(2, depth + 1):
+            setattr(self, f'e{i}', ConvBlockBBox(int(base_dim), int(base_dim * 2)))
+            base_dim *= 2
+
+        self.r1 = RegressorBlock(int(((img_dim / (2 ** (depth))) ** 2) * (self.base_dim_start * 2 ** (depth - 1))),
+                                 4096)  # 1024, 4, 4 for 3* 128**2 input
+        self.r2 = RegressorBlock(4096, 2048)
+        self.r3 = RegressorBlock(2048, 1024)
+        self.r4 = nn.Linear(1024, 4)
+
+    def forward(self, x: torch.Tensor):
+        s = self.e1(x)
+        for i in range(2, self.depth + 1):
+            e_block = getattr(self, f'e{i}')
+            s = e_block(s)
+
+        b = s.view(x.shape[0], -1)
+
+        x = self.r1(b)
+        x = self.r2(x)
+        x = self.r3(x)
+        x = self.r4(x)
+        return x

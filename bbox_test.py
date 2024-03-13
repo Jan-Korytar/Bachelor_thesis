@@ -3,8 +3,8 @@ import os
 import torchvision
 torchvision.disable_beta_transforms_warning()
 import torch
-from utilities.models import bbox_model
-from utilities.datasets import BboxDataset
+from utilities.models import BboxModel
+from utilities.datasets import BBoxDataset
 from torch.utils.data import DataLoader
 from utilities.utils import get_preprocessed_images_paths
 from tqdm import tqdm
@@ -22,7 +22,7 @@ config = {
         'normalize_images': False
 
     }
-model = bbox_model(in_channels=3, base_dim=config['base_dim'], dropout=config['dropout'], batch_norm=config['batch_norm'])
+model = BboxModel(in_channels=3, base_dim=config['base_dim'], dropout=config['dropout'], batch_norm=config['batch_norm'])
 model.load_state_dict(torch.load('models/best_model_4.pt'))
 model.to(device)
 
@@ -35,7 +35,7 @@ dist_mean = []
 with torch.no_grad():
     model.train()
     train_images, train_masks, val_images, val_masks, test_images, test_masks = get_preprocessed_images_paths()
-    test_dataset = BboxDataset(val_images, val_masks, normalize_images=config['normalize_images'])
+    test_dataset = BBoxDataset(val_images, val_masks, normalize_images=config['normalize_images'])
     test_loader = DataLoader(test_dataset, batch_size=1, shuffle=True)
 
     for idx, (images, masks) in tqdm(enumerate(test_loader)):

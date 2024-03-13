@@ -2,8 +2,9 @@ import torch
 from PIL import Image
 from torch.utils.data import Dataset
 from torchvision.transforms import v2 as transforms
+from torchvision.ops import masks_to_boxes
 
-class BboxDataset(Dataset):
+class BBoxDataset(Dataset):
     """
     Custom dataset class for bounding box detection.
 
@@ -27,17 +28,20 @@ class BboxDataset(Dataset):
             self.transform = transforms.Compose([transforms.PILToTensor(), transforms.ConvertImageDtype(torch.float32), transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])])
         self.transform_mask = transforms.Compose([transforms.PILToTensor(), transforms.ToDtype(torch.int64)])
 
+
     def __len__(self):
         return len(self.images)
 
     def __getitem__(self, item):
-        image = self.transform(Image.open(self.images[item]))
-        label = self.transform_mask(Image.open(self.labels[item]))
-        values = torch.unique(label)
-        for idx, i in enumerate(values):
-            label[label == i] = idx
 
-        return torch.squeeze(image), torch.squeeze(label)
+        image = self.transform(Image.open(self.images[item]))
+
+        label = self.transform_mask(Image.open(self.labels[item]))
+        outer = torch.unique(label)[1]
+        label = label == outer # (xmin, ymin, xmax, ymax)
+        values = torch.squeeze(masks_to_boxes(label))
+        values[2:] -= values[:2]
+        return torch.squeeze(image), values
 
 
 class SegDataset(Dataset):

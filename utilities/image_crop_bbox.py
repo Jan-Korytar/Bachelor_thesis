@@ -10,7 +10,7 @@ from torchvision import datapoints
 from torchvision.io import read_image
 from glob import glob
 import os
-from models import bbox_model
+from models import BboxModel
 from multiprocessing import freeze_support
 import multiprocessing
 import yaml
@@ -20,8 +20,8 @@ with open('../config.yaml', 'r') as file:
     config_data = yaml.safe_load(file)
 
 config = config_data['config']
-model = bbox_model(in_channels=3, base_dim=config['base_dim'], dropout=config['dropout'],
-                   batch_norm=config['batch_norm'])
+model = BboxModel(in_channels=3, base_dim=config['base_dim'], dropout=config['dropout'],
+                  batch_norm=config['batch_norm'])
 model.load_state_dict(torch.load(config_data['model']['state_dict_path']))
 model.to(device)
 

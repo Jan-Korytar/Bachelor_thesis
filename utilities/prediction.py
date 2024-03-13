@@ -9,7 +9,7 @@ from torchvision import datapoints
 from torchvision.io import read_image
 from glob import glob
 import os
-from utilities.models import bbox_model, SegmentationModel
+from utilities.models import BboxModel, SegmentationModel
 
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 
@@ -47,8 +47,8 @@ val_masks = sorted(glob(os.path.join(images_path, val_masks_path), recursive=Tru
 test_images = sorted(glob(os.path.join(images_path, test_images_path), recursive=True),
                      key=lambda x: os.path.basename(x))
 test_masks = sorted(glob(os.path.join(images_path, test_masks_path), recursive=True), key=lambda x: os.path.basename(x))
-model_bbox = bbox_model(in_channels=3, base_dim=config_bbox['base_dim'], dropout=config_bbox['dropout'],
-                   batch_norm=config_bbox['batch_norm'])
+model_bbox = BboxModel(in_channels=3, base_dim=config_bbox['base_dim'], dropout=config_bbox['dropout'],
+                       batch_norm=config_bbox['batch_norm'])
 
 model_bbox.load_state_dict(torch.load('../models/best_model_3.pt'))
 model_bbox.to(device)

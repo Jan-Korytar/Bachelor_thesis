@@ -35,14 +35,14 @@ def plot_input_mask_output(img_input, mask, output, idx, title):
     pic[output == 2] = 255
     ax[1].imshow(pic, cmap='gray')
     ax[1].axis('off')
-    ax[1].set_title(f'Output Image: {img_input.shape}')
+    ax[1].set_title(f'Output image')
 
     # Process input
     image = img_input.detach().cpu().numpy()
     image = np.transpose(image, (1, 2, 0))
     ax[0].imshow(image, cmap='gray')
     ax[0].axis('off')
-    ax[0].set_title(f'Input Image: {img_input.shape}')
+    ax[0].set_title(f'Input Image')
 
     # Display and save the plot
     os.makedirs('pictures_training', exist_ok=True)
@@ -55,29 +55,31 @@ def plot_input_mask_output(img_input, mask, output, idx, title):
 
 
 
-def get_preprocessed_images_paths():
+def get_preprocessed_images_paths(size=256):
+
 
     with open('config.yaml', 'r') as file:
         file = yaml.safe_load(file)
         paths = file['paths']
+        images_path = paths['data_path']
 
-    images_path = paths['data_path']
-    train_images_path = os.path.join(images_path, 'preprocessed/train/input/**/*.jpg')
-    train_masks_path = os.path.join(images_path, 'preprocessed/train/labels/**/*.bmp')
-    val_images_path = paths['val_images_path']
-    val_masks_path = paths['val_masks_path']
-    test_images_path = paths['test_images_path']
-    test_masks_path = paths['test_masks_path']
+    train_images_path = os.path.join(images_path, f'preprocessed/train/input/{size}/**/*.jpg')
+    train_masks_path = os.path.join(images_path, f'preprocessed/train/labels/{size}/**/*.bmp')
+    val_images_path = os.path.join(images_path, f'preprocessed/validation/input/{size}/**/*.jpg')
+    val_masks_path = os.path.join(images_path, f'preprocessed/validation/labels/{size}/**/*.bmp')
+    test_images_path = os.path.join(images_path, f'preprocessed/test/input/{size}/**/*.jpg')
+    test_masks_path = os.path.join(images_path, f'preprocessed/test/labels/{size}/**/*.bmp')
 
     train_images = sorted(glob(train_images_path, recursive=True), key=lambda x: os.path.basename(x))
     train_masks = sorted(glob(train_masks_path, recursive=True), key=lambda x: os.path.basename(x))
-    val_images = sorted(glob(os.path.join(images_path, val_images_path) + '/**/*.jpg', recursive=True),
+    val_images = sorted(glob(val_images_path, recursive=True),
                         key=lambda x: os.path.basename(x))
-    val_masks = sorted(glob(os.path.join(images_path, val_masks_path + '/**/*.bmp'), recursive=True),
-                       key=lambda x: os.path.basename(x))
-    test_images = sorted(glob(os.path.join(images_path, test_images_path + '/**/*.jpg'), recursive=True),
-                         key=lambda x: os.path.basename(x))
-    test_masks = sorted(glob(os.path.join(images_path, test_masks_path + '/**/*.bmp'), recursive=True),
+    val_masks = sorted(glob(val_masks_path, recursive=True),
                         key=lambda x: os.path.basename(x))
+    test_images = sorted(glob(test_images_path, recursive=True),
+                        key=lambda x: os.path.basename(x))
+    test_masks = sorted(glob(test_masks_path, recursive=True),
+                        key=lambda x: os.path.basename(x))
+
 
     return train_images, train_masks, val_images, val_masks, test_images, test_masks

@@ -607,6 +607,7 @@
       <excludeFolder url="file://$MODULE_DIR$/wandb/sweep-zgj143d4" />
       <excludeFolder url="file://$MODULE_DIR$/wandb" />
       <excludeFolder url="file://$MODULE_DIR$/refuge-evaluation-master" />
+      <excludeFolder url="file://$MODULE_DIR$/.idea/copilot/chatSessions" />
     </content>
     <orderEntry type="jdk" jdkName="thesis" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />

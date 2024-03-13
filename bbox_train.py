@@ -4,9 +4,9 @@ torchvision.disable_beta_transforms_warning()
 import torch
 from torch.utils.data import DataLoader
 from tqdm import tqdm
-from utilities.datasets import BboxDataset
+from utilities.datasets import BBoxDataset
 from utilities.utils import get_preprocessed_images_paths
-from utilities.models import bbox_model
+from utilities.models import BboxModel
 import wandb
 import torch.optim as optim
 from torchvision.ops import masks_to_boxes, generalized_box_iou_loss, distance_box_iou_loss
@@ -15,11 +15,8 @@ device = 'cuda' if torch.cuda.is_available() else 'cpu'
 best_of_all_val_loss = -torch.inf
 
 
-# Load model directly
-from transformers import AutoFeatureExtractor, AutoModelForObjectDetection
 
-extractor = AutoFeatureExtractor.from_pretrained("facebook/detr-resnet-50")
-model = AutoModelForObjectDetection.from_pretrained("facebook/detr-resnet-50")
+
 
 
 
@@ -32,13 +29,13 @@ def main():
 
         train_images, train_masks, val_images, val_masks, test_images, test_masks = get_preprocessed_images_paths()
 
-        train_dataset = BboxDataset(train_images, train_masks, normalize_images=config.normalize_images)
-        val_dataset = BboxDataset(val_images, val_masks, normalize_images=config.normalize_images)
+        train_dataset = BBoxDataset(train_images, train_masks, normalize_images=config.normalize_images)
+        val_dataset = BBoxDataset(val_images, val_masks, normalize_images=config.normalize_images)
 
         val_loader = DataLoader(val_dataset, batch_size=64)
 
         # Define your model
-        model = bbox_model(in_channels=3, base_dim=config.base_dim, dropout=config.dropout, batch_norm=config.batch_norm).to(device)
+        model = BboxModel(in_channels=3, base_dim=config.base_dim, dropout=config.dropout, batch_norm=config.batch_norm).to(device)
         wandb.watch(model, log_freq=20)
 
         # Define your optimizer
@@ -133,6 +130,7 @@ def main():
                     try:
                         outputs *= 126
                         print(outputs[0].clone().to(torch.uint8), bboxes[0].clone().to(torch.uint8))
+
 
                         img = torchvision.transforms.ToPILImage()(torchvision.utils.draw_bounding_boxes(image,
                                                                                                         torch.stack((

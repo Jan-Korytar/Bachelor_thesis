@@ -1,5 +1,6 @@
 import os
 from glob import glob
+from utils import get_preprocessed_images_paths
 from multiprocessing import Pool, freeze_support
 import torch
 import torchvision
@@ -9,9 +10,9 @@ from torchvision import tv_tensors as datapoints
 from torchvision.io import read_image
 from torchvision.transforms import v2 as transforms
 from tqdm import tqdm
-import numpy as np
 import yaml
 import warnings
+
 
 warnings.filterwarnings("ignore", category=UserWarning)
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
@@ -35,7 +36,7 @@ test_images = sorted(glob(os.path.join(images_path, test_images_path + '/**/*.jp
 test_masks = sorted(glob(os.path.join(images_path, test_masks_path + '/**/*.bmp'), recursive=True), key=lambda x: os.path.basename(x))
 
 
-def image_train_transform(input_img, mask, alpha=10, size=128, mode='train'):
+def image_preprocessing(input_img, mask, alpha=10, size=128, mode='train'):
     if mode == 'train':
 
         input_img = datapoints.Image(read_image(input_img))
@@ -73,7 +74,7 @@ def image_train_transform(input_img, mask, alpha=10, size=128, mode='train'):
 
         input_img = datapoints.Image(read_image(input_img))
         mask = datapoints.Mask(transforms.RandomInvert(1)(transforms.ToImage()(Image.open(mask))))
-        both_transforms = transforms.Compose([
+        both_transforms = transforms.Compose([transforms.RandomHorizontalFlip(0.5),
             transforms.Resize((size, size), antialias=True, interpolation=torchvision.transforms.InterpolationMode.NEAREST_EXACT)])
         input_img, mask = both_transforms(input_img, mask)
         return torch.unsqueeze(input_img, 0), torch.unsqueeze(mask, 0)
@@ -82,38 +83,39 @@ def image_train_transform(input_img, mask, alpha=10, size=128, mode='train'):
 def process_image(i):
     mode = i[1]
     i = i[0]
-
-    torchvision.disable_beta_transforms_warning()
-    path = r'C:\my files\REFUGE\preprocessed'
-
-    if not os.path.exists(os.path.join(path, fr'{mode}\input')):
-        os.makedirs(os.path.join(path, fr'{mode}\input'), exist_ok=True)
-        os.makedirs(os.path.join(path, fr'{mode}\labels'),  exist_ok=True)
-
-    if mode == 'train':
-        image, label = train_images[i], train_masks[i]
-        #if os.path.exists(os.path.join(path, fr'training\masks\mask_{i}_9.bmp')):
-        #    return
-
-    elif mode == 'validation':
-        image, label = val_images[i], val_masks[i]
-
-        #if os.path.exists(os.path.join(path, fr'validation\masks\mask_{i}_0.bmp')):
-        #    return
-
-    elif mode == 'test':
-        image, label = val_images[i], val_masks[i]
-        #if os.path.exists(os.path.join(path, fr'\test\masks\mask_{i}_0.bmp')):
-        #    return
+    for size in [128, 256, 512]:
 
 
+        path = r'C:\my files\REFUGE\preprocessed'
 
-    images, masks = image_train_transform(image, label, 8, 2**8, mode=mode)
-    for j, (img, lab) in enumerate(zip(images, masks)):
-        img = transforms.ToPILImage()(img)
-        lab = transforms.ToPILImage()(lab)
-        lab.save(os.path.join(path, fr'{mode}\labels\mask_{i}_{j}.bmp'))
-        img.save(os.path.join(path, fr'{mode}\input\input_{i}_{j}.jpg'))
+        if not os.path.exists(os.path.join(path, fr'{mode}\input\{size}')):
+            os.makedirs(os.path.join(path, fr'{mode}\input\{size}'), exist_ok=True)
+            os.makedirs(os.path.join(path, fr'{mode}\labels\{size}'),  exist_ok=True)
+
+        if mode == 'train':
+            image, label = train_images[i], train_masks[i]
+            #if os.path.exists(os.path.join(path, fr'training\masks\mask_{i}_9.bmp')):
+            #    return
+
+        elif mode == 'validation':
+            image, label = val_images[i], val_masks[i]
+
+            #if os.path.exists(os.path.join(path, fr'validation\masks\mask_{i}_0.bmp')):
+            #    return
+
+        elif mode == 'test':
+            image, label = val_images[i], val_masks[i]
+            #if os.path.exists(os.path.join(path, fr'\test\masks\mask_{i}_0.bmp')):
+            #    return
+
+
+
+        images, masks = image_preprocessing(image, label, 8, size, mode=mode)
+        for j, (img, lab) in enumerate(zip(images, masks)):
+            img = transforms.ToPILImage()(img)
+            lab = transforms.ToPILImage()(lab)
+            lab.save(os.path.join(path, fr'{mode}\labels\{size}\mask_{i}_{j}.bmp'))
+            img.save(os.path.join(path, fr'{mode}\input\{size}\input_{i}_{j}.jpg'))
 
 
 if __name__ == '__main__':
@@ -123,6 +125,7 @@ if __name__ == '__main__':
         for _ in tqdm(pool.imap_unordered(process_image, [[i, 'train'] for i in range(len(train_masks))]),
                       total=len(train_masks), desc = 'train'):
             pass
+
 
     with Pool(processes=os.cpu_count()) as pool:
         for _ in tqdm(pool.imap_unordered(process_image, [[i, 'test'] for i in range(len(val_masks))]),
