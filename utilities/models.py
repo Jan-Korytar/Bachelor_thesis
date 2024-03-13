@@ -124,7 +124,7 @@ class RegressorBlock(nn.Module):
     def __init__(self, in_c, out_c):
         super().__init__()
         self.fc1 = nn.Linear(in_c, out_c)
-        self.bn1 = nn.BatchNorm1d()
+        self.bn1 = nn.BatchNorm1d(out_c)
         self.relu = nn.ReLU()
 
     def forward(self, x):
@@ -133,7 +133,7 @@ class RegressorBlock(nn.Module):
 
 
 class BboxModel(nn.Module):
-    def __init__(self, in_channels, base_dim=32, dropout=0.25, batch_norm=False, kernel_size=3, depth=6, img_dim=512):
+    def __init__(self, in_channels, base_dim=64, dropout=0.25, batch_norm=False, kernel_size=3, depth=6, img_dim=512):
         super(BboxModel, self).__init__()
 
         self.depth = depth

@@ -34,7 +34,7 @@ with wandb.init(project='Unet-segmentation-pytorch', config=config, mode='disabl
     wandb.config.update(config)
 
     # Creating datasets and dataloaders for train, validation, and test
-    train_dataset = BBoxDataset(train_images[:200], train_masks[:200], wandb.config.normalize_images)
+    train_dataset = BBoxDataset(train_images[:800], train_masks[:800], wandb.config.normalize_images)
     val_dataset = BBoxDataset(val_images, val_masks, wandb.config.normalize_images)
     test_dataset = BBoxDataset(test_images, test_masks, wandb.config.normalize_images)
 
@@ -79,7 +79,7 @@ with wandb.init(project='Unet-segmentation-pytorch', config=config, mode='disabl
         # Train
         model.train()
         train_loss = 0
-        for idx, (img_input, bbox) in tqdm(enumerate(train_loader), total=len(train_loader)):
+        for idx, (img_input, bbox) in tqdm(enumerate(train_loader), total=len(train_loader), desc=f'Epoch: {epoch}'):
 
             img_input = img_input.to(device)
             bbox = bbox.to(device)
@@ -108,7 +108,7 @@ with wandb.init(project='Unet-segmentation-pytorch', config=config, mode='disabl
                     pass
 
 
-        print(outputs[0], bbox[0])
+        print(outputs[0].item(), bbox[0])
         train_loss /= len(train_loader)
         print(train_loss)
         wandb.log({'train_loss': train_loss})
