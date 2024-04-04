@@ -121,19 +121,20 @@ class ConvBlockBBox(nn.Module):
 
 class RegressorBlock(nn.Module):
 
-    def __init__(self, in_c, out_c):
+    def __init__(self, in_c, out_c, p_droupout, batchnorm=True):
         super().__init__()
         self.fc1 = nn.Linear(in_c, out_c)
-        self.bn1 = nn.BatchNorm1d(out_c)
+        self.dropout = nn.Dropout(p=p_droupout)
+        self.bn1 = nn.BatchNorm1d(out_c) if batchnorm else nn.Identity()
         self.relu = nn.ReLU()
 
     def forward(self, x):
-        x = self.relu(self.bn1(self.fc1(x)))
+        x = self.relu(self.bn1(self.dropout(self.fc1(x))))
         return x
 
 
 class BboxModel(nn.Module):
-    def __init__(self, in_channels, base_dim=64, dropout=0.25, batch_norm=False, kernel_size=3, depth=6, img_dim=512):
+    def __init__(self, in_channels, base_dim=64, dropout=0.1, batch_norm=True, depth=6, img_dim=512):
         super(BboxModel, self).__init__()
 
         self.depth = depth
@@ -145,9 +146,9 @@ class BboxModel(nn.Module):
             base_dim *= 2
 
         self.r1 = RegressorBlock(int(((img_dim / (2 ** (depth))) ** 2) * (self.base_dim_start * 2 ** (depth - 1))),
-                                 4096)  # 1024, 4, 4 for 3* 128**2 input
-        self.r2 = RegressorBlock(4096, 2048)
-        self.r3 = RegressorBlock(2048, 1024)
+                                 4096, p_droupout=dropout, batchnorm=batch_norm)  # 1024, 4, 4 for 3* 128**2 input
+        self.r2 = RegressorBlock(4096, 2048, p_droupout=dropout, batchnorm=batch_norm)
+        self.r3 = RegressorBlock(2048, 1024, p_droupout=dropout, batchnorm=batch_norm)
         self.r4 = nn.Linear(1024, 4)
 
     def forward(self, x: torch.Tensor):

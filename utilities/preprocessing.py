@@ -36,29 +36,30 @@ test_images = sorted(glob(os.path.join(images_path, test_images_path + '/**/*.jp
 test_masks = sorted(glob(os.path.join(images_path, test_masks_path + '/**/*.bmp'), recursive=True), key=lambda x: os.path.basename(x))
 
 
-def image_preprocessing(input_img, mask, alpha=10, size=128, mode='train'):
+def image_preprocessing(input_img, mask, copies=10, size=128, mode='train'):
+    input_img = datapoints.Image(read_image(input_img))
+    mask = datapoints.Mask(transforms.RandomInvert(1)(transforms.ToImage()(Image.open(mask))))
     if mode == 'train':
 
-        input_img = datapoints.Image(read_image(input_img))
-        mask = datapoints.Mask(transforms.RandomInvert(1)(transforms.ToImage()(Image.open(mask))))
 
         resize = transforms.Resize((size, size), antialias=True, interpolation=torchvision.transforms.InterpolationMode.BILINEAR)
 
         both_transforms = transforms.Compose([
             transforms.Resize((size, size), antialias=True, interpolation=torchvision.transforms.InterpolationMode.BILINEAR),
+            transforms.RandomHorizontalFlip(0.5),
             transforms.RandomPerspective(.1),
             transforms.RandomRotation(15)
         ])
 
         img_transforms = transforms.Compose([
-            transforms.ColorJitter(0.05, 0.05, 0.05, 0.05)
+            transforms.ColorJitter(0.05, 0.05, 0.05, 0.025)
         ])
 
         masks = []
         images = []
         masks.append(torch.tensor(resize(mask)))
         images.append(torch.tensor(resize(input_img)))
-        for i in range(alpha-1):
+        for i in range(copies - 1):
             t_img, t_mask = both_transforms(input_img, mask)
 
             masks.append(torch.tensor(t_mask))
@@ -71,11 +72,8 @@ def image_preprocessing(input_img, mask, alpha=10, size=128, mode='train'):
 
 
     else:
-
-        input_img = datapoints.Image(read_image(input_img))
-        mask = datapoints.Mask(transforms.RandomInvert(1)(transforms.ToImage()(Image.open(mask))))
-        both_transforms = transforms.Compose([transforms.RandomHorizontalFlip(0.5),
-            transforms.Resize((size, size), antialias=True, interpolation=torchvision.transforms.InterpolationMode.NEAREST_EXACT)])
+        both_transforms = transforms.Compose([transforms.Resize((size, size), antialias=True,
+                                            interpolation=torchvision.transforms.InterpolationMode.BILINEAR)])
         input_img, mask = both_transforms(input_img, mask)
         return torch.unsqueeze(input_img, 0), torch.unsqueeze(mask, 0)
 
