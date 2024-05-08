@@ -19,7 +19,7 @@ with open('config.yaml', 'r') as file:
     file = yaml.safe_load(file)
     config = file['wandb_config_bbox_req']
 
-size = 256
+size = 128
 train_images, train_masks, val_images, val_masks, test_images, test_masks = get_preprocessed_images_paths(size=size)
 
 
@@ -31,7 +31,7 @@ def train(configuration=None):
     val_dataset = BBoxDataset(val_images, val_masks, wandb.config.normalize_images)
     test_dataset = BBoxDataset(test_images, test_masks, wandb.config.normalize_images)
 
-    train_sampler = RandomSampler(train_dataset, replacement=True, num_samples=1024)  # Not ideal, replacement
+    train_sampler = RandomSampler(train_dataset, replacement=True, num_samples=100)  # Not ideal, replacement
 
     # Creating dataloaders
     val_loader = DataLoader(val_dataset, batch_size=16, shuffle=False)

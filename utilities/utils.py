@@ -5,7 +5,7 @@ from matplotlib import pyplot as plt
 import numpy as np
 import yaml
 
-def plot_input_mask_output(img_input, mask, output, idx, title):
+def plot_input_mask_output(img_input, mask, output, idx, epoch):
     """
     Plot input, mask, and output images side by side for visualization during training.
 
@@ -45,19 +45,19 @@ def plot_input_mask_output(img_input, mask, output, idx, title):
     ax[0].set_title(f'Input Image')
 
     # Display and save the plot
-    os.makedirs('pictures_training', exist_ok=True)
-    fig.suptitle(title)
-    plt.savefig(f'pictures_training/picture_{idx}')
+    os.makedirs('pictures_training/seq', exist_ok=True)
+    fig.suptitle(f'Epoch: {epoch}, step: {idx}')
     plt.tight_layout()
-    plt.show()
+    plt.savefig(f'pictures_training/seq/picture_{epoch}_{idx}')
+    plt.close('all')
+
+
 
 
 
 
 
 def get_preprocessed_images_paths(size=256):
-
-
     with open('config.yaml', 'r') as file:
         file = yaml.safe_load(file)
         paths = file['paths']
@@ -65,6 +65,8 @@ def get_preprocessed_images_paths(size=256):
 
     train_images_path = os.path.join(images_path, f'preprocessed/train/input/{size}/**/*.jpg')
     train_masks_path = os.path.join(images_path, f'preprocessed/train/labels/{size}/**/*.bmp')
+    train_images_cropped_path = os.path.join(images_path, f'preprocessed/train/input_cropped/{size}/**/*.jpg')
+    train_masks_cropped_path = os.path.join(images_path, f'preprocessed/train/labels_cropped/{size}/**/*.bmp')
     val_images_path = os.path.join(images_path, f'preprocessed/validation/input/{size}/**/*.jpg')
     val_masks_path = os.path.join(images_path, f'preprocessed/validation/labels/{size}/**/*.bmp')
     test_images_path = os.path.join(images_path, f'preprocessed/test/input/{size}/**/*.jpg')
@@ -72,6 +74,8 @@ def get_preprocessed_images_paths(size=256):
 
     train_images = sorted(glob(train_images_path, recursive=True), key=lambda x: os.path.basename(x))
     train_masks = sorted(glob(train_masks_path, recursive=True), key=lambda x: os.path.basename(x))
+    train_images_cropped_path = sorted(glob(train_images_cropped_path, recursive=True), key=lambda x: os.path.basename(x))
+    train_masks_cropped_path = sorted(glob(train_masks_cropped_path, recursive=True), key=lambda x: os.path.basename(x))
     val_images = sorted(glob(val_images_path, recursive=True),
                         key=lambda x: os.path.basename(x))
     val_masks = sorted(glob(val_masks_path, recursive=True),
@@ -82,4 +86,4 @@ def get_preprocessed_images_paths(size=256):
                         key=lambda x: os.path.basename(x))
 
 
-    return train_images, train_masks, val_images, val_masks, test_images, test_masks
+    return train_images, train_masks, train_images_cropped_path, train_masks_cropped_path, val_images, val_masks, test_images, test_masks

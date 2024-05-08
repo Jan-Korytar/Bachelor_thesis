@@ -43,7 +43,7 @@ with torch.no_grad():
         dist_mean.append(torch.abs(outputs - bbox))
 
         if torch.any((a := torch.abs(outputs - bbox).squeeze()) > delta_max):
-            print('max difference',(delta_max/size)*100)
+            print('max difference', (delta_max/size)*100)
             delta_max[delta_max<a] = a[delta_max<a].to(delta_max.dtype)
 
             print(f'Mean abs change: {sum(dist_mean) / (len(dist_mean))}')

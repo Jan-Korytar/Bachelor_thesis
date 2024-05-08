@@ -1,6 +1,3 @@
-import os.path
-import matplotlib.pyplot as plt
-import numpy as np
 import torchvision
 
 torchvision.disable_beta_transforms_warning()
@@ -9,15 +6,11 @@ import torch.nn as nn
 import wandb
 import yaml
 import torch.optim as optim
-import sys
 
-from glob import glob
 from torch.utils.data import DataLoader
 from tqdm import tqdm
 from utilities.models import UNet_segmentation
 from torchmetrics import Dice
-
-sys.path.insert(0, 'SegLoss-master/SegLoss-master/losses_pytorch')
 from losses_pytorch.focal_loss import FocalLoss
 from losses_pytorch.dice_loss import GDiceLoss
 from utilities.utils import plot_input_mask_output, get_preprocessed_images_paths
@@ -30,20 +23,22 @@ with open('config.yaml', 'r') as file:
     file = yaml.safe_load(file)
     config = file['wandb_config_seq']
 
-train_images, train_masks, val_images, val_masks, test_images, test_masks = get_preprocessed_images_paths(128)
+train_images, train_masks, train_images_cropped_path, train_masks_cropped_path, val_images, val_masks, test_images, test_masks = get_preprocessed_images_paths(
+    128)
 
 with wandb.init(project='Unet-segmentation-pytorch', config=config, mode='disabled'):
     wandb.config.update(config)
 
     # Creating datasets and dataloaders for train, validation, and test
-    train_dataset = SegDataset(train_images[:200], train_masks[:200], wandb.config.normalize_images)
-    val_dataset = SegDataset(val_images, val_masks, wandb.config.normalize_images)
-    test_dataset = SegDataset(test_images, test_masks, wandb.config.normalize_images)
+
+    val_dataset = SegDataset(input_images=val_images, label_images=val_masks,
+                             normalize_images=wandb.config.normalize_images)
+    test_dataset = SegDataset(input_images=test_images, label_images=test_masks,
+                              normalize_images=wandb.config.normalize_images)
 
     # Creating dataloaders
     val_loader = DataLoader(val_dataset, batch_size=2, shuffle=False)
     test_loader = DataLoader(test_dataset, batch_size=2, shuffle=False)
-    train_loader = DataLoader(train_dataset, batch_size=wandb.config.batch_size, shuffle=True)
 
     model = UNet_segmentation(in_channels=3, out_channels=3, base_dim=wandb.config.base_dim,
                               depth=wandb.config.depth).to(device)
@@ -68,7 +63,7 @@ with wandb.init(project='Unet-segmentation-pytorch', config=config, mode='disabl
     num_epochs = 20
 
     # Train the model
-    patience = 3
+    patience = 18
     epochs_no_improve = 0
     best_val_loss = torch.inf
 
@@ -76,24 +71,36 @@ with wandb.init(project='Unet-segmentation-pytorch', config=config, mode='disabl
     tolerance = 3
 
     for epoch in range(num_epochs):
+        torch.cuda.synchronize()
+        torch.cpu.synchronize()
+        train_dataset = SegDataset(input_images=train_images[:],
+                                   label_images=train_masks[:],
+                                   cropped_input=train_images_cropped_path[:],
+                                   cropped_label=train_masks_cropped_path[:],
+                                   normalize_images=wandb.config.normalize_images,
+                                   ratio=0.6)
+        train_loader = DataLoader(train_dataset, batch_size=wandb.config.batch_size, shuffle=True)
+
+
         # Train
         model.train()
         train_loss = 0
         for idx, (img_input, masks) in tqdm(enumerate(train_loader), total=len(train_loader)):
 
+            #first pass
             img_input = img_input.to(device)
             masks = masks.to(device)
             optimizer.zero_grad()
 
             outputs = model(img_input)
-            loss = criterion(outputs, masks.unsqueeze(1) if wandb.config.loss_type == 'dice' else masks)
-            loss.backward()
+            loss_1 = criterion(outputs, masks.unsqueeze(1) if wandb.config.loss_type == 'dice' else masks)
+
+            loss_1.backward()
             optimizer.step()
-            train_loss += loss.item()
+            train_loss += loss_1.item()
 
             if (idx % 5) == 0:
-                plot_input_mask_output(img_input=img_input[0], mask=masks[0], output=outputs[0], idx=idx,
-                                       title=f'Epoch: {epoch}, step: {idx}')
+                plot_input_mask_output(img_input=img_input[0], mask=masks[0], output=outputs[0], idx=idx, epoch=epoch)
 
         train_loss /= len(train_loader)
         print(train_loss)
@@ -108,8 +115,8 @@ with wandb.init(project='Unet-segmentation-pytorch', config=config, mode='disabl
                 img_input = img_input.to(device)
                 masks = masks.to(device)
                 outputs = model(img_input)
-                loss = criterion(outputs, masks.unsqueeze(1) if wandb.config.loss_type == 'dice' else masks)
-                val_loss += loss.item()
+                loss_1 = criterion(outputs, masks.unsqueeze(1) if wandb.config.loss_type == 'dice' else masks)
+                val_loss += loss_1.item()
 
         val_loss /= len(val_loader)
         print(val_loss)
@@ -119,7 +126,7 @@ with wandb.init(project='Unet-segmentation-pytorch', config=config, mode='disabl
         if val_loss < best_val_loss:
             epochs_no_improve = 0
             best_val_loss = val_loss
-            torch.save(model.state_dict(), f'models/best_model.pth')  # Save the best model
+            torch.save(model.state_dict(), f'models/seg_best_model.pth')  # Save the best model
         else:
             epochs_no_improve += 1
             if epochs_no_improve == patience:
