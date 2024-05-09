@@ -1,20 +1,17 @@
 import torchvision
-
-torchvision.disable_beta_transforms_warning()
 import torch
-import torch.nn as nn
 import wandb
 import yaml
-import torch.optim as optim
 
 from torch.utils.data import DataLoader
+from torch import nn, optim
 from tqdm import tqdm
 from utilities.models import UNet_segmentation
 from torchmetrics import Dice
 from losses_pytorch.focal_loss import FocalLoss
 from losses_pytorch.dice_loss import GDiceLoss
 from utilities.utils import plot_input_mask_output, get_preprocessed_images_paths
-from utilities.datasets import SegDataset
+from utilities.datasets import SegDatasetFromImages
 
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 wandb.login()
@@ -24,21 +21,21 @@ with open('config.yaml', 'r') as file:
     config = file['wandb_config_seq']
 
 train_images, train_masks, train_images_cropped_path, train_masks_cropped_path, val_images, val_masks, test_images, test_masks = get_preprocessed_images_paths(
-    128)
+    128, file_extension_img='.pt', file_extension_mask='.pt')
 
 with wandb.init(project='Unet-segmentation-pytorch', config=config, mode='disabled'):
     wandb.config.update(config)
 
     # Creating datasets and dataloaders for train, validation, and test
 
-    val_dataset = SegDataset(input_images=val_images, label_images=val_masks,
-                             normalize_images=wandb.config.normalize_images)
-    test_dataset = SegDataset(input_images=test_images, label_images=test_masks,
-                              normalize_images=wandb.config.normalize_images)
+    val_dataset = SegDatasetFromImages(input_images=val_images, label_images=val_masks,
+                                       normalize_images=wandb.config.normalize_images)
+    test_dataset = SegDatasetFromImages(input_images=test_images, label_images=test_masks,
+                                        normalize_images=wandb.config.normalize_images)
 
     # Creating dataloaders
-    val_loader = DataLoader(val_dataset, batch_size=2, shuffle=False)
-    test_loader = DataLoader(test_dataset, batch_size=2, shuffle=False)
+    val_loader = DataLoader(val_dataset, batch_size=2, shuffle=False, prefetch_factor=2, pin_memory_device='cuda', pin_memory=True)
+    test_loader = DataLoader(test_dataset, batch_size=2, shuffle=False, prefetch_factor=2, pin_memory_device='cuda', pin_memory=True)
 
     model = UNet_segmentation(in_channels=3, out_channels=3, base_dim=wandb.config.base_dim,
                               depth=wandb.config.depth).to(device)
@@ -73,13 +70,13 @@ with wandb.init(project='Unet-segmentation-pytorch', config=config, mode='disabl
     for epoch in range(num_epochs):
         torch.cuda.synchronize()
         torch.cpu.synchronize()
-        train_dataset = SegDataset(input_images=train_images[:],
-                                   label_images=train_masks[:],
-                                   cropped_input=train_images_cropped_path[:],
-                                   cropped_label=train_masks_cropped_path[:],
-                                   normalize_images=wandb.config.normalize_images,
-                                   ratio=0.6)
-        train_loader = DataLoader(train_dataset, batch_size=wandb.config.batch_size, shuffle=True)
+        train_dataset = SegDatasetFromImages(input_images=train_images[:],
+                                             label_images=train_masks[:],
+                                             cropped_input=train_images_cropped_path[:],
+                                             cropped_label=train_masks_cropped_path[:],
+                                             normalize_images=wandb.config.normalize_images,
+                                             ratio=0.6)
+        train_loader = DataLoader(train_dataset, batch_size=wandb.config.batch_size, shuffle=True, prefetch_factor=2, pin_memory_device='cuda', pin_memory=True)
 
 
         # Train

@@ -46,7 +46,7 @@ class BBoxDataset(Dataset):
         return torch.squeeze(image), values
 
 
-class SegDataset(Dataset):
+class SegDatasetFromImages(Dataset):
     """
     Custom dataset class for semantic segmentation.
 
@@ -75,7 +75,7 @@ class SegDataset(Dataset):
         self.transform = transforms.Compose([transforms.PILToTensor(), transforms.ConvertImageDtype(torch.float32)])
         if normalize_images:
             self.transform = transforms.Compose([transforms.PILToTensor(), transforms.ConvertImageDtype(torch.float32), transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])])
-        self.transform_mask = transforms.Compose([transforms.PILToTensor(), transforms.ToDtype(torch.long)])
+        self.transform_mask = transforms.Compose([transforms.PILToTensor(), transforms.ToDtype(torch.uint8)])
 
     def __len__(self):
         return len(self.images)
@@ -90,5 +90,34 @@ class SegDataset(Dataset):
         values = torch.unique(label)
         for idx, i in enumerate(values):
             label[label == i] = idx
+
+        return torch.squeeze(image), torch.squeeze(label)
+
+
+
+class SegDatasetFromTensors(Dataset):
+    def __init__(self, input_images, label_images, cropped_input=None, cropped_label=None, normalize_images=False, ratio=None ):
+        self.masks = label_images
+        self.images = input_images
+        self.cropped_masks = cropped_label
+        self.cropped_images = cropped_input
+        if cropped_input is None or cropped_label is None or ratio is None:
+            self.ratio = 1
+        else:
+            self.ratio = ratio
+        if normalize_images:
+            self.transform = transforms.Compose([transforms.PILToTensor(), transforms.ConvertImageDtype(torch.float32),
+                                                 transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])])
+
+    def __len__(self):
+        return len(self.masks)
+
+    def __getitem__(self, item):
+        if random.random() <= self.ratio:
+            image = torch.load(self.images[item])
+            label = torch.load(self.masks[item])
+        else:
+            image = torch.load(self.cropped_images[item])
+            label = torch.load(self.cropped_masks[item])
 
         return torch.squeeze(image), torch.squeeze(label)

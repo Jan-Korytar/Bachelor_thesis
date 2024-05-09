@@ -100,7 +100,7 @@ def image_preprocessing(image, mask, copies=10, size=128, mode='train'):
 def process_image(i):
     mode = i[1]
     i = i[0]
-    for size in [128, 256, 512]:
+    for size in [128, 256]:
 
         path = r'C:\my files\REFUGE\preprocessed'
         if not os.path.exists(os.path.join(path, fr'{mode}\input\{size}')) or not os.path.exists(os.path.join(path, fr'{mode}\input_cropped\{size}')):
@@ -126,40 +126,40 @@ def process_image(i):
             #if os.path.exists(os.path.join(path, fr'\test\masks\mask_{i}_0.bmp')):
             #    return
 
-
-
-
         if mode == 'train':
             images, masks, images_cropped, masks_cropped = image_preprocessing(image, label, 5, size, mode=mode)
-            for j, (image, mask, image_cropped, mask_cropped) in enumerate(zip(images, masks, images_cropped, masks_cropped)):
+            for j, (image, mask, image_cropped, mask_cropped) in enumerate(
+                    zip(images, masks, images_cropped, masks_cropped)):
 
+                image = image.to(torch.float32)
+                mask = mask.to(torch.long)
+                image_cropped = image_cropped.to(torch.float32)
+                mask_cropped = mask_cropped.to(torch.long)
+                values = torch.unique(mask_cropped)
+                for idx, value in enumerate(values):
+                    mask_cropped[mask_cropped == value] = idx
+                    mask[mask == value] = idx
 
-                to_PIL = transforms.functional.to_pil_image
-
-
-
-                image = to_PIL(image)
-                mask = to_PIL(mask)
-                image_cropped = to_PIL(image_cropped)
-                mask_cropped = to_PIL(mask_cropped)
-
-                mask.save(os.path.join(path, fr'{mode}\labels\{size}\mask_{i}_{j}.bmp'))
-                image.save(os.path.join(path, fr'{mode}\input\{size}\input_{i}_{j}.jpg'))
-                mask_cropped.save(os.path.join(path, fr'{mode}\labels_cropped\{size}\mask_{i}_{j}.bmp'))
-                image_cropped.save(os.path.join(path, fr'{mode}\input_cropped\{size}\input_{i}_{j}.jpg'))
+                # Save tensors
+                torch.save(image, os.path.join(path, f'{mode}/input/{size}/input_{i}_{j}.pt'))
+                torch.save(mask, os.path.join(path, f'{mode}/labels/{size}/mask_{i}_{j}.pt'))
+                torch.save(image_cropped, os.path.join(path, f'{mode}/input_cropped/{size}/input_{i}_{j}.pt'))
+                torch.save(mask_cropped, os.path.join(path, f'{mode}/labels_cropped/{size}/mask_{i}_{j}.pt'))
         else:
             images, masks = image_preprocessing(image, label, 5, size, mode=mode)
-            for j, (image, mask) in enumerate(
-                    zip(images, masks)):
-                to_PIL = transforms.functional.to_pil_image
+            for j, (image, mask) in enumerate(zip(images, masks)):
 
-                image = to_PIL(image)
-                mask = to_PIL(mask)
-                mask.save(os.path.join(path, fr'{mode}\labels\{size}\mask_{i}_{j}.bmp'))
-                image.save(os.path.join(path, fr'{mode}\input\{size}\input_{i}_{j}.jpg'))
+                image = image.to(torch.float32)
+                mask = mask.to(torch.long)
+                values = torch.unique(mask)
+                for idx, value in enumerate(values):
+                    mask[mask == value] = idx
+
+                torch.save(image, os.path.join(path, f'{mode}/input/{size}/input_{i}_{j}.pt'))
+                torch.save(mask, os.path.join(path, f'{mode}/labels/{size}/mask_{i}_{j}.pt'))
 
 
-# process_image((0, 'validation'))
+process_image((0, 'train'))
 
 
 if __name__ == '__main__':

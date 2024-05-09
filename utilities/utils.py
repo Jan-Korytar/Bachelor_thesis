@@ -57,33 +57,60 @@ def plot_input_mask_output(img_input, mask, output, idx, epoch):
 
 
 
-def get_preprocessed_images_paths(size=256):
-    with open('config.yaml', 'r') as file:
-        file = yaml.safe_load(file)
-        paths = file['paths']
-        images_path = paths['data_path']
+def get_preprocessed_images_paths(size=256, file_extension_img='.jpg', file_extension_mask='.bmp', refresh_search=False):
+    if refresh_search:
 
-    train_images_path = os.path.join(images_path, f'preprocessed/train/input/{size}/**/*.jpg')
-    train_masks_path = os.path.join(images_path, f'preprocessed/train/labels/{size}/**/*.bmp')
-    train_images_cropped_path = os.path.join(images_path, f'preprocessed/train/input_cropped/{size}/**/*.jpg')
-    train_masks_cropped_path = os.path.join(images_path, f'preprocessed/train/labels_cropped/{size}/**/*.bmp')
-    val_images_path = os.path.join(images_path, f'preprocessed/validation/input/{size}/**/*.jpg')
-    val_masks_path = os.path.join(images_path, f'preprocessed/validation/labels/{size}/**/*.bmp')
-    test_images_path = os.path.join(images_path, f'preprocessed/test/input/{size}/**/*.jpg')
-    test_masks_path = os.path.join(images_path, f'preprocessed/test/labels/{size}/**/*.bmp')
+        with open('config.yaml', 'r') as file:
+            file = yaml.safe_load(file)
+            paths = file['paths']
+            images_path = paths['data_path']
 
-    train_images = sorted(glob(train_images_path, recursive=True), key=lambda x: os.path.basename(x))
-    train_masks = sorted(glob(train_masks_path, recursive=True), key=lambda x: os.path.basename(x))
-    train_images_cropped_path = sorted(glob(train_images_cropped_path, recursive=True), key=lambda x: os.path.basename(x))
-    train_masks_cropped_path = sorted(glob(train_masks_cropped_path, recursive=True), key=lambda x: os.path.basename(x))
-    val_images = sorted(glob(val_images_path, recursive=True),
-                        key=lambda x: os.path.basename(x))
-    val_masks = sorted(glob(val_masks_path, recursive=True),
-                        key=lambda x: os.path.basename(x))
-    test_images = sorted(glob(test_images_path, recursive=True),
-                        key=lambda x: os.path.basename(x))
-    test_masks = sorted(glob(test_masks_path, recursive=True),
-                        key=lambda x: os.path.basename(x))
+        train_images_path = os.path.join(images_path, f'preprocessed/train/input/{size}/**/*{file_extension_img}')
+        train_masks_path = os.path.join(images_path, f'preprocessed/train/labels/{size}/**/*{file_extension_mask}')
+        train_images_cropped_path = os.path.join(images_path,
+                                                 f'preprocessed/train/input_cropped/{size}/**/*{file_extension_img}')
+        train_masks_cropped_path = os.path.join(images_path,
+                                                f'preprocessed/train/labels_cropped/{size}/**/*{file_extension_mask}')
+        val_images_path = os.path.join(images_path, f'preprocessed/validation/input/{size}/**/*{file_extension_img}')
+        val_masks_path = os.path.join(images_path, f'preprocessed/validation/labels/{size}/**/*{file_extension_mask}')
+        test_images_path = os.path.join(images_path, f'preprocessed/test/input/{size}/**/*{file_extension_img}')
+        test_masks_path = os.path.join(images_path, f'preprocessed/test/labels/{size}/**/*{file_extension_mask}')
 
+        train_images = sorted(glob(train_images_path), key=lambda x: os.path.basename(x))
+        train_masks = sorted(glob(train_masks_path), key=lambda x: os.path.basename(x))
+        train_images_cropped_path = sorted(glob(train_images_cropped_path), key=lambda x: os.path.basename(x))
+        train_masks_cropped_path = sorted(glob(train_masks_cropped_path), key=lambda x: os.path.basename(x))
+        val_images = sorted(glob(val_images_path),
+                            key=lambda x: os.path.basename(x))
+        val_masks = sorted(glob(val_masks_path),
+                            key=lambda x: os.path.basename(x))
+        test_images = sorted(glob(test_images_path),
+                            key=lambda x: os.path.basename(x))
+        test_masks = sorted(glob(test_masks_path),
+                            key=lambda x: os.path.basename(x))
+
+        paths_dict = {
+            'train_images': train_images,
+            'train_masks': train_masks,
+            'train_images_cropped': train_images_cropped_path,
+            'train_masks_cropped': train_masks_cropped_path,
+            'val_images': val_images,
+            'val_masks': val_masks,
+            'test_images': test_images,
+            'test_masks': test_masks
+        }
+
+        with open('preprocessed_paths.yaml', 'w') as yaml_file:
+            yaml.dump(paths_dict, yaml_file)
+    else:
+        with open('preprocessed_paths.yaml', 'r') as yaml_file:
+            paths_dict = yaml.safe_load(yaml_file)
+
+        return (
+            paths_dict['train_images'], paths_dict['train_masks'],
+            paths_dict['train_images_cropped'], paths_dict['train_masks_cropped'],
+            paths_dict['val_images'], paths_dict['val_masks'],
+            paths_dict['test_images'], paths_dict['test_masks']
+        )
 
     return train_images, train_masks, train_images_cropped_path, train_masks_cropped_path, val_images, val_masks, test_images, test_masks
