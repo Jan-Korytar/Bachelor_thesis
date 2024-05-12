@@ -76,17 +76,17 @@ def get_preprocessed_images_paths(size=256, file_extension_img='.jpg', file_exte
         test_images_path = os.path.join(images_path, f'preprocessed/test/input/{size}/**/*{file_extension_img}')
         test_masks_path = os.path.join(images_path, f'preprocessed/test/labels/{size}/**/*{file_extension_mask}')
 
-        train_images = sorted(glob(train_images_path), key=lambda x: os.path.basename(x))
-        train_masks = sorted(glob(train_masks_path), key=lambda x: os.path.basename(x))
-        train_images_cropped_path = sorted(glob(train_images_cropped_path), key=lambda x: os.path.basename(x))
-        train_masks_cropped_path = sorted(glob(train_masks_cropped_path), key=lambda x: os.path.basename(x))
-        val_images = sorted(glob(val_images_path),
+        train_images = sorted(glob(train_images_path, recursive=True), key=lambda x: os.path.basename(x))
+        train_masks = sorted(glob(train_masks_path, recursive=True), key=lambda x: os.path.basename(x))
+        train_images_cropped_path = sorted(glob(train_images_cropped_path, recursive=True), key=lambda x: os.path.basename(x))
+        train_masks_cropped_path = sorted(glob(train_masks_cropped_path, recursive=True), key=lambda x: os.path.basename(x))
+        val_images = sorted(glob(val_images_path, recursive=True),
                             key=lambda x: os.path.basename(x))
-        val_masks = sorted(glob(val_masks_path),
+        val_masks = sorted(glob(val_masks_path, recursive=True),
                             key=lambda x: os.path.basename(x))
-        test_images = sorted(glob(test_images_path),
+        test_images = sorted(glob(test_images_path, recursive=True),
                             key=lambda x: os.path.basename(x))
-        test_masks = sorted(glob(test_masks_path),
+        test_masks = sorted(glob(test_masks_path, recursive=True),
                             key=lambda x: os.path.basename(x))
 
         paths_dict = {

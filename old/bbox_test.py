@@ -10,7 +10,7 @@ from tqdm import tqdm
 import yaml
 
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
-with open('config.yaml', 'r') as file:
+with open('../config.yaml', 'r') as file:
     file = yaml.safe_load(file)
     config = file['wandb_config_bbox_req']
 
@@ -19,7 +19,7 @@ train_images, train_masks, val_images, val_masks, test_images, test_masks = get_
 model = BboxModel(in_channels=3,base_dim=config['base_dim'], depth=config['depth'], dropout=config['dropout'], batch_norm=config['batch_norm'],
                   img_dim=size).to(device)
 
-model.load_state_dict(torch.load('models/bbox_best_model.pth'))
+model.load_state_dict(torch.load('../models/bbox_best_model.pth'))
 model.to(device)
 model.eval()
 

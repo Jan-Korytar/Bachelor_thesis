@@ -15,7 +15,7 @@ from utilities.datasets import BBoxDataset
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 wandb.login()
 
-with open('config.yaml', 'r') as file:
+with open('../config.yaml', 'r') as file:
     file = yaml.safe_load(file)
     config = file['wandb_config_bbox_req']
 
@@ -131,7 +131,7 @@ def train(configuration=None):
         if val_loss < best_val_loss:
             epochs_no_improve = 0
             best_val_loss = val_loss
-            torch.save(model.state_dict(), f'models/bbox_best_model.pth')  # Save the best model
+            torch.save(model.state_dict(), f'../models/bbox_best_model.pth')  # Save the best model
         else:
             epochs_no_improve += 1
             if epochs_no_improve == patience:

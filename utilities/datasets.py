@@ -120,4 +120,4 @@ class SegDatasetFromTensors(Dataset):
             image = torch.load(self.cropped_images[item])
             label = torch.load(self.cropped_masks[item])
 
-        return torch.squeeze(image), torch.squeeze(label)
+        return torch.squeeze(image)/255, torch.squeeze(label)
