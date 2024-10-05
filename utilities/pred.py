@@ -9,6 +9,7 @@ from torch.utils.data import Dataset, DataLoader
 from tqdm import tqdm
 from scipy.ndimage import label, find_objects
 from matplotlib import pyplot as plt
+from utils import plot_input_mask_output
 import yaml
 
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
@@ -30,12 +31,12 @@ test_images = sorted(glob(os.path.join(images_path, test_images_path), recursive
 test_masks = sorted(glob(os.path.join(images_path, test_masks_path), recursive=True), key=lambda x: os.path.basename(x))
 
 model = UNet_segmentation(in_channels=3, out_channels=3, base_dim=config['base_dim'], depth=config['depth']).to(device)
-model.load_state_dict(torch.load('../models/seg_best_model.pth'))
+model.load_state_dict(torch.load('../models/segmen_best_model.pth'))
 
-dataset = SegDatasetFromImages(val_images, val_masks)
+dataset = SegDatasetFromImages(val_images, val_masks, normalize_images=True)
 dataloader = DataLoader(dataset)
 
-resize = torchvision.transforms.Resize((256, 256))
+resize = torchvision.transforms.Resize((128, 128))
 
 for idx, (img_input, masks) in tqdm(enumerate(dataloader), total=len(dataloader)):
     original_img = img_input.clone()
@@ -46,10 +47,12 @@ for idx, (img_input, masks) in tqdm(enumerate(dataloader), total=len(dataloader)
     masks = masks.to(device)
     output = model(img_input)
 
-    bbox_list = []
 
+
+
+
+    plot_input_mask_output(img_input[0], masks[0], output[0], idx, 0, folder='pred')
     output = output.detach().cpu().numpy()
-
     # Apply argmax and thresholding
     output = np.argmax(output[0], axis=0)
     output[output >= 1] = 1
@@ -74,9 +77,7 @@ for idx, (img_input, masks) in tqdm(enumerate(dataloader), total=len(dataloader)
     slice_y_start, slice_y_stop = int(slice_y.start * ratio_y), int(slice_y.stop * ratio_y)
     original_img_slice = original_img[0, 0, slice_x_start:slice_x_stop, slice_y_start:slice_y_stop]
     arr_ = np.squeeze(original_img_slice)
-    plt.imshow(arr_)
-    plt.show()
-    bbox_list.append(bbox)
-
+    #plt.imshow(arr_)
+    #plt.show()
 
 

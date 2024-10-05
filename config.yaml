@@ -1,21 +1,11 @@
 wandb_config_seq:
-  batch_size: 20
+  batch_size: 16
   lr: 0.001
   base_dim: 64
   depth: 5
-  loss_type: CCE
-  importance: 1
-  normalize_images: false
-
-wandb_config_bbox_req:
-  batch_size: 16
-  lr: 0.001
-  base_dim: 104
-  depth: 6
-  batch_norm: True
-  loss_type: MSE
-  normalize_images: False
-  dropout: 0.0
+  loss_type: dice
+  importance: 3
+  normalize_images: True
 
 best_model:
   in_channels: 3
