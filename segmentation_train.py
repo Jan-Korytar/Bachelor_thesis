@@ -28,7 +28,7 @@ train_images, train_masks, train_images_cropped_path, train_masks_cropped_path, 
 if __name__ == '__main__':
     freeze_support()
 
-    with wandb.init(project='Unet-segmentation-pytorch', config=config, mode='disabled'):
+    with wandb.init(project='Unet-segmentation-pytorch', config=config):
         wandb.config.update(config)
         print(f'Wandb config: \n{wandb.config}')
 
@@ -38,8 +38,7 @@ if __name__ == '__main__':
                                             normalize_images=wandb.config.normalize_images)
 
         # Creating dataloaders
-        val_loader = DataLoader(val_dataset, batch_size=10, shuffle=True, num_workers=2, prefetch_factor=2,
-                                pin_memory_device='cuda', pin_memory=True)
+        val_loader = DataLoader(val_dataset, batch_size=10, shuffle=True, num_workers=1, prefetch_factor=1)
 
         model = UNet_segmentation(in_channels=3, out_channels=3, base_dim=wandb.config.base_dim,
                                   depth=wandb.config.depth).to(device)
@@ -69,17 +68,17 @@ if __name__ == '__main__':
         #scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', factor=0.7, patience=3, threshold=0.0001)
 
         # Define number of epochs
-        num_epochs = 30
+        num_epochs = 20
 
         # Train the model
-        patience = 60
+        patience = 4
         epochs_no_improve = 0
         best_val_loss = torch.inf
 
         torch.cuda.empty_cache()
 
         for epoch in range(num_epochs):
-            ratio = 0.5 - (0.5 * (epoch / num_epochs))
+            ratio = 0.9 - (0.5 * (epoch / num_epochs))
             train_dataset = SegDatasetFromTensors(input_images=train_images[:],
                                                   label_images=train_masks[:],
                                                   cropped_input=train_images_cropped_path[:],
@@ -88,9 +87,9 @@ if __name__ == '__main__':
                                                   is_training=True,
                                                   ratio=ratio)
 
-            train_loader = DataLoader(train_dataset, batch_size=wandb.config.batch_size, num_workers=2,
-                                      prefetch_factor=3, pin_memory_device='cuda', pin_memory=True,
-                                      sampler=torch.utils.data.RandomSampler(train_dataset, num_samples=512))
+            train_loader = DataLoader(train_dataset, batch_size=wandb.config.batch_size, num_workers=1,
+                                      prefetch_factor=1, pin_memory_device='cuda', pin_memory=True,
+                                      sampler=torch.utils.data.RandomSampler(train_dataset, num_samples=1024))
 
             # Train
             model.train()
@@ -104,7 +103,7 @@ if __name__ == '__main__':
                 optimizer.zero_grad()
 
                 outputs = model(img_input)
-                if epoch >= 0:
+                if epoch >= 0 :
                     loss_1 = cce_criterion(outputs, masks)
                 else:
                     loss_1 = criterion_dice(outputs, masks)

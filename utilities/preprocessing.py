@@ -70,8 +70,8 @@ def image_preprocessing(image, mask, copies=10, mode='train', ):
                                                   transforms.RandomRotation(15)
                                                   ])
 
-            img_transforms = transforms.Compose([transforms.ColorJitter(brightness=0.2, contrast=.2, hue=.1),
-                                                 transforms.ElasticTransform(alpha=15, sigma=2),
+            img_transforms = transforms.Compose([transforms.ColorJitter(brightness=0.2, hue=.1),
+                                                 transforms.ElasticTransform(alpha=20, sigma=2),
                                                  transforms.ToDtype(torch.uint8)])
 
             masks = []
