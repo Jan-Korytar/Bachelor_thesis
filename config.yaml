@@ -1,0 +1,24 @@
+wandb_config_seq:
+  batch_size: 8
+  lr: 0.001
+  base_dim: 80
+  depth: 5
+  loss_type: dice
+  importance: 1.5
+  normalize_images: True
+
+best_model:
+  in_channels: 3
+  base_dim: 64
+  dropout: 0.3
+  batch_norm: true
+  state_dict_path: models\\best_model_3.pt
+
+paths:
+  data_path: 'C:\\my files\\REFUGE'
+  train_images_path: 'Training400'
+  train_masks_path: 'Annotation-Training400/Disc_Cup_Masks'
+  val_images_path: 'REFUGE-Validation400'
+  val_masks_path: 'REFUGE-Validation400-GT'
+  test_images_path: 'REFUGE-Test400'
+  test_masks_path: 'REFUGE-Test-GT'
