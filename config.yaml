@@ -1,13 +1,62 @@
-wandb_config_seq:
+config_cropping_model:
   batch_size: 8
   lr: 0.001
-  base_dim: 80
-  depth: 5
+  base_dim: 40
+  depth: 4
   loss_type: dice
   importance: 1.5
   normalize_images: True
+  training_dataset_size: 400
+  growth_factor: 2.7
+  ratio: 1
 
-best_model:
+config_segmentation_model:
+  batch_size: 8
+  lr: 0.001
+  base_dim: 40
+  depth: 4
+  loss_type: dice
+  importance: 1.5
+  normalize_images: True
+  training_dataset_size: 400
+  growth_factor: 2.7
+  ratio: 0
+
+wandb_sweep:
+  name: "Segmentation Model Sweep"
+  method: bayes
+  metric:
+    name: val_loss
+    goal: minimize
+  parameters:
+    batch_size:
+      values: [ 2, 8, 16 ]
+    lr:
+      min: 0.0001
+      max: 0.01
+    criterion:
+      values: [ cce, dice, focal ]
+    training_dataset_size:
+      min: 100
+      max: 1000
+      step: 100
+    growth-factor:
+      min: 1.5
+      max: 3
+    depth:
+      values: [ 3, 4, 5, 6 ]
+    base_dim:
+      values: [ 10, 20, 30, 40, 60, 80 ]
+    ratio:
+      min: 0
+      max: 1
+  early_terminate:
+    type: hyperband
+    min_iter: 5
+  run_cap: 100
+
+
+best_model_cropping:
   in_channels: 3
   base_dim: 64
   dropout: 0.3

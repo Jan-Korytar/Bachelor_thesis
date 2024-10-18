@@ -2,6 +2,10 @@
 <module type="PYTHON_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/.idea/copilot/chatSessions" />
+      <excludeFolder url="file://$MODULE_DIR$/pictures_training" />
+      <excludeFolder url="file://$MODULE_DIR$/refuge-evaluation-master" />
+      <excludeFolder url="file://$MODULE_DIR$/wandb" />
       <excludeFolder url="file://$MODULE_DIR$/wandb/run-20230613_180828-sbcqppd1/tmp" />
       <excludeFolder url="file://$MODULE_DIR$/wandb/run-20230613_181622-h1befsok/tmp" />
       <excludeFolder url="file://$MODULE_DIR$/wandb/run-20230613_183055-vs2opnq4/tmp" />
@@ -605,10 +609,6 @@
       <excludeFolder url="file://$MODULE_DIR$/wandb/sweep-vo5xd4vp" />
       <excludeFolder url="file://$MODULE_DIR$/wandb/sweep-xilwywpb" />
       <excludeFolder url="file://$MODULE_DIR$/wandb/sweep-zgj143d4" />
-      <excludeFolder url="file://$MODULE_DIR$/wandb" />
-      <excludeFolder url="file://$MODULE_DIR$/refuge-evaluation-master" />
-      <excludeFolder url="file://$MODULE_DIR$/.idea/copilot/chatSessions" />
-      <excludeFolder url="file://$MODULE_DIR$/pictures_training" />
     </content>
     <orderEntry type="jdk" jdkName="thesis" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />

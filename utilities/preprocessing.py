@@ -15,7 +15,6 @@ import yaml
 import warnings
 
 warnings.filterwarnings("ignore", category=UserWarning)
-device = 'cuda' if torch.cuda.is_available() else 'cpu'
 
 with open('../config.yaml', 'r') as file:
     paths_data = yaml.safe_load(file)['paths']
@@ -42,37 +41,29 @@ test_masks = sorted(glob(os.path.join(images_path, test_masks_path + '/**/*.bmp'
                     key=lambda x: os.path.basename(x))
 
 
+# welcome to the spaghetti ;)
 def image_preprocessing(image, mask, copies=10, mode='train', ):
-    degree_of_crop_random = 256
     image = datapoints.Image(read_image(image))
     mask = datapoints.Mask(transforms.RandomInvert(1)(transforms.ToImage()(Image.open(mask))))
-    crop_coordinates = torchvision.ops.masks_to_boxes(mask).to(int)[0]
-
-    crop_coordinates_width_height = torch.tensor((crop_coordinates[1], crop_coordinates[0],
-                                                  crop_coordinates[3] - crop_coordinates[1],
-                                                  crop_coordinates[2] - crop_coordinates[0]))
-
-    randomized = torch.randint(0, degree_of_crop_random, (4,))
-    crop_coordinates_width_height[2:] += randomized[2:]
-    crop_coordinates_width_height[:2] -= randomized[:2]
-    crop_coordinates_width_height[2:] += randomized[:2]
-
-    mask_cropped = transforms.functional.crop(mask, *crop_coordinates_width_height)
-    image_cropped = transforms.functional.crop(image, *crop_coordinates_width_height)
+    image_cropped, mask_cropped = custom_crop(image, mask)
 
     if mode == 'train':
         transformed_sizes = []
 
         for size in [128, 256]:
             resize = transforms.Resize((size, size))
-            both_transforms = transforms.Compose([transforms.Resize(size=(size, size)),
+            input_mask_transform = transforms.Compose([transforms.Resize(size=(size, size)),
                                                   transforms.RandomPerspective(.1),
                                                   transforms.RandomRotation(15)
                                                   ])
 
-            img_transforms = transforms.Compose([transforms.ColorJitter(brightness=0.2, hue=.1),
-                                                 transforms.ElasticTransform(alpha=20, sigma=2),
+            input_transforms = transforms.Compose([transforms.ColorJitter(brightness=0.2, hue=.1, contrast=0.2),
+                                                   transforms.ElasticTransform(alpha=15, sigma=2),
                                                  transforms.ToDtype(torch.uint8)])
+
+            crop_transforms = transforms.Compose([transforms.ColorJitter(brightness=0.3, hue=.2, contrast=0.2),
+                                                  transforms.ElasticTransform(alpha=25, sigma=2.5),
+                                                  transforms.ToDtype(torch.uint8)])
 
             masks = []
             images = []
@@ -87,18 +78,15 @@ def image_preprocessing(image, mask, copies=10, mode='train', ):
             images_cropped.append(resize(image_cropped))
             sizes.append(size)
 
-
-
-            t_img, t_mask = both_transforms(image, mask)
+            t_img, t_mask = input_mask_transform(image, mask)
 
             true_mask = t_img != 0
-            t_img_cropped, t_mask_cropped = both_transforms(image_cropped, mask_cropped)
+            t_img_cropped, t_mask_cropped = input_mask_transform(image_cropped, mask_cropped)
 
-            true_mask_cropped = t_img_cropped != 0
             # cropping
             for i in range(copies - 1):
-                t_img = img_transforms(t_img) * true_mask
-                t_img_cropped = img_transforms(t_img_cropped)  * true_mask_cropped
+                t_img = input_transforms(t_img) * true_mask
+                t_img_cropped = crop_transforms(t_img_cropped)
 
                 masks.append(t_mask)
                 images.append(t_img)
@@ -113,7 +101,25 @@ def image_preprocessing(image, mask, copies=10, mode='train', ):
 
     else:
 
-        return datapoints.Image(torch.unsqueeze(image, 0)), datapoints.Mask(torch.unsqueeze(mask, 0))
+        return (datapoints.Image(torch.unsqueeze(image, 0)), datapoints.Mask(torch.unsqueeze(mask, 0)),
+                datapoints.Image(torch.unsqueeze(image_cropped, 0)), datapoints.Mask(torch.unsqueeze(mask_cropped, 0)))
+
+
+def custom_crop(image, mask):
+    rotation_transform = transforms.RandomRotation(20)
+    degree_of_crop_random = 256
+    image_rotated, mask_rotated = rotation_transform(image, mask)
+    crop_coordinates = torchvision.ops.masks_to_boxes(mask_rotated).to(torch.int)[0]
+    crop_coordinates_width_height = torch.tensor((crop_coordinates[1], crop_coordinates[0],
+                                                  crop_coordinates[3] - crop_coordinates[1],
+                                                  crop_coordinates[2] - crop_coordinates[0]))
+    randomized = torch.randint(0, degree_of_crop_random, (4,))
+    crop_coordinates_width_height[2:] += randomized[2:]
+    crop_coordinates_width_height[:2] -= randomized[:2]
+    crop_coordinates_width_height[2:] += randomized[:2]
+    mask_cropped = transforms.functional.crop(mask_rotated, *crop_coordinates_width_height)
+    image_cropped = transforms.functional.crop(image_rotated, *crop_coordinates_width_height)
+    return image_cropped, mask_cropped
 
 
 #image_preprocessing(train_images[0], train_masks[0], 10, 128, mode='lol' )
@@ -147,9 +153,8 @@ def process_image(i):
                 os.path.join(path, fr'{mode}\input_cropped\{size}')):
             os.makedirs(os.path.join(path, fr'{mode}\input\{size}'), exist_ok=True)
             os.makedirs(os.path.join(path, fr'{mode}\labels\{size}'), exist_ok=True)
-            if mode == 'train':
-                os.makedirs(os.path.join(path, fr'{mode}\input_cropped\{size}'), exist_ok=True)
-                os.makedirs(os.path.join(path, fr'{mode}\labels_cropped\{size}'), exist_ok=True)
+            os.makedirs(os.path.join(path, fr'{mode}\input_cropped\{size}'), exist_ok=True)
+            os.makedirs(os.path.join(path, fr'{mode}\labels_cropped\{size}'), exist_ok=True)
 
     if mode == 'train':
         processed_images = image_preprocessing(original_image, original_label, 6, mode=mode)
@@ -194,7 +199,7 @@ def process_image(i):
                     '''
     else:
 
-        image, mask = image_preprocessing(original_image, original_label, 5, mode=mode)
+        image, mask, image_cropped, mask_cropped = image_preprocessing(original_image, original_label, 5, mode=mode)
         for size in sizes:
             resize = transforms.Resize((size, size), antialias=True,
                                        interpolation=torchvision.transforms.InterpolationMode.BILINEAR)
@@ -208,6 +213,15 @@ def process_image(i):
             torch.save(image, os.path.join(path, f'{mode}/input/{size}/input_{i}.pt'))
             torch.save(mask, os.path.join(path, f'{mode}/labels/{size}/mask_{i}.pt'))
 
+            image = resize(image_cropped).to(torch.float32)
+            mask = resize(mask_cropped).to(torch.long)
+            values = torch.unique(mask)
+            for idx, value in enumerate(values):
+                mask[mask == value] = idx
+
+            torch.save(image, os.path.join(path, f'{mode}/input_cropped/{size}/input_{i}.pt'))
+            torch.save(mask, os.path.join(path, f'{mode}/labels_cropped/{size}/mask_{i}.pt'))
+
 
 process_image((0, 'train'))
 
@@ -218,20 +232,22 @@ if __name__ == '__main__':
         for _ in tqdm(pool.imap_unordered(process_image, [[i, 'train'] for i in range(len(train_masks))]),
                       total=len(train_masks), desc='train'):
             pass
-    '''  
+    """
+    with Pool(processes=os.cpu_count()-1) as pool:
+        for _ in tqdm(pool.imap_unordered(process_image, [[i, 'validation'] for i in range(len(val_masks))]),
+                      total=len(val_masks), desc='validation'):
+            pass
+
+    
     with Pool(processes=os.cpu_count()-1) as pool:
         for _ in tqdm(pool.imap_unordered(process_image, [[i, 'test'] for i in range(len(val_masks))]),
                       total=len(val_masks), desc='test'):
             pass
 
-    with Pool(processes=os.cpu_count()-1) as pool:
-        for _ in tqdm(pool.imap_unordered(process_image, [[i, 'validation'] for i in range(len(val_masks))]),
-                      total=len(val_masks), desc='validation'):
-            pass
    
     with Pool(processes=os.cpu_count()-1) as pool:
         for _ in tqdm(pool.imap_unordered(process_image, [[i, 'train_only_resize'] for i in range(len(val_masks))]),
                       total=len(val_masks), desc='train only'):
             pass
-    '''
+    """
     print(f'Preprocessing finished')

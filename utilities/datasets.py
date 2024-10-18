@@ -3,11 +3,8 @@ import random
 import torch
 from PIL import Image
 from torch.utils.data import Dataset
-from torchvision.transforms import v2 as transforms
 from torchvision.ops import masks_to_boxes
-
-
-import torch
+from torchvision.transforms import v2 as transforms
 
 
 class BBoxDataset(Dataset):
@@ -50,75 +47,27 @@ class BBoxDataset(Dataset):
         return torch.squeeze(image), values
 
 
-class SegDatasetFromImages(Dataset):
-    """
-    Custom dataset class for semantic segmentation.
 
-    Args:
-        input_images (list): List of paths to input images.
-        label_images (list): List of paths to label (mask) images.
-        normalize_images (bool): Flag indicating whether to normalize input images.
-        ratio: (float): ratio of non cropped images, 0 to 1
-
-    Attributes:
-        masks (list): List of paths to label (mask) images.
-        images (list): List of paths to input images.
-        transform (Compose): Image transformations applied to input images.
-        transform_mask (Compose): Image transformations applied to label (mask) images.
-
-    """
-
-    def __init__(self, input_images, label_images, cropped_input=None, cropped_label=None, normalize_images=False,
-                 ratio=None):
-        self.masks = label_images
-        self.images = input_images
-        self.cropped_masks = cropped_label
-        self.cropped_images = cropped_input
-        if cropped_input is None or cropped_label is None or ratio is None:
-            self.ratio = 1
-        else:
-            self.ratio = ratio
-        self.transform = transforms.Compose([transforms.PILToTensor(), transforms.ConvertImageDtype(torch.float32)])
-        if normalize_images:
-            self.transform = transforms.Compose([transforms.PILToTensor(), transforms.ConvertImageDtype(torch.float32),
-                                                 transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])])
-
-        self.transform_mask = transforms.Compose([transforms.PILToTensor(), transforms.ToDtype(torch.uint8)])
-
-    def __len__(self):
-        return len(self.images)
-
-    def __getitem__(self, item):
-        if random.random() <= self.ratio:
-            image = self.transform(Image.open(self.images[item]))
-            label = self.transform_mask(Image.open(self.masks[item]))
-        else:
-            image = self.transform(Image.open(self.cropped_images[item]))
-            label = self.transform_mask(Image.open(self.cropped_masks[item]))
-        values = torch.unique(label)
-        for idx, i in enumerate(values):
-            label[label == i] = idx
-
-        return torch.squeeze(image), torch.squeeze(label)
 
 
 class SegDatasetFromTensors(Dataset):
-    def __init__(self, input_images, label_images, cropped_input=None, cropped_label=None, normalize_images=False,
+    def __init__(self, input_img, masks, cropped_input=None, cropped_masks=None, normalize_images=True,
                  is_training=True, ratio=None):
-        self.masks = label_images
-        self.images = input_images
-        self.cropped_masks = cropped_label
+        self.masks = masks
+        self.images = input_img
+        self.cropped_masks = cropped_masks
         self.cropped_images = cropped_input
         self.normalize_images = normalize_images
         self.is_training = is_training
 
-        if cropped_input is None or cropped_label is None or ratio is None:
+        if cropped_input is None or cropped_masks is None or ratio is None:
             self.ratio = 1
         else:
             self.ratio = ratio
 
         if normalize_images:
-            self.transform_cropped = CustomNormalize('cropped')
+            self.transform_validation_cropped = CustomNormalize('validation_cropped')
+            self.transform_training_cropped = CustomNormalize('train_cropped')
             self.transform_validation = CustomNormalize('validation')
             self.transform_training = CustomNormalize('train')
 
@@ -130,23 +79,73 @@ class SegDatasetFromTensors(Dataset):
         if self.normalize_images:
             if self.is_training:
                 if random.random() <= self.ratio:
-                    image = self.transform_training(torch.load(self.images[item]) / 255.0)
-                    label = torch.load(self.masks[item])
+                    image = self.transform_training(torch.load(self.images[item], weights_only=False) / 255.0)
+                    label = torch.load(self.masks[item], weights_only=False)
                 else:
-                    image = self.transform_cropped(torch.load(self.cropped_images[item]) / 255.0)
-                    label = torch.load(self.cropped_masks[item])
+                    image = self.transform_training_cropped(
+                        torch.load(self.cropped_images[item], weights_only=False) / 255.0)
+                    label = torch.load(self.cropped_masks[item], weights_only=False)
             else:
-                image = self.transform_validation(torch.load(self.images[item]) / 255.0)
-                label = torch.load(self.masks[item])
+                if random.random() <= self.ratio:
+                    image = self.transform_validation(torch.load(self.images[item], weights_only=False) / 255.0)
+                    label = torch.load(self.masks[item], weights_only=False)
+                else:
+                    image = self.transform_validation_cropped(
+                        torch.load(self.cropped_images[item], weights_only=False) / 255.0)
+                    label = torch.load(self.cropped_masks[item], weights_only=False)
         else:
             if random.random() <= self.ratio:
-                image = torch.load(self.images[item]) / 255.0
-                label = torch.load(self.masks[item])
+                image = torch.load(self.images[item], weights_only=False) / 255.0
+                label = torch.load(self.masks[item], weights_only=False)
             else:
-                image = torch.load(self.cropped_images[item]) / 255.0
-                label = torch.load(self.cropped_masks[item])
+                image = torch.load(self.cropped_images[item], weights_only=False) / 255.0
+                label = torch.load(self.cropped_masks[item], weights_only=False)
 
         return torch.squeeze(image), torch.squeeze(label.to(torch.long))
+
+
+class PredictionDataset(Dataset):
+    """
+        A custom PyTorch dataset for handling image input during validation or prediction phases.
+
+        Args:
+            input_images (list): A list of file paths to input images that are either pre-processed or need resizing.
+            original_images (list or None): A list of file paths to original images (before any processing).
+                                            If None, the input images are used as the original images.
+            size (int, optional): The target size to which the input images should be resized. Defaults to 128.
+
+    """
+
+    def __init__(self, input_images, original_images, size=128):
+        self.input_images = input_images
+        self.original_images = original_images
+        self.size = size
+        self.to_tensor = transforms.PILToTensor()
+        self.transform_validation = CustomNormalize('validation')
+        self.transform_validation_crop = CustomNormalize('validation_cropped')
+        self.resize = transforms.Resize((size, size))
+
+    def __len__(self):
+        return len(self.input_images)
+
+    def __getitem__(self, item):
+        if self.original_images:
+            original_image = self.to_tensor(Image.open(self.original_images[item])) / 255
+            resized_image = self.transform_validation_crop(
+                self.resize(self.to_tensor(Image.open(self.input_images[item])) / 255))
+            coordinates = self.input_images[item]
+        else:
+            original_image = self.to_tensor(Image.open(self.input_images[item])) / 255
+            resized_image = self.transform_validation(self.resize(original_image))
+            coordinates = self.input_images[item]
+
+        return original_image, resized_image, coordinates
+
+
+
+
+
+
 
 
 class CustomNormalize(object):
@@ -157,7 +156,12 @@ class CustomNormalize(object):
                 "mean": [0.5507591776382487, 0.36368202300487135, 0.28958523739594133],
                 "std": [0.17806627200735062, 0.14194286672976278, 0.10991587430013793]
             },
-            "cropped": {
+            "validation_cropped": {
+                "mean": [0.7267119568330208, 0.5110323962090456, 0.3950133781658404],
+                "std": [0.1697782136782029, 0.16959714353640828, 0.13604012754018177]
+            },
+
+            "train_cropped": {
                 "mean": [0.4685939732421274, 0.28957382473984844, 0.16168409955490093],
                 "std": [0.230917657828556, 0.19825984468045332, 0.12745737031473708]
             },

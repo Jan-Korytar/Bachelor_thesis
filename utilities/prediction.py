@@ -1,116 +1,125 @@
+import os
+import shutil
+from glob import glob
+
 import numpy as np
 import torch
-import torchvision
-torchvision.disable_beta_transforms_warning()
-from torchvision.transforms import v2 as transforms
-from tqdm import tqdm
+import yaml
 from PIL import Image
-from torchvision import datapoints
-from torchvision.io import read_image
-from glob import glob
-import os
-from utilities.models import BboxModel, SegmentationModel
+from scipy.ndimage import label, find_objects
+from torchvision import transforms, utils
+from tqdm import tqdm
+
+from utilities.datasets import PredictionDataset
+from utilities.models import UNet_segmentation
+
+with open('../config.yaml', 'r') as file:
+    file = yaml.safe_load(file)
+    config_seg = file['config_cropping_model']
+    config_crop = file['config_segmentation_model']
 
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 
-config_bbox = {
-    'batch_size': 1,
-    'lr': 1.781623386838983e-06,
-    'base_dim': 64,
-    'dropout': 0.3,
-    'batch_norm': True,
-    'loss_type': 'complete_iou',
-    'decay': 0.7283639108891397,
-    'normalize_images': False
+test_images = sorted(glob(os.path.join(file['paths']['data_path'], r'REFUGE-Test400\Test400\*.jpg')),
+                     key=lambda x: os.path.basename(x))[:]
 
-}
+test_dataset = PredictionDataset(test_images[:], original_images=None, size=128)
+test_loader = torch.utils.data.DataLoader(test_dataset, batch_size=1, shuffle=False)
 
-config_seq = {
-        'base_dim': 51,
-        'batch_norm': True,
-        'batch_size': 10,
-        'importance': 1.9233588295561803,
-        'loss_type': 'dice',
-        'lr': 0.00021549015427425473,
-        'mode': 'model',
-        'normalize_images': False
-    }
-
-images_path = r'C:\my files\REFUGE'
-val_images_path = 'REFUGE-Validation400/**/*.jpg'
-val_masks_path = 'REFUGE-Validation400-GT/**/*.bmp'
-test_images_path = 'REFUGE-Test400/**/*.jpg'
-test_masks_path = 'REFUGE-Test-GT/**/*.bmp'
-
-val_images = sorted(glob(os.path.join(images_path, val_images_path), recursive=True), key=lambda x: os.path.basename(x))
-val_masks = sorted(glob(os.path.join(images_path, val_masks_path), recursive=True), key=lambda x: os.path.basename(x))
-test_images = sorted(glob(os.path.join(images_path, test_images_path), recursive=True),
-                     key=lambda x: os.path.basename(x))
-test_masks = sorted(glob(os.path.join(images_path, test_masks_path), recursive=True), key=lambda x: os.path.basename(x))
-model_bbox = BboxModel(in_channels=3, base_dim=config_bbox['base_dim'], dropout=config_bbox['dropout'],
-                       batch_norm=config_bbox['batch_norm'])
-
-model_bbox.load_state_dict(torch.load('../models/best_model_3.pt'))
-model_bbox.to(device)
+original_img_shape = np.array((1634, 1634))
+MARGIN_ERR = 0.10
+EXPECTED_POSITION = np.array((36, 59))
 
 
-seg_model = SegmentationModel(in_channels=3, out_channels=3, base_dim=config_seq['base_dim'], batch_norm=True).to(device)
-seg_model.load_state_dict(torch.load('best_model_seq_1.pt'))
+def process_images(loader, mode, size):
+    cropping_model = UNet_segmentation(in_channels=3, out_channels=3, base_dim=config_seg['base_dim'],
+                                       depth=config_seg['depth'], growth_factor=config_seg['growth_factor'])
+    cropping_model.load_state_dict(torch.load('../models/segmen_best_model_1.pth', weights_only=False))
 
-resize = transforms.Resize((126, 126), interpolation=torchvision.transforms.InterpolationMode.BILINEAR, antialias=True)
-to_image_tensor = transforms.Compose(
-    [transforms.ToImageTensor(), transforms.Resize((256, 256), antialias=True), transforms.ConvertImageDtype(torch.float32)])
-to_image_mask = transforms.Compose([transforms.ToImageTensor(), transforms.Resize((256, 256), antialias=False,
-                                                                                  interpolation=transforms.InterpolationMode.NEAREST_EXACT),
-                                    transforms.ToPILImage()])
+    segmentation_model = UNet_segmentation(in_channels=3, out_channels=3, base_dim=config_crop['base_dim'],
+                                           depth=config_crop['depth'], growth_factor=config_crop['growth_factor'])
+    segmentation_model.load_state_dict(torch.load('../models/segmentation_best_model_1.pth', weights_only=False))
 
-offset = (torch.tensor([-17.8452, -8.0020, +14.5419, +8.5310], dtype=torch.float32) / 100).to(device)
-def process_images(val_img, val_mask, mode):
-    val_img_str = val_img
-    val_img = datapoints.Image(read_image(val_img))
-    val_img_org = val_img.clone()
-    val_mask = datapoints.Mask(transforms.RandomInvert(1)(transforms.ToTensor()(Image.open(val_mask))))
-    val_mask_org = val_mask.clone()
-    val_img_resized = resize(val_img).to(device).unsqueeze(dim=0)
+    if mode == 'two_models' or mode == 'two-models':
+        cropping_model.to(device)
+        cropping_model.train()
+        resize = transforms.Resize((size, size))
+        shutil.rmtree('cropped')
+        os.makedirs(f'cropped', exist_ok=True)
+        for idx, (original_img, image, _) in tqdm(enumerate(loader), total=len(loader)):
+            original_img = original_img
+            image = image.to(device)
+            output = cropping_model(image)
 
-    val_bbox = model_bbox(val_img_resized.to(torch.float32)) + offset
-    val_bbox[:, [0, 2]] *= val_img.shape[1]
-    val_bbox[:, [0, 1]] = torch.clamp(val_bbox[:, [0, 1]], min=0)
-    val_bbox[:, [1, 3]] *= val_img.shape[2]
-    val_bbox[:, [2, 3]] = torch.clamp(val_bbox[:, [2, 3]], max=val_img.shape[1])
+            output = output.detach().cpu().numpy()[0].argmax(axis=0)
 
-    val_image_crop_model = val_img[:, int(val_bbox[:, 1]):int(val_bbox[:, 3]),
-                           int(val_bbox[:, 0]):int(val_bbox[:, 2])]
-    val_mask_crop_model = val_mask[:, int(val_bbox[:, 1]):int(val_bbox[:, 3]),
-                          int(val_bbox[:, 0]):int(val_bbox[:, 2])]
+            # Apply argmax and thresholding
+            output[output >= 1] = 1
+            labeled_array, num_features = label(output, structure=[[1, 1, 1],
+                                                                   [1, 1, 1],
+                                                                   [1, 1, 1]])
 
-    size_cropped = val_image_crop_model.size()
+            labels, counts = np.unique(labeled_array, return_counts=True)
+            best_idx = 1
+            best_diff = np.inf
+            for index in range(1, num_features + 1):
+                if counts[index] < 20:
+                    continue
+                means = np.array(np.where(labeled_array == index)).mean(axis=1)
+                diff = np.mean(np.abs(EXPECTED_POSITION - means))
+                if diff < best_diff:
+                    best_diff = diff
+                    best_idx = index
 
-    val_image_crop_model = datapoints.Image(to_image_tensor(val_image_crop_model))
-    val_mask_crop_model = datapoints.Mask(to_image_mask(val_mask_crop_model))
-    resize_crop = transforms.Compose([transforms.Resize(size_cropped[1:])])
-    val_image_crop_model = datapoints.Image(seg_model(val_image_crop_model.to(device).unsqueeze(0)))
-    val_image_crop_model = resize_crop(val_image_crop_model)
+            largest_patch_indices = np.where(labeled_array == best_idx)
+            ratio_x, ratio_y = np.array(original_img.shape[2:]) / np.array(image.shape[2:])
+            slice_x, slice_y = find_objects(labeled_array == best_idx)[0]
 
-    output = np.argmax(val_image_crop_model[0].detach().cpu().numpy(), axis=0)
-    pic = np.ones_like(output) * 255
-    pic_original = np.ones_like(val_img_org[0].unsqueeze(0)) * 255
-    pic[output == 1] = 128
-    pic[output == 2] = 0
+            slice_x_start, slice_x_stop = int(slice_x.start * ratio_x), int(slice_x.stop * ratio_x)
+            dif = int((slice_x_stop - slice_x_start) * MARGIN_ERR)
+            x_min = 0
+            y_min = 0
+            x_max = original_img.shape[2]
+            y_max = original_img.shape[3]
+            slice_x_start = max(slice_x_start - dif, x_min)
+            slice_x_stop = min(slice_x_stop + dif, x_max)
 
-    pic_original[:, int(val_bbox[:, 1]):int(val_bbox[:, 3]),
-                           int(val_bbox[:, 0]):int(val_bbox[:, 2])] = pic
+            slice_y_start, slice_y_stop = int(slice_y.start * ratio_y), int(slice_y.stop * ratio_y)
+            slice_y_start = max(slice_y_start - dif, y_min)
+            slice_y_stop = min(slice_y_stop + dif, y_max)
 
-    pic_original = Image.fromarray(pic_original.squeeze())
+            original_img_slice = original_img[0, :, slice_x_start:slice_x_stop, slice_y_start:slice_y_stop]
 
-    val_image_path_model = os.path.join(images_path, fr'predictions\{mode}\segmentation')
+            utils.save_image(original_img_slice,
+                             f'cropped/{idx}-{slice_x_start}_{slice_x_stop}_{slice_y_start}_{slice_y_stop}.png')
 
-    os.makedirs(val_image_path_model, exist_ok=True)
-    pic_original.save(os.path.join(val_image_path_model, fr'{os.path.basename(val_img_str)[:5]}.bmp'))
+        del cropping_model
+        segmentation_model.eval()
+        segmentation_model.to(device)
+        crop_images = sorted(glob(os.path.join('cropped/*png')), key=lambda x: os.path.basename(x))
+
+        crop_images = PredictionDataset(crop_images, original_images=test_images, size=size)
+        loader = torch.utils.data.DataLoader(crop_images, batch_size=1, shuffle=False)
+        shutil.rmtree('submission')
+        os.makedirs(f'submission/segmentation', exist_ok=True)
+
+        for idx, (original_img, image, coordinates) in tqdm(enumerate(loader), total=len(loader)):
+            image = image.to(device)
+            output = segmentation_model(image)
+            coordinates = coordinates[0].split('.')[0].split('\\')[1].split('-')[1].split('_')
+            coordinates = [int(cor) for cor in coordinates]
+            resize = transforms.Resize((coordinates[1] - coordinates[0], coordinates[3] - coordinates[2]))
+            output = resize(output)
+            output = output.cpu().detach().numpy()
+            output = np.argmax(output[0], axis=0)
+            output[output == 0] = 255
+            output[output == 1] = 128
+            output[output == 2] = 0
+            mask = np.ones_like(original_img[0, 0], dtype=np.uint8) * 255
+            mask[coordinates[0]:coordinates[1], coordinates[2]:coordinates[3]] = output
+
+            mask = Image.fromarray(mask)
+            mask.save(f'submission/segmentation/T{idx + 1:04}.bmp')
 
 
-for val_image, val_mask in tqdm(zip(val_images, val_masks)):
-    process_images(val_image, val_mask, 'val')
-
-for val_image, val_mask in tqdm(zip(test_images, test_masks)):
-    process_images(val_image, val_mask, 'test')
+process_images(test_loader, mode='two_models', size=128)

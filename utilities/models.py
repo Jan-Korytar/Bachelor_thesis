@@ -1,6 +1,5 @@
 import torch
 from torch import nn
-from torch.nn import functional as F
 
 
 class ConvBlock(nn.Module):
@@ -49,7 +48,7 @@ class DecoderBlock(nn.Module):
 
 
 class UNet_segmentation(torch.nn.Module):
-    def __init__(self, depth, base_dim, in_channels, out_channels):
+    def __init__(self, depth, base_dim, in_channels, out_channels, growth_factor=2):
         """
         Initializes the UNet model.
 
@@ -60,25 +59,29 @@ class UNet_segmentation(torch.nn.Module):
         - out_channels (int): Number of output channels.
         """
         super(UNet_segmentation, self).__init__()
+        dims = []
 
         # Encoder
         self.depth = depth
         self.e1 = EncoderBlock(in_channels, base_dim)
         for i in range(2, depth + 1):
-            setattr(self, f'e{i}', EncoderBlock(int(base_dim), int(base_dim * 2)))
-            base_dim *= 2
+            dims.append(int(base_dim))
+            setattr(self, f'e{i}', EncoderBlock(int(base_dim), int(base_dim * growth_factor)))
+            base_dim = int(base_dim * growth_factor)
 
         # Bottleneck
-        self.b = ConvBlock(base_dim, base_dim * 2)
-        base_dim *= 2
+        dims.append(int(base_dim))
+        self.b = ConvBlock(int(base_dim), int(base_dim * growth_factor))
+        base_dim = int(base_dim * growth_factor)
+        dims.append(int(base_dim))
 
         # Decoder
+
         for i in range(1, depth + 1):
-            setattr(self, f'd{i}', DecoderBlock(int(base_dim), int(base_dim / 2)))
-            base_dim /= 2
+            setattr(self, f'd{i}', DecoderBlock(int(dims[-i]), int(dims[-i - 1])))
 
         # Classifier
-        self.outputs = nn.Conv2d(int(base_dim), out_channels, kernel_size=1, padding=0)
+        self.outputs = nn.Conv2d(int(dims[-i - 1]), out_channels, kernel_size=1, padding=0)
 
     def forward(self, inputs):
         # Encoder

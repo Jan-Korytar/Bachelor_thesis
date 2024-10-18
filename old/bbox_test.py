@@ -1,13 +1,11 @@
-import os
-
-import torchvision
 import torch
-from utilities.models import BboxModel
-from utilities.datasets import BBoxDataset
-from torch.utils.data import DataLoader
-from utilities.utils import get_preprocessed_images_paths
-from tqdm import tqdm
 import yaml
+from torch.utils.data import DataLoader
+from tqdm import tqdm
+
+from utilities.datasets import BBoxDataset
+from utilities.models import BboxModel
+from utilities.utils import get_preprocessed_images_paths
 
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 with open('../config.yaml', 'r') as file:

@@ -1,16 +1,16 @@
-import torchvision
 import torch
 import torch.nn as nn
+import torch.optim as optim
+import torchvision
 import wandb
 import yaml
-import torch.optim as optim
-
 from torch.utils.data import DataLoader, RandomSampler
-from tqdm import tqdm
 from torchvision.ops import complete_box_iou_loss, sigmoid_focal_loss
+from tqdm import tqdm
+
+from utilities.datasets import BBoxDataset
 from utilities.models import BboxModel
 from utilities.utils import get_preprocessed_images_paths
-from utilities.datasets import BBoxDataset
 
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 wandb.login()
