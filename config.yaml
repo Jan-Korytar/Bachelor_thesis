@@ -1,25 +1,29 @@
 config_cropping_model:
-  batch_size: 8
+  name: cropping_model.pth
+  size: 128
+  batch_size: 10
   lr: 0.001
-  base_dim: 40
-  depth: 4
+  base_dim: 100
+  depth: 5
   loss_type: dice
   importance: 1.5
   normalize_images: True
-  training_dataset_size: 400
-  growth_factor: 2.7
+  training_dataset_size: 1000
+  growth_factor: 1.618033
   ratio: 1
 
 config_segmentation_model:
+  name: segmentation_model
+  size: 256
   batch_size: 8
   lr: 0.001
-  base_dim: 40
+  base_dim: 30
   depth: 4
   loss_type: dice
   importance: 1.5
   normalize_images: True
-  training_dataset_size: 400
-  growth_factor: 2.7
+  training_dataset_size: 600
+  growth_factor: 1.618033
   ratio: 0
 
 wandb_sweep:
@@ -29,31 +33,42 @@ wandb_sweep:
     name: val_loss
     goal: minimize
   parameters:
+    size:
+      value: 256
+    normalize_images:
+      value: true
     batch_size:
-      values: [ 2, 8, 16 ]
+      values: [ 2, 6, 8, 10 ]
+    importance:
+      value: 1.5
     lr:
+      distribution: uniform
       min: 0.0001
       max: 0.01
-    criterion:
-      values: [ cce, dice, focal ]
+    loss_type:
+      values: [ "cce", "dice", "focal" ]
     training_dataset_size:
+      distribution: q_uniform
       min: 100
       max: 1000
-      step: 100
-    growth-factor:
-      min: 1.5
-      max: 3
+      q: 100
+    growth_factor:
+      distribution: uniform
+      min: 1.2
+      max: 2.7
     depth:
       values: [ 3, 4, 5, 6 ]
     base_dim:
       values: [ 10, 20, 30, 40, 60, 80 ]
     ratio:
-      min: 0
-      max: 1
+      distribution: uniform
+      min: 0.0
+      max: 1.0
   early_terminate:
     type: hyperband
-    min_iter: 5
+    min_iter: 3
   run_cap: 100
+
 
 
 best_model_cropping:

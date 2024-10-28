@@ -2,6 +2,7 @@ import shutil
 from pathlib import Path
 
 import numpy as np
+import torch
 from matplotlib import pyplot as plt
 
 
@@ -23,7 +24,8 @@ def plot_input_mask_output(img_input, mask, output, idx, epoch, folder='seg'):
     fig, ax = plt.subplots(ncols=3)
 
     # Process mask
-    mask = mask.detach().cpu().numpy()
+    if type(mask) == torch.Tensor:
+        mask = mask.detach().cpu().numpy()
     mask[mask == 1] = 126
     mask[mask == 2] = 255
     ax[2].imshow(mask, cmap='gray')
@@ -31,7 +33,8 @@ def plot_input_mask_output(img_input, mask, output, idx, epoch, folder='seg'):
     ax[2].set_title('Mask')
 
     # Process output
-    output = np.argmax(output.detach().cpu().numpy(), axis=0)
+    if type(output) == torch.Tensor:
+        output = np.argmax(output.detach().cpu().numpy(), axis=0)
     pic = np.zeros_like(output)
     pic[output == 1] = 126
     pic[output == 2] = 255
@@ -40,7 +43,10 @@ def plot_input_mask_output(img_input, mask, output, idx, epoch, folder='seg'):
     ax[1].set_title(f'Output image')
 
     # Process input
-    image = img_input.detach().cpu().numpy()
+    if type(img_input) == torch.Tensor:
+        image = img_input.detach().cpu().numpy()
+    else:
+        image = img_input
     image -= np.min(image)  # Subtract minimum value
     image /= (np.max(image) - np.min(image))  # Scale by range of values
 

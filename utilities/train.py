@@ -1,4 +1,5 @@
 import os
+import subprocess as sp
 
 import torch
 import wandb
@@ -22,7 +23,7 @@ def get_model_size_in_gb(model):
 
 # Function to check if model exceeds 4GB and stop the run if true
 def check_model_size_and_stop(model):
-    max_size_gb = 4  # 4 GB limit
+    max_size_gb = 2  # 4 GB limit
     model_size = get_model_size_in_gb(model)
 
     if model_size > max_size_gb:
@@ -35,7 +36,8 @@ def check_model_size_and_stop(model):
 
 def train(configuration):
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-    paths_dict = get_preprocessed_images_paths(128, file_extension_img='.pt', file_extension_mask='.pt',
+    paths_dict = get_preprocessed_images_paths(configuration['size'], file_extension_img='.pt',
+                                               file_extension_mask='.pt',
                                                refresh_search=False)
     train_images = paths_dict['train_images']
     train_masks = paths_dict['train_masks']
@@ -79,15 +81,16 @@ def train(configuration):
         cce_criterion = nn.CrossEntropyLoss(
             weight=torch.tensor([1., wandb.config.importance, wandb.config.importance])).to(
             device)
+        val_criterion = DiceLoss(mode='multiclass').to(device)
 
         optimizer = optim.AdamW(model.parameters(), lr=wandb.config.lr)
 
         scheduler = optim.lr_scheduler.StepLR(optimizer, gamma=0.9, step_size=1)
 
-        num_epochs = 20
+        num_epochs = 12
         plot_ratio = int(wandb.config.training_dataset_size / (5 * wandb.config.batch_size))
 
-        patience = 4
+        patience = 3
         epochs_no_improve = 0
         best_val_loss = torch.inf
         for epoch in range(num_epochs):
@@ -120,11 +123,21 @@ def train(configuration):
                 if epoch == 0:
                     loss_1 = cce_criterion(outputs, masks)
                 else:
-                    loss_1 = criterion(outputs, masks)
+                    loss_1 = criterion(outputs, masks) + cce_criterion(outputs, masks)
 
                 loss_1.backward()
                 optimizer.step()
                 train_loss += loss_1.item()
+
+                if idx + epoch == 0:
+                    command = "nvidia-smi --query-gpu=memory.used --format=csv"
+                    memory_used_info = sp.check_output(command.split()).decode('ascii').split('\n')[:-1][1:]
+                    memory_used = [int(x.split()[0]) for i, x in enumerate(memory_used_info)][0]
+                    if memory_used >= 4000:
+                        wandb.finish()  # Stop the current W&B run
+                        exit()
+
+
 
                 if (idx % plot_ratio) == 0:
                     plot_input_mask_output(img_input=img_input[0], mask=masks[0], output=outputs[0], idx=idx,
@@ -143,14 +156,14 @@ def train(configuration):
                     img_input = img_input.to(device)
                     masks = masks.to(device)
                     outputs = model(img_input)
-                    loss_1 = cce_criterion(outputs, masks)
+                    loss_1 = val_criterion(outputs, masks)
                     val_loss += loss_1.item()
                     if (idx % 10) == 0:
                         plot_input_mask_output(img_input=img_input[0], mask=masks[0], output=outputs[0], idx=idx,
                                                epoch=epoch, folder='val')
 
             val_loss /= len(val_loader)
-            scheduler.step(val_loss)
+            scheduler.step()
             print(f'Validation loss: {val_loss}')
             wandb.log({'val_loss': val_loss})
 
@@ -158,10 +171,12 @@ def train(configuration):
             if val_loss < best_val_loss:
                 epochs_no_improve = 0
                 best_val_loss = val_loss
+                print(f'saving the best model: {wandb.config.name}.pth')
                 torch.save(model.state_dict(), os.path.join(os.path.dirname(script_dir),
-                                                            'models/segmentation_best_model_1.pth'))  # Save the best model
+                                                            f'models/{wandb.config.name}.pth'))  # Save the best model
             else:
                 epochs_no_improve += 1
                 if epochs_no_improve == patience:
+                    wandb.log({'val_loss': best_val_loss})
                     print("Early stopping!")
                     break

@@ -58,11 +58,12 @@ def image_preprocessing(image, mask, copies=10, mode='train', ):
                                                   ])
 
             input_transforms = transforms.Compose([transforms.ColorJitter(brightness=0.2, hue=.1, contrast=0.2),
-                                                   transforms.ElasticTransform(alpha=15, sigma=2),
+                                                   transforms.ElasticTransform(alpha=int(size / 4), sigma=3),
                                                  transforms.ToDtype(torch.uint8)])
 
             crop_transforms = transforms.Compose([transforms.ColorJitter(brightness=0.3, hue=.2, contrast=0.2),
-                                                  transforms.ElasticTransform(alpha=25, sigma=2.5),
+                                                  transforms.ElasticTransform(alpha=size / 3,
+                                                                              sigma=3 - 2 * (1 - (size / 256))),
                                                   transforms.ToDtype(torch.uint8)])
 
             masks = []
@@ -73,26 +74,28 @@ def image_preprocessing(image, mask, copies=10, mode='train', ):
 
             masks.append(resize(mask))
             images.append(resize(image))
-
-            masks_cropped.append(resize(mask_cropped))
+            mask_cropped = resize(mask_cropped)
+            image_cropped = resize(image_cropped)
+            masks_cropped.append(mask_cropped)
             images_cropped.append(resize(image_cropped))
+
             sizes.append(size)
 
-            t_img, t_mask = input_mask_transform(image, mask)
+            image, t_mask = input_mask_transform(image, mask)
 
-            true_mask = t_img != 0
-            t_img_cropped, t_mask_cropped = input_mask_transform(image_cropped, mask_cropped)
+            true_mask = image != 0
+
 
             # cropping
             for i in range(copies - 1):
-                t_img = input_transforms(t_img) * true_mask
-                t_img_cropped = crop_transforms(t_img_cropped)
+                t_img = input_transforms(image) * true_mask
+                t_img_cropped = crop_transforms(image_cropped)
 
                 masks.append(t_mask)
                 images.append(t_img)
 
                 images_cropped.append(t_img_cropped)
-                masks_cropped.append(t_mask_cropped)
+                masks_cropped.append(mask_cropped)
 
                 sizes.append(size)
 
@@ -113,7 +116,7 @@ def custom_crop(image, mask):
     crop_coordinates_width_height = torch.tensor((crop_coordinates[1], crop_coordinates[0],
                                                   crop_coordinates[3] - crop_coordinates[1],
                                                   crop_coordinates[2] - crop_coordinates[0]))
-    randomized = torch.randint(0, degree_of_crop_random, (4,))
+    randomized = torch.randint(40, degree_of_crop_random, (4,))
     crop_coordinates_width_height[2:] += randomized[2:]
     crop_coordinates_width_height[:2] -= randomized[:2]
     crop_coordinates_width_height[2:] += randomized[:2]
@@ -197,6 +200,7 @@ def process_image(i):
                     image_cropped_pil.save(os.path.join(path, f'{mode}/input_cropped/{size}/input_{i}_{j}.jpg'))
                     mask_cropped_pil.save(os.path.join(path, f'{mode}/labels_cropped/{size}/mask_{i}_{j}.jpg'))
                     '''
+
     else:
 
         image, mask, image_cropped, mask_cropped = image_preprocessing(original_image, original_label, 5, mode=mode)

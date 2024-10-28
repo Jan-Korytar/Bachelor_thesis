@@ -72,7 +72,10 @@ class SegDatasetFromTensors(Dataset):
             self.transform_training = CustomNormalize('train')
 
     def __len__(self):
-        return len(self.masks)
+        if self.masks:
+            return len(self.masks)
+        else:
+            return len(self.cropped_masks)
 
     def __getitem__(self, item):
         # Load and normalize the image
@@ -116,7 +119,7 @@ class PredictionDataset(Dataset):
 
     """
 
-    def __init__(self, input_images, original_images, size=128):
+    def __init__(self, input_images, original_images, mask=None, size=128):
         self.input_images = input_images
         self.original_images = original_images
         self.size = size
@@ -124,7 +127,7 @@ class PredictionDataset(Dataset):
         self.transform_validation = CustomNormalize('validation')
         self.transform_validation_crop = CustomNormalize('validation_cropped')
         self.resize = transforms.Resize((size, size))
-
+        self.mask = mask
     def __len__(self):
         return len(self.input_images)
 
@@ -138,6 +141,12 @@ class PredictionDataset(Dataset):
             original_image = self.to_tensor(Image.open(self.input_images[item])) / 255
             resized_image = self.transform_validation(self.resize(original_image))
             coordinates = self.input_images[item]
+        if self.mask:
+            mask = self.to_tensor(Image.open(self.mask[item]))
+            mask[mask == 0] = 2
+            mask[mask == 128] = 1
+            mask[mask == 255] = 0
+            return original_image, resized_image, mask
 
         return original_image, resized_image, coordinates
 
@@ -160,14 +169,13 @@ class CustomNormalize(object):
                 "mean": [0.7267119568330208, 0.5110323962090456, 0.3950133781658404],
                 "std": [0.1697782136782029, 0.16959714353640828, 0.13604012754018177]
             },
-
             "train_cropped": {
-                "mean": [0.4685939732421274, 0.28957382473984844, 0.16168409955490093],
-                "std": [0.230917657828556, 0.19825984468045332, 0.12745737031473708]
+                "mean": [0.4533032407631631, 0.28634207832016756, 0.17689735851538596],
+                "std": [0.22488837595254818, 0.20549813450645052, 0.1308072482768547]
             },
             "train": {
-                "mean": [0.31749796040825584, 0.2003174131009406, 0.10739044601664925],
-                "std": [0.16542723016378727, 0.13380227445689497, 0.08150097402433934]
+                "mean": [0.3384665271751848, 0.2027031821243444, 0.10234393640568978],
+                "std": [0.15403509489004488, 0.11902604054121893, 0.05409505439008119]
             }
         }
 
@@ -178,10 +186,10 @@ class CustomNormalize(object):
         # Normalize the entire image
         normalized_image = (image - self.mean) / self.std
 
-        # Create a mask for non-black pixels (black = [0, 0, 0])
-        mask = (image > 0).any(dim=0, keepdim=True)  # Non-zero check for all channels
+        # Create a mask for non-black pixels (exactly zero across all channels)
+        mask = (image != 0).any(dim=0, keepdim=True)
 
-        # Apply the mask to leave black pixels unchanged
+        # Apply the mask to keep black pixels unchanged
         normalized_image = normalized_image * mask + image * (~mask)
 
         return normalized_image
