@@ -45,54 +45,55 @@ test_masks = sorted(glob(os.path.join(images_path, test_masks_path + '/**/*.bmp'
 def image_preprocessing(image, mask, copies=10, mode='train', ):
     image = datapoints.Image(read_image(image))
     mask = datapoints.Mask(transforms.RandomInvert(1)(transforms.ToImage()(Image.open(mask))))
-    image_cropped, mask_cropped = custom_crop(image, mask)
 
     if mode == 'train':
         transformed_sizes = []
 
-        for size in [128, 256]:
+        for size in [128]:
             resize = transforms.Resize((size, size))
-            input_mask_transform = transforms.Compose([transforms.Resize(size=(size, size)),
-                                                  transforms.RandomPerspective(.1),
+            input_and_mask_transform = transforms.Compose([transforms.RandomPerspective(.1),
                                                   transforms.RandomRotation(15)
                                                   ])
 
-            input_transforms = transforms.Compose([transforms.ColorJitter(brightness=0.2, hue=.1, contrast=0.2),
-                                                   transforms.ElasticTransform(alpha=int(size / 4), sigma=3),
+            input_transforms = transforms.Compose(
+                [transforms.ColorJitter(brightness=0.2, hue=.05, contrast=0.2, saturation=0.2),
+                 transforms.ElasticTransform(alpha=34, sigma=4),
                                                  transforms.ToDtype(torch.uint8)])
 
-            crop_transforms = transforms.Compose([transforms.ColorJitter(brightness=0.3, hue=.2, contrast=0.2),
-                                                  transforms.ElasticTransform(alpha=size / 3,
-                                                                              sigma=3 - 2 * (1 - (size / 256))),
+            crop_transforms = transforms.Compose([transforms.ColorJitter(brightness=0.1, hue=.05, contrast=0.1),
+                                                  transforms.ElasticTransform(alpha=size / 2,
+                                                                              sigma=2),
                                                   transforms.ToDtype(torch.uint8)])
 
             masks = []
             images = []
-            masks_cropped = []
             images_cropped = []
+            masks_cropped = []
             sizes = []
 
-            masks.append(resize(mask))
             images.append(resize(image))
-            mask_cropped = resize(mask_cropped)
+            masks.append(resize(mask))
+            image_cropped, mask_cropped = custom_crop(image, mask)
             image_cropped = resize(image_cropped)
+            mask_cropped = resize(mask_cropped)
+            images_cropped.append(image_cropped)
             masks_cropped.append(mask_cropped)
-            images_cropped.append(resize(image_cropped))
 
             sizes.append(size)
 
-            image, t_mask = input_mask_transform(image, mask)
+            true_mask = resize(image) != 0  # so zeroes stay zero
 
-            true_mask = image != 0
-
-
-            # cropping
+            # copies
             for i in range(copies - 1):
-                t_img = input_transforms(image) * true_mask
+                t_image, t_mask = input_and_mask_transform(image, mask)
+                image_cropped, mask_cropped = custom_crop(t_image, t_mask)
+                image_cropped = resize(image_cropped)
+                mask_cropped = resize(mask_cropped)
+                t_img = input_transforms(resize(t_image)) * true_mask
                 t_img_cropped = crop_transforms(image_cropped)
 
-                masks.append(t_mask)
                 images.append(t_img)
+                masks.append(resize(t_mask))
 
                 images_cropped.append(t_img_cropped)
                 masks_cropped.append(mask_cropped)
@@ -110,13 +111,13 @@ def image_preprocessing(image, mask, copies=10, mode='train', ):
 
 def custom_crop(image, mask):
     rotation_transform = transforms.RandomRotation(20)
-    degree_of_crop_random = 256
+    degree_of_crop_random = 140
     image_rotated, mask_rotated = rotation_transform(image, mask)
     crop_coordinates = torchvision.ops.masks_to_boxes(mask_rotated).to(torch.int)[0]
     crop_coordinates_width_height = torch.tensor((crop_coordinates[1], crop_coordinates[0],
                                                   crop_coordinates[3] - crop_coordinates[1],
                                                   crop_coordinates[2] - crop_coordinates[0]))
-    randomized = torch.randint(40, degree_of_crop_random, (4,))
+    randomized = torch.randint(-20, degree_of_crop_random, (4,))
     crop_coordinates_width_height[2:] += randomized[2:]
     crop_coordinates_width_height[:2] -= randomized[:2]
     crop_coordinates_width_height[2:] += randomized[:2]
@@ -150,7 +151,7 @@ def process_image(i):
     elif mode == 'train_only_resize':
         original_image, original_label = train_images[i], train_masks[i]
 
-    sizes = [128, 256]
+    sizes = [128]
     for size in sizes:
         if not os.path.exists(os.path.join(path, fr'{mode}\input\{size}')) or not os.path.exists(
                 os.path.join(path, fr'{mode}\input_cropped\{size}')):
@@ -160,46 +161,47 @@ def process_image(i):
             os.makedirs(os.path.join(path, fr'{mode}\labels_cropped\{size}'), exist_ok=True)
 
     if mode == 'train':
-        processed_images = image_preprocessing(original_image, original_label, 6, mode=mode)
+        processed_images = image_preprocessing(original_image, original_label, copies=10, mode=mode)
 
         for batch in processed_images:
             for j, (image, mask, image_cropped, mask_cropped, size) in enumerate(zip(*batch,)):
 
+                values = torch.unique(mask)
+                for idx, value in enumerate(values):  # note that the masks can actually be the same object from index 1
+                    mask[mask == value] = idx
                     values = torch.unique(mask_cropped)
-
                     for idx, value in enumerate(values):
                         mask_cropped[mask_cropped == value] = idx
-                        mask[mask == value] = idx
 
                     # Save tensors
                     torch.save(image, os.path.join(path, f'{mode}/input/{size}/input_{i}_{j}.pt'))
                     torch.save(mask, os.path.join(path, f'{mode}/labels/{size}/mask_{i}_{j}.pt'))
                     torch.save(image_cropped, os.path.join(path, f'{mode}/input_cropped/{size}/input_{i}_{j}.pt'))
                     torch.save(mask_cropped, os.path.join(path, f'{mode}/labels_cropped/{size}/mask_{i}_{j}.pt'))
-                    '''
-                    def tensor_to_rgb_image(tensor):
-                        tensor = tensor.permute(1, 2, 0)  # Convert from [C, H, W] to [H, W, C] format for PIL
-                        tensor = tensor.cpu().numpy().astype('uint8')  # Convert to numpy array and ensure dtype is uint8
-                        return Image.fromarray(tensor)
 
-                    # Convert grayscale tensor to PIL image (assuming the tensor is in [H, W] format)
-                    def tensor_to_grayscale_image(tensor):
-                        tensor = torch.squeeze(tensor)
-                        tensor = tensor.cpu().numpy().astype('uint8')  # Convert to numpy array and ensure dtype is uint8
-                        return Image.fromarray(tensor, mode='L')  # 'L' mode for grayscale image in PIL
+                '''def tensor_to_rgb_image(tensor):
+                    tensor = tensor.permute(1, 2, 0)  # Convert from [C, H, W] to [H, W, C] format for PIL
+                    tensor = tensor.cpu().numpy().astype('uint8')  # Convert to numpy array and ensure dtype is uint8
+                    return Image.fromarray(tensor)
 
-                    # Save the images
-                    image_pil = tensor_to_rgb_image(image)
-                    mask_pil = tensor_to_grayscale_image(mask)  # Grayscale mask
-                    image_cropped_pil = tensor_to_rgb_image(image_cropped)
-                    mask_cropped_pil = tensor_to_grayscale_image(mask_cropped)  # Grayscale mask
+                # Convert grayscale tensor to PIL image (assuming the tensor is in [H, W] format)
+                def tensor_to_grayscale_image(tensor):
+                    tensor = torch.squeeze(tensor)
+                    tensor = tensor.cpu().numpy().astype('uint8')  # Convert to numpy array and ensure dtype is uint8
+                    return Image.fromarray(tensor, mode='L')  # 'L' mode for grayscale image in PIL
 
-                    # Define paths and save images
-                    image_pil.save(os.path.join(path, f'{mode}/input/{size}/input_{i}_{j}.jpg'))
-                    mask_pil.save(os.path.join(path, f'{mode}/labels/{size}/mask_{i}_{j}.jpg'))
-                    image_cropped_pil.save(os.path.join(path, f'{mode}/input_cropped/{size}/input_{i}_{j}.jpg'))
-                    mask_cropped_pil.save(os.path.join(path, f'{mode}/labels_cropped/{size}/mask_{i}_{j}.jpg'))
-                    '''
+
+                image_pil = tensor_to_rgb_image(image)
+                mask_pil = tensor_to_grayscale_image(mask)  # Grayscale mask
+                image_cropped_pil = tensor_to_rgb_image(image_cropped)
+                mask_cropped_pil = tensor_to_grayscale_image(mask_cropped)  # Grayscale mask
+
+
+                image_pil.save(os.path.join(path, f'{mode}/input/{size}/input_{i}_{j}.jpg'))
+                mask_pil.save(os.path.join(path, f'{mode}/labels/{size}/mask_{i}_{j}.jpg'))
+                image_cropped_pil.save(os.path.join(path, f'{mode}/input_cropped/{size}/input_{i}_{j}.jpg'))
+                mask_cropped_pil.save(os.path.join(path, f'{mode}/labels_cropped/{size}/mask_{i}_{j}.jpg'))'''
+
 
     else:
 
@@ -242,7 +244,7 @@ if __name__ == '__main__':
                       total=len(val_masks), desc='validation'):
             pass
 
-    
+
     with Pool(processes=os.cpu_count()-1) as pool:
         for _ in tqdm(pool.imap_unordered(process_image, [[i, 'test'] for i in range(len(val_masks))]),
                       total=len(val_masks), desc='test'):

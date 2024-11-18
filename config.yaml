@@ -1,44 +1,50 @@
 config_cropping_model:
-  name: cropping_model.pth
+  name: cropping_model
   size: 128
-  batch_size: 10
-  lr: 0.001
-  base_dim: 100
+  batch_size: 8
+  lr: 0.0043
+  base_dim: 16
+  depth: 6
+  loss_type: dice
+  importance: 1.666
+  normalize_images: True
+  training_dataset_size: 500
+  growth_factor: 1.6
+  ratio: 1
+
+
+config_segmentation_model:
+  name: segmentation_model
+  size: 128
+  batch_size: 8
+  lr: 0.0008
+  base_dim: 40
   depth: 5
   loss_type: dice
   importance: 1.5
   normalize_images: True
   training_dataset_size: 1000
-  growth_factor: 1.618033
-  ratio: 1
-
-config_segmentation_model:
-  name: segmentation_model
-  size: 256
-  batch_size: 8
-  lr: 0.001
-  base_dim: 30
-  depth: 4
-  loss_type: dice
-  importance: 1.5
-  normalize_images: True
-  training_dataset_size: 600
-  growth_factor: 1.618033
+  growth_factor: 1.8
   ratio: 0
 
 wandb_sweep:
-  name: "Segmentation Model Sweep"
-  method: bayes
+  name: "Segmentation Sweep"
+  method: random
   metric:
     name: val_loss
     goal: minimize
   parameters:
+    name:
+      value: sweep
     size:
-      value: 256
+      value: 128
     normalize_images:
       value: true
     batch_size:
-      values: [ 2, 6, 8, 10 ]
+      distribution: q_uniform
+      min: 2
+      max: 12
+      q: 1
     importance:
       value: 1.5
     lr:
@@ -46,30 +52,29 @@ wandb_sweep:
       min: 0.0001
       max: 0.01
     loss_type:
-      values: [ "cce", "dice", "focal" ]
+      values: [ CCE, dice, focal ]
     training_dataset_size:
-      distribution: q_uniform
-      min: 100
-      max: 1000
-      q: 100
+      value: 400
     growth_factor:
       distribution: uniform
-      min: 1.2
-      max: 2.7
+      min: 1.5
+      max: 2.2
     depth:
       values: [ 3, 4, 5, 6 ]
     base_dim:
-      values: [ 10, 20, 30, 40, 60, 80 ]
+      distribution: q_uniform
+      min: 10
+      max: 100
+      q: 1
     ratio:
-      distribution: uniform
-      min: 0.0
-      max: 1.0
-  early_terminate:
-    type: hyperband
-    min_iter: 3
+      value: 0
   run_cap: 100
-
-
+#  early_terminate:
+#    type: hyperband
+#    s: 3          # Number of brackets
+#    eta: 3        # Bracket multiplier
+#    min_iter: 6   # Minimum iterations for the first bracket
+#    max_iter: 30
 
 best_model_cropping:
   in_channels: 3

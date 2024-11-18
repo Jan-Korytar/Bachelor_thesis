@@ -166,12 +166,14 @@ def generate_table_of_results(image_filenames, segmentation_folder, gt_folder, i
             if path.exists(gt_filename):
                 gt_label = misc.imread(gt_filename)
             else:
+
                 gt_filename = path.join(gt_folder, 'Non-Glaucoma', image_filenames[i])
                 if path.exists(gt_filename):
                     gt_label = misc.imread(gt_filename)
                 else:
                     raise ValueError('Unable to find {} in your training folder. Make sure that you have the folder organized as provided in our website.'.format(image_filenames[i]))
         else:
+            image_filenames[i] = 'V' + image_filenames[i][1:]
             gt_filename = path.join(gt_folder, image_filenames[i])
             if path.exists(gt_filename):
                 gt_label = misc.imread(gt_filename)

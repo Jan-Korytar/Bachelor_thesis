@@ -1,9 +1,13 @@
+import os
 import shutil
+from glob import glob
 from pathlib import Path
 
 import numpy as np
 import torch
+import yaml
 from matplotlib import pyplot as plt
+from matplotlib.patches import Rectangle
 
 
 def plot_input_mask_output(img_input, mask, output, idx, epoch, folder='seg'):
@@ -34,9 +38,10 @@ def plot_input_mask_output(img_input, mask, output, idx, epoch, folder='seg'):
 
     # Process output
     if type(output) == torch.Tensor:
-        output = np.argmax(output.detach().cpu().numpy(), axis=0)
+        output = output.detach().cpu().numpy()
+    output = np.argmax(output, axis=0)
     pic = np.zeros_like(output)
-    pic[output == 1] = 126
+    pic[output == 1] = 128
     pic[output == 2] = 255
     ax[1].imshow(pic, cmap='gray')
     ax[1].axis('off')
@@ -62,19 +67,50 @@ def plot_input_mask_output(img_input, mask, output, idx, epoch, folder='seg'):
     ax[0].set_title('Input Image')
 
     path = Path(__file__).resolve().parent
+
     # Display and save the plot
     if idx + epoch == 0:
         shutil.rmtree(path / f'pictures_training/{folder}', ignore_errors=True)
     os.makedirs(path / f'pictures_training/{folder}', exist_ok=True)
     fig.suptitle(f'Epoch: {epoch}, step: {idx}')
-    plt.tight_layout()
-    plt.savefig( path / f'pictures_training/{folder}/picture_{epoch}_{idx}.jpg')
-    plt.close('all')
+    fig.tight_layout()
+    fig.savefig(path / f'pictures_training/{folder}/picture_{epoch}_{idx}.jpg')
+    plt.close(fig)
 
 
-import os
-import yaml
-from glob import glob
+def plot_output_outputsmooth_bbox(output, outputsmooth, mask, bbox):
+    # Apply argmax to get a 2D mask (assumes the output has shape [3, 128, 128])
+    output_argmax = np.argmax(output, axis=0)  # Shape will be 128x128
+
+    # Create a figure to hold the three images
+    fig, axes = plt.subplots(1, 3, figsize=(18, 6))
+
+    # Plot the first image (argmax of the output)
+    axes[0].imshow(output_argmax, cmap='gray')
+    axes[0].set_title('Output (argmax)')
+    axes[0].axis('off')
+
+    # Plot the second image (smoothed output)
+    axes[1].imshow(outputsmooth, cmap='gray')
+    axes[1].set_title('Smoothed Output')
+    axes[1].axis('off')
+
+    # Plot the third image (smoothed output with bbox)
+    axes[2].imshow(mask, cmap='gray')
+    axes[2].set_title('True mask with BBox')
+
+    # Draw the bounding box on the third image
+    xmin, ymin, xmax, ymax = bbox
+    rect = Rectangle((ymin, xmin), ymax - ymin, xmax - xmin, linewidth=2, edgecolor='r', facecolor='none')
+    axes[2].add_patch(rect)
+
+    axes[2].axis('off')
+
+    # plt.tight_layout()
+    # plt.savefig('predictions.png', bbox_inches='tight')
+    plt.show()
+
+
 
 
 def get_preprocessed_images_paths(size=128, file_extension_img='.jpg', file_extension_mask='.bmp', refresh_search=False,

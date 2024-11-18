@@ -47,7 +47,19 @@ class BBoxDataset(Dataset):
         return torch.squeeze(image), values
 
 
+class BasicDataset(Dataset):
+    def __init__(self, input_images, normalize=False):
+        self.input_images = input_images
+        self.to_tensor = transforms.PILToTensor()
+        self.custom_normalize = CustomNormalize('test_cropped') if normalize else transforms.Identity()
 
+    def __len__(self):
+        return len(self.input_images)
+
+    def __getitem__(self, item):
+        image = self.to_tensor(Image.open(self.input_images[item])) / 255
+        image = self.custom_normalize(image)
+        return image, torch.zeros_like(image)
 
 
 class SegDatasetFromTensors(Dataset):
@@ -124,21 +136,23 @@ class PredictionDataset(Dataset):
         self.original_images = original_images
         self.size = size
         self.to_tensor = transforms.PILToTensor()
-        self.transform_validation = CustomNormalize('validation')
-        self.transform_validation_crop = CustomNormalize('validation_cropped')
-        self.resize = transforms.Resize((size, size))
+        self.transform_validation = transforms.Compose([CustomNormalize('test')])
+        self.transform_test_crop = CustomNormalize('test_cropped')
+        self.resize = transforms.Resize(size=(size, size), )
         self.mask = mask
+
     def __len__(self):
         return len(self.input_images)
 
     def __getitem__(self, item):
         if self.original_images:
-            original_image = self.to_tensor(Image.open(self.original_images[item])) / 255
-            resized_image = self.transform_validation_crop(
-                self.resize(self.to_tensor(Image.open(self.input_images[item])) / 255))
+            original_image = self.to_tensor(Image.open(self.original_images[item])) / 255.0
+            resized_image = self.to_tensor(Image.open(self.input_images[item])) / 255.0
+            resized_image = self.resize(self.transform_test_crop(resized_image))
+
             coordinates = self.input_images[item]
         else:
-            original_image = self.to_tensor(Image.open(self.input_images[item])) / 255
+            original_image = self.to_tensor(Image.open(self.input_images[item])) / 255.0
             resized_image = self.transform_validation(self.resize(original_image))
             coordinates = self.input_images[item]
         if self.mask:
@@ -166,16 +180,24 @@ class CustomNormalize(object):
                 "std": [0.17806627200735062, 0.14194286672976278, 0.10991587430013793]
             },
             "validation_cropped": {
-                "mean": [0.7267119568330208, 0.5110323962090456, 0.3950133781658404],
-                "std": [0.1697782136782029, 0.16959714353640828, 0.13604012754018177]
+                "mean": [0.7747499612220803, 0.555246008680849, 0.4268781335953457],
+                "std": [0.15772318335876612, 0.16953635063353217, 0.14195184914719983]
             },
             "train_cropped": {
-                "mean": [0.4533032407631631, 0.28634207832016756, 0.17689735851538596],
-                "std": [0.22488837595254818, 0.20549813450645052, 0.1308072482768547]
+                "mean": [0.5966441725144175, 0.3379078947970837, 0.16812422227171137],
+                "std": [0.23238039928303286, 0.1880428751274462, 0.10398509273908875]
             },
             "train": {
-                "mean": [0.3384665271751848, 0.2027031821243444, 0.10234393640568978],
-                "std": [0.15403509489004488, 0.11902604054121893, 0.05409505439008119]
+                'mean': [0.3385789571526078, 0.19882464532980335, 0.09844268864936405],
+                'std': [0.15958591642466433, 0.10053343277271855, 0.055291658388225404]
+            },
+            "test_cropped": {
+                'mean': [0.7837291690856267, 0.5700972952798591, 0.4483402304112443],
+                'std': [0.15812369609083785, 0.17540924004402741, 0.14711173335074718]
+            },
+            "test": {
+                'mean': [0.5434702698514362, 0.36426874558453964, 0.2982002833093189],
+                'std': [0.17497395493910797, 0.139936754758562, 0.1093034236855077]
             }
         }
 
@@ -183,7 +205,6 @@ class CustomNormalize(object):
         self.std = torch.tensor(self.dataset_stats[dataset_type]["std"]).view(-1, 1, 1)
 
     def __call__(self, image):
-        # Normalize the entire image
         normalized_image = (image - self.mean) / self.std
 
         # Create a mask for non-black pixels (exactly zero across all channels)

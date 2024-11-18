@@ -127,12 +127,12 @@ import sys
 if __name__ == '__main__':
 
 
-    "C:\my files\REFUGE\REFUGE-Validation400-GT"
+    a  = r"C:\my files\REFUGE\REFUGE-Validation400-GT"
     # create an argument parser to control the input parameters
 
     # call the "main" function
-    evaluate_single_submission(fr"C:\my files\bachelor thesis\Bachelor_Thesis_Final\utilities\submission",
-                               fr"C:\my files\REFUGE\REFUGE-Test-GT")
+    evaluate_single_submission(fr"C:\my files\bachelor thesis\Bachelor_Thesis_Final\utilities\submission_val",
+                               fr"C:\my files\REFUGE\REFUGE-Validation400-GT")
 
     
     
